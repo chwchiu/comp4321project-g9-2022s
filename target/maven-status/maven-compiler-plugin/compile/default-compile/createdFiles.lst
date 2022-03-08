@@ -1,4 +1,9 @@
 com/project/app/Link.class
 com/project/app/Crawler.class
+<<<<<<< HEAD
 com/project/app/App.class
 com/project/app/RevisitException.class
+=======
+com/project/app/RevisitException.class
+com/project/app/App.class
+>>>>>>> 34628257047b1e1da2515157aa0018dfa0a94e40

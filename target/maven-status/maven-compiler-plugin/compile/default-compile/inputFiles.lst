@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 /root/comp4321project/my-app/src/main/java/com/project/app/App.java
 /root/comp4321project/my-app/src/main/java/com/project/app/Crawler.java
+=======
+/root/comp4321project-g9-2022s/src/main/java/com/project/app/Crawler.java
+/root/comp4321project-g9-2022s/src/main/java/com/project/app/App.java
+>>>>>>> 34628257047b1e1da2515157aa0018dfa0a94e40
