@@ -1,0 +1,2 @@
+#ignoring rocksdb
+/src/lib
