@@ -1,13 +1,12 @@
 package com.project.app;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        String url = "https://cse.hkust.edu.hk/";
+        Crawler crawler = new Crawler(url);
+        crawler.crawlLoop();
+        System.out.println("\nSuccessfully Returned");
     }
 }

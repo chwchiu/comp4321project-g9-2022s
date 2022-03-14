@@ -18,6 +18,10 @@ import java.io.IOException;
 import org.jsoup.HttpStatusException;
 import java.lang.RuntimeException;
 import java.util.regex.Pattern;
+import org.rocksdb.RocksDB;
+// import org.rocksdb.Options;
+import org.rocksdb.RocksDBException;
+// import org.rocksdb.RocksIterator;
 
 /** The data structure for the crawling queue.
  */
@@ -44,6 +48,10 @@ public class Crawler {
 	private HashSet<String> urls;     // the set of urls that have been visited before
 	public Vector<Link> todos; // the queue of URLs to be crawled
 	private int max_crawl_depth = 1;  // feel free to change the depth limit of the spider.
+
+
+	// modify the path to database
+	public String path = "/root/comp4321project-g9-2022s/db";
 	
 	Crawler(String _url) {
 		this.todos = new Vector<Link>();
@@ -138,7 +146,7 @@ public class Crawler {
     		   String concatLink = focus.url + link; 
     		   if (!(result.contains(concatLink))) {
     			   result.add(concatLink);
-    			   System.out.println(concatLink);
+    			//    System.out.println(concatLink);
     		   }
     	   } 
        }
@@ -149,24 +157,34 @@ public class Crawler {
 	/** Use a queue to manage crawl tasks.
 	 */
 	public void crawlLoop() {
+		//init indexer
+		RocksDB.loadLibrary();
+		
 		while(!this.todos.isEmpty()) {
+			
 			Link focus = this.todos.remove(0);
 			if (focus.level > this.max_crawl_depth) break; // stop criteria
 			if (this.urls.contains(focus.url)) continue;   // ignore pages that has been visited
 			/* start to crawl on the page */
 			try {
+				Indexer index = new Indexer(path); //Indexer Initialization
+
 				Response res = this.getResponse(focus.url);
 				Document doc = res.parse();
 				
-				Vector<String> words = this.extractWords(doc);		
-				System.out.println("\nWords:");
-				for(String word: words)
-					System.out.print(word + ", ");
+				Vector<String> words = this.extractWords(doc);
+				index.addEntry(focus.url, "Words:" + words);
+				
+				// System.out.println("\nWords:");
+				// for(String word: words){
+				// 	System.out.print(word + ", ");
+				// }
 		
 				Vector<String> links = this.extractLinks(doc, focus);
-				System.out.printf("\n\nLinks:");
+				index.addEntry(focus.url, "Links:" + links);
+
+				// System.out.printf("\n\nLinks:");
 				for(String link: links) {
-					System.out.println(link);
 					this.todos.add(new Link(link, focus.level + 1)); // add links
 				}
 			} catch (HttpStatusException e) {
@@ -176,16 +194,31 @@ public class Crawler {
 	    		e.printStackTrace(); 
 	    	} catch (RevisitException e) {
 	    		System.out.println("TESTING12311\n");
-	    	}
+	    	} catch(RocksDBException e) {
+				System.err.println(e.toString());
+			}
 		}
 		
 	}
 	
 	public static void main (String[] args) {
-		String url = "https://cse.hkust.edu.hk/";
-		Crawler crawler = new Crawler(url);
-		crawler.crawlLoop();
-		System.out.println("\nSuccessfully Returned");
+		
+		RocksDB.loadLibrary();
+		String path = "/root/comp4321project-g9-2022s/db";
+		try{
+			Indexer index = new Indexer(path); //Indexer Initialization
+
+			String url = "https://cse.hkust.edu.hk/";
+			Crawler crawler = new Crawler(url);
+			crawler.crawlLoop();
+			System.out.println("\nSuccessfully Returned");
+			index.printAll();
+		}
+		catch(RocksDBException e){
+			System.err.println(e.toString());
+		}
+
+		
 	}
 }
 	

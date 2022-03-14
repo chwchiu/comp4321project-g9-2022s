@@ -1,6 +1,3 @@
 #ignoring rocksdb
-<<<<<<< HEAD
 /src/lib
-=======
-lib/
->>>>>>> 34628257047b1e1da2515157aa0018dfa0a94e40
+/target/
