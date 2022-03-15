@@ -19,7 +19,7 @@ If there is need to run the program twice, make sure you delete the db folder ea
 ## Notes about the Phase 1 Submission:
 
 
-**1.** We have more 30 indexed pages in the spider_result.txt (We have 86 entries). That is because we ran the crawler with depth=2 in crawler.java, and because our crawler gets more than 30 pages from the first webpage, we have 86 entries total in our spider_result.txt. 
+**1.** We have more than 30 indexed pages in the spider_result.txt (We have 86 entries). That is because we ran the crawler with depth=2 in crawler.java, and because our crawler gets more than 30 pages from the first webpage, we have 86 entries total in our spider_result.txt. 
 
 **2.** Our program does not yet check if two pages redirects to the same page, and thus there might be a few duplicate results in the current spider_result.txt. However, we are sure that there are more than 30 unique results. 
     
