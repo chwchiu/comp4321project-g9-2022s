@@ -8,8 +8,10 @@ Ensure that line 89 of the pom.xml file carries this line:
 Update the path of the database to match the one for your environment in Line56 of Crawler.java. 
 
 Then, run the following commands one after the other.
-mvn package
-mvn exec:java
+
+1. mvn package
+
+2. mvn exec:java
 
 "mvn package" will build the files, and "mvn exec:java" will run them
 
