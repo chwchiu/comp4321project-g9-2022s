@@ -1,10 +1,4 @@
 package com.project.app;
-/**
-COMP4321 Lab2 Exercise
-Student name:
-Student ID:
-ITSC:
-*/
 import java.util.Vector;
 import java.util.HashSet;
 import java.util.StringTokenizer;

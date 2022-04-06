@@ -8,16 +8,6 @@ Please follow these steps to run the crawler:
 2. Ensure that line 89 of the pom.xml file carries this line:
 <mainClass>com.project.app.Crawler</mainClass>
 
-<<<<<<< HEAD
-3. Please ensure that that there is no db folder before running, as it will make them output incorrect.
-If there is need to run the program twice, make sure you delete the db folder each time before running it!
-
-4. Then, run the following commands one after the other.
-mvn package
-mvn exec:java
-
-("mvn package" will build the files, and "mvn exec:java" will run them)
-=======
 Update the path of the database to match the one for your environment in Line56 of Crawler.java. 
 
 Then, run the following commands one after the other.
@@ -47,4 +37,3 @@ Website with NO last-modified value in the header.
  
 Website with last-modified value in the header.
 ![Imgur Image](https://imgur.com/rdk9wOw.jpg)
->>>>>>> 372294208bac3e3ae77f1b7cbbbfe980d50b8167

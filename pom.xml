@@ -86,7 +86,7 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>1.6.0</version>
           <configuration>
-              <mainClass>com.project.app.Crawler</mainClass>
+              <mainClass>com.project.app.App</mainClass>
           </configuration>
         </plugin>
       </plugins>
