@@ -20,6 +20,7 @@ import org.rocksdb.RocksDBException;
 import java.util.Map;
 import javax.net.ssl.SSLHandshakeException; 
 import java.net.*; 
+import java.util.Arrays;
 
 @SuppressWarnings("serial")
 /** This is customized exception for those pages that have been visited before.
@@ -93,9 +94,14 @@ public class Parser {
 
             String title = doc.title();
             String lastModified = res.header("last-modified");
-            // if (lastModified == null) {
-            //     System.out.println("ASDAKDJADKA"); 
-            // }
+            if (lastModified == null) {
+                try {
+                    String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
+                    lastModified = temp[temp.length - 1]; 
+                } catch (Exception e) {
+                    lastModified = "N/A"; 
+                }
+            }
             int size = res.bodyAsBytes().length;
             i2.addEntry(url, "Title: " + title + "\n");
             i2.addEntry(url, "URL: " + url + "\n");
@@ -106,13 +112,7 @@ public class Parser {
             //CALC WORD FREQ
             HashMap<String, Integer> wordFreq = new HashMap<String, Integer>(); 
             for (String x : words) {
-                String preprocessWord = x.replace(".", ""); 
-                preprocessWord = preprocessWord.replace("[", "");
-                preprocessWord = preprocessWord.replace("]", "");
-                preprocessWord = preprocessWord.replace("(", "");
-                preprocessWord = preprocessWord.replace(")", "");
-                preprocessWord = preprocessWord.replace("…", ""); 
-            
+                String preprocessWord = x.replaceAll("[.\\[\\]\\(\\)…]", ""); 
 
                 if (wordFreq.containsKey(preprocessWord)) {
                     // PART WHERE I INCREMENT THE VALUE 
@@ -132,7 +132,6 @@ public class Parser {
             i2.addEntry(url, "Links: " + "\n");
 
             for(String link: links) {
-                System.out.println("IN HERE");
                 i2.addEntry(url, link + "\n");
             }
 
