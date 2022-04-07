@@ -155,10 +155,10 @@ public class Crawler {
     public void crawlLoop() {
         //init indexer
         RocksDB.loadLibrary();
-        Indexer index;
+        InvertedIndexer index;
 
         try{    
-            index = new Indexer(path); //Indexer Initialization
+            index = new InvertedIndexer(path); //Indexer Initialization
             while(!this.todos.isEmpty()) {
             
                 Link focus = this.todos.remove(0);
@@ -224,7 +224,7 @@ public class Crawler {
                     System.err.println(e.toString());
                 }
             }
-            index.toTextFile();
+            index.toTextFile("spider_result.txt");
         } catch (RocksDBException e){
 			System.out.println("I died");
         }

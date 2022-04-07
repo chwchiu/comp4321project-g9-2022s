@@ -1,5 +1,9 @@
 package com.project.app;
+
+import java.util.List;
+
 import org.rocksdb.RocksDB;
+import org.rocksdb.RocksDBException;
 
 public class App 
 {
@@ -9,11 +13,25 @@ public class App
         // String url = "https://cse.hkust.edu.hk/";
         // Crawler crawler = new Crawler(url);
         // crawler.crawlLoop();
+        
+        // RocksDB.loadLibrary();
+        //setup all dbs
+        //crawl
+        
+        //ask for user input
+        //send input to retrieval
+        //Result[] results = search(input);
+        //display results
 
-        // StopStem.main(args);
-        StopStem stopStem = new StopStem("stopwords.txt");
-        String input = "This is a test sentence, with a comma. This is test sentence 2.";
-        String output = stopStem.ss(input);
-        System.out.println(output);
+        RocksDB.loadLibrary();
+        try{
+            //setup all dbs
+            Indexer indexer = new Indexer("./db/indexer");
+            InvertedIndexer indexer2 = new InvertedIndexer("./db/indexer2");
+            //crawler(indexer, invertedIndexer, pageIDIndexer);
+        }
+        catch (RocksDBException e) {
+            System.out.println(e);
+        }
     }
 }

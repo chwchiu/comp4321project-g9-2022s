@@ -55,10 +55,6 @@ public class StopStem {
 		return stemmedString;
 	}
 
-	// public String stem(String str) {
-	// 	return porter.stripAffixes(str);
-	// }
-
 	public static void main(String[] arg) {
 		StopStem stopStem = new StopStem("stopwords.txt");
 		String input="";
@@ -72,7 +68,7 @@ public class StopStem {
 					if (stopStem.isStopWord(input))
 						System.out.println("It should be stopped");
 					else
-			   			System.out.println("The stem of it is \"" + stopStem.stem(input)+"\"");
+			   			System.out.println("The stem of it is \"" + stopStem.ss(input)+"\"");
 				}
 			}
 			while(input.length() > 0);
