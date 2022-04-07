@@ -1,12 +1,7 @@
-package com.project.app;
+//IMPORTANT READ!
+//MAKE SURE TO REDO ADDENTRY FOR PROJECT!
 
-/* --
-COMP4321 Lab1 Exercise
-Student Name:
-Student ID:
-Section:
-Email:
-*/
+package com.project.app;
 
 import org.rocksdb.RocksDB;
 
