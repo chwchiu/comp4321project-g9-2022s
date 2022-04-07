@@ -28,7 +28,9 @@ public class App
             //setup all dbs
             Indexer indexer = new Indexer("./db/indexer");
             InvertedIndexer indexer2 = new InvertedIndexer("./db/indexer2");
-            //crawler(indexer, invertedIndexer, pageIDIndexer);
+            Parser p = new Parser(indexer, indexer2); 
+            Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
+            c.crawlLoop();  
         }
         catch (RocksDBException e) {
             System.out.println(e);

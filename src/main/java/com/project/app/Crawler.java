@@ -18,41 +18,40 @@ import java.util.HashMap;
 import org.rocksdb.RocksDBException;
 // import org.rocksdb.RocksIterator;
 import java.util.Map;
- 
+import javax.net.ssl.SSLHandshakeException; 
+import java.net.*; 
 /** The data structure for the crawling queue.
  */
-class Link{
-    String url;
-    int level;
-    Link (String url, int level) {  
-        this.url = url;
-        this.level = level;
-    }  
-}
+// class Link{
+//     String url;
+//     int level;
+//     Link (String url, int level) {  
+//         this.url = url;
+//         this.level = level;
+//     }  
+// }
  
-@SuppressWarnings("serial")
+// @SuppressWarnings("serial")
 /** This is customized exception for those pages that have been visited before.
  */
-class RevisitException
-    extends RuntimeException {
-    public RevisitException() {
-        super();
-    }
-}
+// class RevisitException
+//     extends RuntimeException {
+//     public RevisitException() {
+//         super();
+//     }
+// }
  
 public class Crawler {
     private HashSet<String> urls;     // the set of urls that have been visited before
     public Vector<Link> todos; // the queue of URLs to be crawled
-    private int max_crawl_depth = 2;  // feel free to change the depth limit of the spider.
- 
- 
-    // modify the path to database
-    public String path = "/root/comp4321project-g9-2022s/db";
+    private int max_crawl_depth = 1;  // feel free to change the depth limit of the spider.
+    public Parser p; 
    
-    Crawler(String _url) {
+    Crawler(String _url, Parser p) {
         this.todos = new Vector<Link>();
         this.todos.add(new Link(_url, 1));
         this.urls = new HashSet<String>();
+        this.p = p; 
     }
    
     /**
@@ -101,52 +100,76 @@ public class Crawler {
         return res;
     }
    
-    /** Extract words in the web page content.
-     * note: use StringTokenizer to tokenize the result
-     * @param {Document} doc
-     * @return {Vector<String>} a list of words in the web page body
+    // /** Extract words in the web page content.
+    //  * note: use StringTokenizer to tokenize the result
+    //  * @param {Document} doc
+    //  * @return {Vector<String>} a list of words in the web page body
+    //  */
+    // public Vector<String> extractWords(Document doc) {
+    //      Vector<String> result = new Vector<String>();
+    //     // ADD YOUR CODES HERE
+    //      String temp = doc.body().text();
+    //      StringTokenizer s = new StringTokenizer(temp);
+    //      while (s.hasMoreTokens()) {
+    //          result.add(s.nextToken());
+    //      }
+    //      return result;
+    // }
+
+    /** NOTE: NOT USED RIGHT NOW DONT DELETE YET
+        Used to check for redirects
+        @param {link} the link to be checked
+        @return the actual link
      */
-    public Vector<String> extractWords(Document doc) {
-         Vector<String> result = new Vector<String>();
-        // ADD YOUR CODES HERE
-         String temp = doc.body().text();
-         StringTokenizer s = new StringTokenizer(temp);
-         while (s.hasMoreTokens()) {
-             result.add(s.nextToken());
-         }
-         return result;
+    private String getActualLink(String link){
+        try {
+            URL url = new URL(link);
+            HttpURLConnection http = (HttpURLConnection)url.openConnection();
+            http.setInstanceFollowRedirects(false); 
+            http.connect(); 
+            int responseCode = http.getResponseCode();
+            if (responseCode == 301 || responseCode == 302) 
+                return http.getHeaderField("Location"); 
+            return link; 
+        } catch (SSLHandshakeException e) {
+            return link; 
+        } catch (IOException e) {
+            return link;
+        }
     }
-   
+
     /** Extract useful external urls on the web page.
      * note: filter out images, emails, etc.
      * @param {Document} doc
      * @return {Vector<String>} a list of external links on the web page
      */
-    public Vector<String> extractLinks(Document doc, Link focus) {
+    private Vector<String> extractLinks(Document doc, Link focus) {
         Vector<String> result = new Vector<String>();
         // ADD YOUR CODES HERE
-       Elements links = doc.select("a[href]");
-       for (Element e : links) {
-           String link = e.attr("href");
-           if (link.contains("mailto"))
-               continue;
-                   
-           String regex = "^(http|https|ftp)://.*$";
-           if (Pattern.matches(regex, link)) {
-               if (!(result.contains(link)))
-                   result.add(link);
-           } else {
-               if (link != "" && link.charAt(0) == '/') //To append
-                   link = link.substring(1);
-               
-               String concatLink = focus.url + link;
-               if (!(result.contains(concatLink))) {
-                   result.add(concatLink);
+        Elements links = doc.select("a[href]");
+        for (Element e : links) {
+            String link = e.attr("href");
+            if (link.contains("mailto"))
+                continue;
+            
+            String regex = "^(http|https|ftp)://.*$";
+            if (Pattern.matches(regex, link)) {
+                //String actualLink = getActualLink(link); 
+                if (!(result.contains(link)))
+                    result.add(link);
+            } else {
+                if (link != "" && link.charAt(0) == '/') //To append
+                    link = link.substring(1);
+                
+                String concatLink = focus.url + link;
+                //String actualLink = getActualLink(concatLink); 
+                if (!(result.contains(concatLink))) {
+                    result.add(concatLink);
                 //    System.out.println(concatLink);
-               }
-           }
-       }
-       return result;
+                }
+            }
+        }
+        return result;
     }
    
    
@@ -154,87 +177,45 @@ public class Crawler {
      */
     public void crawlLoop() {
         //init indexer
-        RocksDB.loadLibrary();
-        InvertedIndexer index;
-
-        try{    
-            index = new InvertedIndexer(path); //Indexer Initialization
-            while(!this.todos.isEmpty()) {
-            
-                Link focus = this.todos.remove(0);
-                if (focus.level > this.max_crawl_depth) break; // stop criteria
-                if (this.urls.contains(focus.url)) continue;   // ignore pages that has been visited
-                /* start to crawl on the page */
-                try {
-                    Response res = this.getResponse(focus.url);
-                    Document doc = res.parse();
-
-                    String title = doc.title();
-                    String lastModified = res.header("last-modified");
-                    int size = res.bodyAsBytes().length;
-                    index.addEntry(focus.url, "Title: " + title + "\n");
-                    index.addEntry(focus.url, "URL: " + focus.url + "\n");
-                    index.addEntry(focus.url, "Last Mod: " + lastModified + " Size: " + size + "\n");
-
-                    Vector<String> words = this.extractWords(doc);
- 
-                    //CALC WORD FREQ
-                    HashMap<String, Integer> wordFreq = new HashMap<String, Integer>(); 
-                    for (String x : words) {
-                        String preprocessWord = x.replace(".", ""); 
-                        preprocessWord = preprocessWord.replace("[", "");
-                        preprocessWord = preprocessWord.replace("]", "");
-                        preprocessWord = preprocessWord.replace("(", "");
-                        preprocessWord = preprocessWord.replace(")", "");
-                        preprocessWord = preprocessWord.replace("…", ""); 
-                    
- 
-                        if (wordFreq.containsKey(preprocessWord)) {
-                            // PART WHERE I INCREMENT THE VALUE 
-                            Integer temp = wordFreq.get(preprocessWord); 
-                            temp += 1; 
-                            wordFreq.replace(preprocessWord, temp); 
-                        } else {
-                            wordFreq.put(preprocessWord, 1); 
-                        }
-                    }
-                    // System.out.println(wordFreq);
-                    String formattedWordFreq = ""; 
-                    for (Map.Entry<String, Integer> set: wordFreq.entrySet()) {
-                        formattedWordFreq = formattedWordFreq + set.getKey() + " " + set.getValue() + ";"; 
-                    }
-					index.addEntry(focus.url, "Words: " + formattedWordFreq + "\n");
-           
-                    Vector<String> links = this.extractLinks(doc, focus);
-					index.addEntry(focus.url, "Links: " + "\n");
-
-                    for(String link: links) {
-						index.addEntry(focus.url, link + "\n");
-                        this.todos.add(new Link(link, focus.level + 1)); // add links
-                    }
-
-                } catch (HttpStatusException e) {
-                    // e.printStackTrace ();
-                    System.out.printf("\nLink Error: %s\n", focus.url);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (RevisitException e) {
-                    System.out.println("TESTING12311\n");
-                } catch(RocksDBException e) {
-                    System.err.println(e.toString());
+        while(!this.todos.isEmpty()) {
+        
+            Link focus = this.todos.remove(0);
+            if (focus.level > this.max_crawl_depth) break; // stop criteria
+            if (this.urls.contains(focus.url)) continue;   // ignore pages that has been visited
+            /* start to crawl on the page */
+            try {
+                Response res = this.getResponse(focus.url);
+                Document doc = res.parse(); 
+                Vector<String> links = this.extractLinks(doc, focus);
+                
+                System.out.println(max_crawl_depth); 
+                System.out.println(focus.url);
+                System.out.println(focus.level);
+                
+                p.parse(res, focus.url, links); 
+                for(String link: links) {
+                    this.todos.add(new Link(link, focus.level + 1)); // add links
                 }
-            }
-            index.toTextFile("spider_result.txt");
-        } catch (RocksDBException e){
-			System.out.println("I died");
+            } catch (SSLHandshakeException e) {
+                System.out.printf("\nSSLHandshakeException: %s", focus.url);
+            } catch (HttpStatusException e) {
+                // e.printStackTrace ();
+                System.out.printf("\nLink Error: %s\n", focus.url);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (RevisitException e) {
+                System.out.println("TESTING12311\n");
+                e.printStackTrace(); 
+            } 
         }
-
+            // UNCOMMENT THIS LATER
+            // index.toTextFile("spider_result2.txt");
     }
    
-    public static void main (String[] args) {
-        RocksDB.loadLibrary();
-        String url = "https://cse.hkust.edu.hk/";
-        Crawler crawler = new Crawler(url);
-        crawler.crawlLoop();
-    }
+    // public static void main (String[] args) {
+    //     RocksDB.loadLibrary();
+    //     String url = "https://cse.hkust.edu.hk/";
+    //     Crawler crawler = new Crawler(url);
+    //     crawler.crawlLoop();
+    // }
 }
