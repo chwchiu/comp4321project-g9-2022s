@@ -12,7 +12,7 @@ Update the path of the database to match the one for your environment in Line56 
 
 Then, run the following commands one after the other.
 
-1. mvn package
+1. mvn clean package
 
 2. mvn exec:java
 
