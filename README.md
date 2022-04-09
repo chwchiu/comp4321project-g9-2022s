@@ -6,7 +6,7 @@ Please follow these steps to run the crawler:
 1. Make sure mvn works, install it if needed, and add to path.
 
 2. Ensure that line 89 of the pom.xml file carries this line:
-<mainClass>com.project.app.Crawler</mainClass>
+<mainClass>com.project.app.App</mainClass>
 
 Update the path of the database to match the one for your environment in Line56 of Crawler.java. 
 
