@@ -10,43 +10,21 @@ import java.io.PrintWriter;
 
 public class Indexer {
     // public String name = "";
-    private RocksDB db;
-    private Options options;
+    protected RocksDB db;
 
     Indexer(String dbPath) throws RocksDBException
     {
         // the Options class contains a set of configurable DB options
         // that determines the behaviour of the database.
-        this.options = new Options();
-        this.options.setCreateIfMissing(true);
+        Options options = new Options();
+        options.setCreateIfMissing(true);
 
         // create and open the database
         this.db = RocksDB.open(options, dbPath);
     }
 
-    //children override this function
-    public void addEntry(String url, String data) throws RocksDBException
-    {
-        byte[] val = db.get(url.getBytes());
-        if (val == null){
-            val = data.getBytes();
-        } else {
-            val = (new String(val) + data).getBytes();
-        }
-        db.put(url.getBytes(), val);
-    }
-    public void addEntry(String word, int x, int y) throws RocksDBException
-    {
-        // Add a "docX Y" entry for the key "word" into hashtable
-        byte[] content = db.get(word.getBytes());
-        if (content == null) {
-            content = ("doc" + x + " " + y).getBytes();
-        } else {
-            content = (new String(content) + " doc" + x + " " + y).getBytes();
-        }
-        db.put(word.getBytes(), content);
-    }
 
+    
     public void delEntry(String word) throws RocksDBException
     {
         db.delete(word.getBytes());
@@ -57,7 +35,7 @@ public class Indexer {
         RocksIterator iter = db.newIterator();
                     
         for(iter.seekToFirst(); iter.isValid(); iter.next()) {
-            System.out.println(new String(iter.value()));
+            System.out.println("key: " + new String(iter.key()) + "val: " + new String(iter.value()));
         }
     }
 

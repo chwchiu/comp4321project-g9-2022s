@@ -32,11 +32,19 @@ class RevisitException
 }
 
 public class Parser {
-    private Indexer i1;
-    private InvertedIndexer i2;
-    public Parser(Indexer i1, InvertedIndexer i2) {
-        this.i1 = i1;
-        this.i2 = i2; 
+    private IDManager idManager;
+    private InvertedIndexer titleIndexer;
+    private InvertedIndexer bodyIndexer;
+    private ForwardIndexer forwardIndexer;
+    private PagePropertiesIndexer ppIndexer;
+
+
+    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer) {
+        this.idManager = new IDManager(pidIndexer, widIndexer);
+        this.titleIndexer = titleIndexer;
+        this.bodyIndexer = bodyIndexer;
+        this.forwardIndexer = forwardIndexer;
+        this.ppIndexer = ppIndexer;
     }
 
     /** Extract words in the web page content.
@@ -46,115 +54,121 @@ public class Parser {
      */
     private Vector<String> extractWords(Document doc) {
          Vector<String> result = new Vector<String>();
-        // ADD YOUR CODES HERE
          String temp = doc.body().text();
          StringTokenizer s = new StringTokenizer(temp);
+
          while (s.hasMoreTokens()) {
              result.add(s.nextToken());
          }
          return result;
     }
 
-    public Vector<String> extractLinks(Document doc, Link focus) {
+    /**
+     * Extracts words in web page content and title, is overload of {@link #extractWords(Document)}
+     * @param doc
+     * @param title
+     * @return
+     */
+    private Vector<String> extractWords(Document doc, String title) {
         Vector<String> result = new Vector<String>();
-        // ADD YOUR CODES HERE
-        Elements links = doc.select("a[href]");
-        for (Element e : links) {
-            String link = e.attr("href");
-            if (link.contains("mailto"))
-                continue;
-            
-            String regex = "^(http|https|ftp)://.*$";
-            if (Pattern.matches(regex, link)) {
-                //String actualLink = getActualLink(link); 
-                if (!(result.contains(link)))
-                    result.add(link);
-            } else {
-                if (link != "" && link.charAt(0) == '/') //To append
-                    link = link.substring(1);
-                
-                String concatLink = focus.url + link;
-                //String actualLink = getActualLink(concatLink); 
-                if (!(result.contains(concatLink))) {
-                    result.add(concatLink);
-                //    System.out.println(concatLink);
-                }
-            }
+        String temp = title.concat(doc.body().text());
+        StringTokenizer s = new StringTokenizer(temp);
+        
+        while (s.hasMoreTokens()) {
+            result.add(s.nextToken());
         }
         return result;
     }
 
+    /**
+     * Method to get IDManager to add Page and Words to ID Index
+     * @param doc
+     * @param url
+     * @see IDManager
+     */
+    private void manageIDs(Document doc, String url){
+        Vector<String> words = this.extractWords(doc, doc.title());
+        idManager.addURL(url);
+        idManager.addWords(words);
+    }
+
+    /**
+     * Performs document parsing, then sends to relevant indexers
+     * @param res
+     * @param url
+     * @param links
+     */
     public void parse(Response res, String url, Vector<String> links) {
-        //init indexer
-        //RocksDB.loadLibrary();
         try {
             RocksDB.loadLibrary();
             Document doc = res.parse();
 
-            String title = doc.title();
-            String lastModified = res.header("last-modified");
-            // if (lastModified == null) {
-            //     System.out.println("ASDAKDJADKA"); 
-            // }
-            int size = res.bodyAsBytes().length;
-            i2.addEntry(url, "Title: " + title + "\n");
-            i2.addEntry(url, "URL: " + url + "\n");
-            i2.addEntry(url, "Last Mod: " + lastModified + " Size: " + size + "\n");
+            //Handle ID adding here
+            manageIDs(doc, url);
 
-            Vector<String> words = this.extractWords(doc);
+            //Handle adding to forward Index
+
+            //Handle adding to body
+            //Handle adding to title
+            //Handle adding to page prop
+            
+            
+            //BELOW IS OLD PARSE
+            // String lastModified = res.header("last-modified");
+
+            // if (lastModified == null) {
+                //     System.out.println("ASDAKDJADKA"); 
+            // }
+            // int size = res.bodyAsBytes().length;
+            // titleIndexer.addEntry(url, "Title: " + title + "\n");
+            // titleIndexer.addEntry(url, "URL: " + url + "\n");
+            // titleIndexer.addEntry(url, "Last Mod: " + lastModified + " Size: " + size + "\n");
 
             //CALC WORD FREQ
-            HashMap<String, Integer> wordFreq = new HashMap<String, Integer>(); 
-            for (String x : words) {
-                String preprocessWord = x.replace(".", ""); 
-                preprocessWord = preprocessWord.replace("[", "");
-                preprocessWord = preprocessWord.replace("]", "");
-                preprocessWord = preprocessWord.replace("(", "");
-                preprocessWord = preprocessWord.replace(")", "");
-                preprocessWord = preprocessWord.replace("…", ""); 
-            
+            // HashMap<String, Integer> wordFreq = new HashMap<String, Integer>(); 
+            // for (String x : words) {
+            //     String preprocessWord = x.replace(".", ""); 
+            //     preprocessWord = preprocessWord.replace("[", "");
+            //     preprocessWord = preprocessWord.replace("]", "");
+            //     preprocessWord = preprocessWord.replace("(", "");
+            //     preprocessWord = preprocessWord.replace(")", "");
+            //     preprocessWord = preprocessWord.replace("…", ""); 
 
-                if (wordFreq.containsKey(preprocessWord)) {
-                    // PART WHERE I INCREMENT THE VALUE 
-                    Integer temp = wordFreq.get(preprocessWord); 
-                    temp += 1; 
-                    wordFreq.replace(preprocessWord, temp); 
-                } else {
-                    wordFreq.put(preprocessWord, 1); 
-                }
-            }
+            //     if (wordFreq.containsKey(preprocessWord)) {
+            //         // PART WHERE I INCREMENT THE VALUE 
+            //         Integer temp = wordFreq.get(preprocessWord); 
+            //         temp += 1; 
+            //         wordFreq.replace(preprocessWord, temp); 
+            //     } else {
+            //         wordFreq.put(preprocessWord, 1); 
+            //     }
+            // }
             // System.out.println(wordFreq);
-            String formattedWordFreq = ""; 
-            for (Map.Entry<String, Integer> set: wordFreq.entrySet()) {
-                formattedWordFreq = formattedWordFreq + set.getKey() + " " + set.getValue() + ";"; 
-            }
-            i2.addEntry(url, "Words: " + formattedWordFreq + "\n");
-            i2.addEntry(url, "Links: " + "\n");
+            // String formattedWordFreq = ""; 
+            // for (Map.Entry<String, Integer> set: wordFreq.entrySet()) {
+            //     formattedWordFreq = formattedWordFreq + set.getKey() + " " + set.getValue() + ";"; 
+            // }
+            // titleIndexer.addEntry(url, "Words: " + formattedWordFreq + "\n");
+            // titleIndexer.addEntry(url, "Links: " + "\n");
 
-            for(String link: links) {
-                System.out.println("IN HERE");
-                i2.addEntry(url, link + "\n");
-            }
+            // for(String link: links) {
+            //     titleIndexer.addEntry(url, link + "\n");
+            // }
 
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);
         } catch (HttpStatusException e) {
-            // e.printStackTrace ();
             System.out.printf("\nLink Error: %s\n", url);
+            // e.printStackTrace ();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (RevisitException e) {
-            System.out.println("TESTING12311\n");
+            System.out.printf("RevisitException: %s\n", url);
             e.printStackTrace(); 
-        } catch(RocksDBException e) {
-            System.err.println(e.toString());
         }
-
-        try {
-            i2.toTextFile("spider_result2.txt");
-        } catch (RocksDBException e) {
-            System.err.println(e.toString());
-        }
+        // catch(RocksDBException e) {
+        //     System.err.println(e.toString());
+        // }
     }
 
 }
