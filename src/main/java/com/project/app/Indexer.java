@@ -46,7 +46,7 @@ public class Indexer {
         RocksIterator iter = db.newIterator();
                     
         for(iter.seekToFirst(); iter.isValid(); iter.next()) {
-            System.out.println("key: " + new String(iter.key()) + "val: " + new String(iter.value()));
+            System.out.println("key: " + new String(iter.key()) + " val: " + new String(iter.value()));
         }
     }
 

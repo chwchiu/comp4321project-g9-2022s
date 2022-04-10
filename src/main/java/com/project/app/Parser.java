@@ -95,6 +95,26 @@ public class Parser {
         idManager.addWords(words);
     }
 
+    private String getActualLink(String link){
+        try {
+            String linkStripPound = link.split("#")[0]; 
+            URL url = new URL(linkStripPound);
+            HttpURLConnection http = (HttpURLConnection)url.openConnection();
+            http.setInstanceFollowRedirects(false); 
+            http.connect(); 
+            int responseCode = http.getResponseCode();
+            if (responseCode == 301 || responseCode == 302) 
+                return http.getHeaderField("Location"); 
+            return linkStripPound; 
+        } catch (SSLHandshakeException e) {
+            String linkStripPound = link.split("#")[0]; 
+            return linkStripPound; 
+        } catch (IOException e) {
+            String linkStripPound = link.split("#")[0]; 
+            return linkStripPound;
+        }
+    }
+
     /**
      * Performs document parsing and sends to relevant indexers
      * @param res
@@ -105,22 +125,24 @@ public class Parser {
         try {
             RocksDB.loadLibrary();
             Document doc = res.parse();
+            
+            String actualURL = getActualLink(url);  //USE THIS URL WHEN INDEXING, HANDLES REDIRECTING AND DUPLICATE LINKS
+            System.out.println(actualURL); 
 
             //stop stem
             String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
-
             //Handle ID adding here
-            manageIDs(body, title, url);
+            manageIDs(body, title, actualURL);
 
             //Handle adding to forward Index
-            forwardIndexer.addEntry(url, body, title);
+            forwardIndexer.addEntry(actualURL, body, title);
             
             //Handle adding to body
-            bodyIndexer.addEntry(url, body);
-
+            bodyIndexer.addEntry(actualURL, body);
+        
             //Handle adding to title
-            titleIndexer.addEntry(url, title);
+            titleIndexer.addEntry(actualURL, title);
 
             //Handle adding to page prop
             String lastModified = res.header("last-modified");
@@ -133,7 +155,7 @@ public class Parser {
                 }
             }
             String size = Integer.toString(res.bodyAsBytes().length);
-            ppIndexer.addEntry(url, lastModified, size);
+            ppIndexer.addEntry(actualURL, lastModified, size);
 
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);

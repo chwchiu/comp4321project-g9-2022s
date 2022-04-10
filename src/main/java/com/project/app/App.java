@@ -36,6 +36,7 @@ public class App
             Parser p = new Parser(pidIndexer, widIndexer, bodyIndexer, titleIndexer, forwardIndexer, ppIndexer);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
             c.crawlLoop();
+            pidIndexer.printAll();
         }
         catch (RocksDBException e) {
             System.out.println(e);
