@@ -18,7 +18,7 @@ public class InvertedIndexer extends Indexer
     //TODO: update this old addEntry
     public void addEntry(String keyword, String body) throws RocksDBException
     {
-        // db.put(idManager.getUrlId(url).getBytes(), data.getBytes()); <- might be helpful
+        db.put(idManager.getUrlId(keyword).getBytes(), body.getBytes());
         
         // Add a "docX Y" entry for the key "word" into hashtable
         // byte[] content = db.get(keyword.getBytes());

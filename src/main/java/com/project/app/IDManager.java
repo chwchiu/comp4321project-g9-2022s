@@ -1,5 +1,7 @@
 package com.project.app;
 import org.rocksdb.RocksDBException;
+import org.rocksdb.RocksIterator;
+
 import java.util.Vector;
 
 public class IDManager{
@@ -62,6 +64,11 @@ public class IDManager{
     public String getWordId(String word) throws RocksDBException
     {
         return wid.getByKey(word);
+    }
+
+    public String getUrlFromId(String id) throws RocksDBException
+    {
+        return pid.getKeyfromVal(id);
     }
 
     /**

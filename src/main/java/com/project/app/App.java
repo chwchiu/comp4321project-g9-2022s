@@ -13,13 +13,13 @@ public class App
         // crawler.crawlLoop();
         
         // RocksDB.loadLibrary();
-        //setup all dbs
-        //crawl
+        // setup all dbs
+        // crawl
         
-        //ask for user input
-        //send input to retrieval
-        //Result[] results = search(input);
-        //display results
+        // ask for user input
+        // send input to retrieval
+        // Result[] results = search(input);
+        // display results
 
         RocksDB.loadLibrary();
         try{
@@ -36,9 +36,14 @@ public class App
             Parser p = new Parser(pidIndexer, widIndexer, bodyIndexer, titleIndexer, forwardIndexer, ppIndexer);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
             c.crawlLoop();
+
+            ppIndexer.printAll();
+            System.out.println("----");
+            System.out.println(idManager.getUrlFromId("1"));
         }
         catch (RocksDBException e) {
             System.out.println(e);
         }
+        // IDIndexer.main(args);
     }
 }
