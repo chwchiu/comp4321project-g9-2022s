@@ -12,6 +12,10 @@ public class IDManager{
         this.wid = widIndexer;
     }
 
+    /**
+     * Creates an ID for new words, nothing happens if a word has an ID
+     * @param words
+     */
     public void addWords(Vector<String> words)
     {
         words.forEach(word -> {
@@ -25,7 +29,12 @@ public class IDManager{
         });
     }
 
-    public void addURL(String url)
+    /**
+     * Creates an ID for new urls, nothing happens if url already has an ID
+     * @param url
+     * @see IDIndexer#addEntry(String)
+     */
+    public void addUrl(String url)
     {
         try{
             pid.addEntry(url.toLowerCase());
@@ -34,7 +43,32 @@ public class IDManager{
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Gets id of URL by passing a String url into it, returns an empty string if no id found.
+     * @param url
+     * @return String pageID
+     */
+    public String getUrlId(String url) throws RocksDBException
+    {
+        return pid.getByKey(url);
+    }
 
+    /**
+     * Gets id of word by passing a String word into it, returns an empty string if no id found.
+     * @param url
+     * @return String wordID
+     */
+    public String getWordId(String word) throws RocksDBException
+    {
+        return wid.getByKey(word);
+    }
+
+    /**
+     * Debugging function to printAll both Page and Word ID Indexers
+     * @throws RocksDBException
+     * @see {@link Indexer#printAll()}
+     */
     public void printAll() throws RocksDBException
     {
         pid.printAll();
@@ -55,7 +89,7 @@ public class IDManager{
             testVector.add("cool");
 
             idm.addWords(testVector);
-            idm.addURL("abc.com");
+            idm.addUrl("abc.com");
 
             idm.printAll();
         }

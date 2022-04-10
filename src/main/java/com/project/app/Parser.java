@@ -89,7 +89,7 @@ public class Parser {
      */
     private void manageIDs(Document doc, String url){
         Vector<String> words = this.extractWords(doc, doc.title());
-        idManager.addURL(url);
+        idManager.addUrl(url);
         idManager.addWords(words);
     }
 

@@ -23,7 +23,18 @@ public class Indexer {
         this.db = RocksDB.open(options, dbPath);
     }
 
-
+    /**
+     * Returns String val associated with key, returns empty String if key not found
+     * @param key
+     * @return
+     * @throws RocksDBException
+     */
+    public String getByKey(String key) throws RocksDBException
+    {
+        byte[] val = db.get(key.getBytes());
+        if (val != null) return new String(val);
+        else return "";
+    }
     
     public void delEntry(String word) throws RocksDBException
     {
