@@ -71,16 +71,20 @@ public class IDManager{
      */
     public void printAll() throws RocksDBException
     {
+        System.out.println("PIDs");
         pid.printAll();
-        System.out.println("---------");
+        System.out.println("WIDs");
         wid.printAll();
     }
 
+    //testing
     public static void main(String[] args) {
         try{
             IDIndexer pidIndexer = new IDIndexer("./db/pidIndexer");
             IDIndexer widIndexer = new IDIndexer("./db/widIndexer");
-            IDManager idm = new IDManager(pidIndexer, widIndexer);
+            IDManager idManager = new IDManager(pidIndexer, widIndexer);
+            PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/ppIndexer", idManager);
+            PagePropertiesIndexer ppIndexer2 = new PagePropertiesIndexer("./db/ppIndexer2", idManager);
             Vector<String> testVector = new Vector<String>();
 
             testVector.add("Hong");
@@ -88,15 +92,24 @@ public class IDManager{
             testVector.add("is");
             testVector.add("cool");
 
-            idm.addWords(testVector);
-            idm.addUrl("abc.com");
+            idManager.addWords(testVector);
+            idManager.addUrl("abc.com");
+            idManager.addUrl("def.com");
 
-            idm.printAll();
+            idManager.printAll();
+
+            System.out.println("-------");
+
+            ppIndexer.addEntry("abc.com", "abc");
+            ppIndexer2.addEntry("def.com", "def");
+            ppIndexer.addEntry(".com", "nothin");
+            ppIndexer.printAll();
+            System.out.println("-------");
+            ppIndexer2.printAll();
         }
         catch (RocksDBException e){
             e.printStackTrace();
         }
-        
     }
 
 }

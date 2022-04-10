@@ -38,6 +38,7 @@ public class Parser {
     private InvertedIndexer bodyIndexer;
     private ForwardIndexer forwardIndexer;
     private PagePropertiesIndexer ppIndexer;
+    private StopStem stemmer;
 
 
     public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer) {
@@ -46,6 +47,7 @@ public class Parser {
         this.bodyIndexer = bodyIndexer;
         this.forwardIndexer = forwardIndexer;
         this.ppIndexer = ppIndexer;
+        this.stemmer = new StopStem("stopwords.txt");
     }
 
     /** Extract words in the web page content.
@@ -65,14 +67,14 @@ public class Parser {
     }
 
     /**
-     * Extracts words in web page content and title, is overload of {@link #extractWords(Document)}
+     * Extracts words from stemmed body and stemmed title, is overload of {@link #extractWords(Document)}
      * @param doc
      * @param title
      * @return
      */
-    private Vector<String> extractWords(Document doc, String title) {
+    private Vector<String> extractWords(String body, String title) {
         Vector<String> result = new Vector<String>();
-        String temp = title.concat(doc.body().text());
+        String temp = title.concat(body);
         StringTokenizer s = new StringTokenizer(temp);
         
         while (s.hasMoreTokens()) {
@@ -87,14 +89,14 @@ public class Parser {
      * @param url
      * @see IDManager
      */
-    private void manageIDs(Document doc, String url){
-        Vector<String> words = this.extractWords(doc, doc.title());
+    private void manageIDs(String body, String title, String url){
+        Vector<String> words = this.extractWords(body, title);
         idManager.addUrl(url);
         idManager.addWords(words);
     }
 
     /**
-     * Performs document parsing, then sends to relevant indexers
+     * Performs document parsing and sends to relevant indexers
      * @param res
      * @param url
      * @param links
@@ -104,17 +106,26 @@ public class Parser {
             RocksDB.loadLibrary();
             Document doc = res.parse();
 
+            //stop stem
+            String body = stemmer.ss(doc.body().toString());
+            String title = stemmer.ss(doc.title());
+
             //Handle ID adding here
-            manageIDs(doc, url);
+            manageIDs(body, title, url);
 
             //Handle adding to forward Index
-
+            forwardIndexer.addEntry(url, body, title);
+            
             //Handle adding to body
+            bodyIndexer.addEntry(url, body);
+
             //Handle adding to title
+            titleIndexer.addEntry(url, title);
+
             //Handle adding to page prop
+            ppIndexer.addEntry(url, body, title);
             
-            
-            //BELOW IS OLD PARSE
+            //------------ BELOW IS OLD PARSE -------------------------
             // String lastModified = res.header("last-modified");
 
             // if (lastModified == null) {
@@ -167,9 +178,9 @@ public class Parser {
             System.out.printf("RevisitException: %s\n", url);
             e.printStackTrace(); 
         }
-        // catch(RocksDBException e) {
-        //     System.err.println(e.toString());
-        // }
+        catch(RocksDBException e) {
+            System.err.println(e.toString());
+        }
     }
 
 }

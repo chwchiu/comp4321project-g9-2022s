@@ -7,22 +7,26 @@ import org.rocksdb.RocksDBException;
 
 public class InvertedIndexer extends Indexer
 {
-    private RocksDB db;
+    private IDManager idManager;
 
-    InvertedIndexer(String dbPath) throws RocksDBException
+    InvertedIndexer(String dbPath, IDManager idManager) throws RocksDBException
     {
         super(dbPath);
+        this.idManager = idManager;
     }
 
-    public void addEntry(String keyword, int x, int y) throws RocksDBException
+    //TODO: update this old addEntry
+    public void addEntry(String keyword, String body) throws RocksDBException
     {
+        // db.put(idManager.getUrlId(url).getBytes(), data.getBytes()); <- might be helpful
+        
         // Add a "docX Y" entry for the key "word" into hashtable
-        byte[] content = db.get(keyword.getBytes());
-        if (content == null) {
-            content = ("doc" + x + " " + y).getBytes();
-        } else {
-            content = (new String(content) + " doc" + x + " " + y).getBytes();
-        }
-        db.put(keyword.getBytes(), content);
+        // byte[] content = db.get(keyword.getBytes());
+        // if (content == null) {
+        //     content = ("doc" + x + " " + y).getBytes();
+        // } else {
+        //     content = (new String(content) + " doc" + x + " " + y).getBytes();
+        // }
+        // db.put(keyword.getBytes(), content);
     }
 }

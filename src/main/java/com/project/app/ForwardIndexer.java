@@ -4,14 +4,17 @@ import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
 
 public class ForwardIndexer extends Indexer {
-    private RocksDB db;
+    private IDManager idManager;
 
-    ForwardIndexer(String dbPath) throws RocksDBException
+    ForwardIndexer(String dbPath, IDManager idManager) throws RocksDBException
     {
         super(dbPath);
+        this.idManager = idManager;
     }
 
-    public void addEntry(String url, String data) throws RocksDBException {
-        // TODO: Forward Index addEntry
+    // TODO: Forward Index addEntry -> massage Data
+    public void addEntry(String url, String body, String title) throws RocksDBException
+    {
+        db.put(idManager.getUrlId(url).getBytes(), body.getBytes());
     }
 }

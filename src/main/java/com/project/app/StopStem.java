@@ -39,7 +39,11 @@ public class StopStem {
 		}
 	}
 
-	//main method for stopstemming
+	/**
+	 * main method for stopstemming
+	 * @param str
+	 * @return
+	 */
 	public String ss(String str){
 		String stemmedString = "";
 		

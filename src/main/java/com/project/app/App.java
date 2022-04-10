@@ -26,19 +26,19 @@ public class App
         //     //setup all dbs
         //     IDIndexer pidIndexer = new IDIndexer("./db/PageIDIndex");
         //     IDIndexer widIndexer = new IDIndexer("./db/WordIDIndex");
-        //     InvertedIndexer bodyIndexer = new InvertedIndexer("./db/BodyIndex");
-        //     InvertedIndexer titleIndexer = new InvertedIndexer("./db/TitleIndex");
-        //     ForwardIndexer forwardIndexer = new ForwardIndexer("./db/ForwardIndex");
-        //     PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/PagePropertiesIndex");
+        //     IDManager idManager = new IDManager(pidIndexer, widIndexer);
+
+        //     InvertedIndexer bodyIndexer = new InvertedIndexer("./db/BodyIndex", idManager);
+        //     InvertedIndexer titleIndexer = new InvertedIndexer("./db/TitleIndex", idManager);
+        //     ForwardIndexer forwardIndexer = new ForwardIndexer("./db/ForwardIndex", idManager);
+        //     PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/PagePropertiesIndex", idManager);
 
         //     Parser p = new Parser(pidIndexer, widIndexer, bodyIndexer, titleIndexer, forwardIndexer, ppIndexer);
         //     Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
-        //     c.crawlLoop();  
+        //     c.crawlLoop();
         // }
         // catch (RocksDBException e) {
         //     System.out.println(e);
         // }
-
-        IDManager.main(args);
     }
 }
