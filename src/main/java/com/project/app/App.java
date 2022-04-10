@@ -21,24 +21,24 @@ public class App
         //Result[] results = search(input);
         //display results
 
-        // RocksDB.loadLibrary();
-        // try{
-        //     //setup all dbs
-        //     IDIndexer pidIndexer = new IDIndexer("./db/PageIDIndex");
-        //     IDIndexer widIndexer = new IDIndexer("./db/WordIDIndex");
-        //     IDManager idManager = new IDManager(pidIndexer, widIndexer);
+        RocksDB.loadLibrary();
+        try{
+            //setup all dbs
+            IDIndexer pidIndexer = new IDIndexer("./db/PageIDIndex");
+            IDIndexer widIndexer = new IDIndexer("./db/WordIDIndex");
+            IDManager idManager = new IDManager(pidIndexer, widIndexer);
 
-        //     InvertedIndexer bodyIndexer = new InvertedIndexer("./db/BodyIndex", idManager);
-        //     InvertedIndexer titleIndexer = new InvertedIndexer("./db/TitleIndex", idManager);
-        //     ForwardIndexer forwardIndexer = new ForwardIndexer("./db/ForwardIndex", idManager);
-        //     PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/PagePropertiesIndex", idManager);
+            InvertedIndexer bodyIndexer = new InvertedIndexer("./db/BodyIndex", idManager);
+            InvertedIndexer titleIndexer = new InvertedIndexer("./db/TitleIndex", idManager);
+            ForwardIndexer forwardIndexer = new ForwardIndexer("./db/ForwardIndex", idManager);
+            PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/PagePropertiesIndex", idManager);
 
-        //     Parser p = new Parser(pidIndexer, widIndexer, bodyIndexer, titleIndexer, forwardIndexer, ppIndexer);
-        //     Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
-        //     c.crawlLoop();
-        // }
-        // catch (RocksDBException e) {
-        //     System.out.println(e);
-        // }
+            Parser p = new Parser(pidIndexer, widIndexer, bodyIndexer, titleIndexer, forwardIndexer, ppIndexer);
+            Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
+            c.crawlLoop();
+        }
+        catch (RocksDBException e) {
+            System.out.println(e);
+        }
     }
 }

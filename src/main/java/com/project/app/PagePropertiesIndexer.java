@@ -13,8 +13,14 @@ public class PagePropertiesIndexer extends Indexer {
     }
 
 
-    // TODO: addEntry - might need to pass different params
-    public void addEntry(String url, String body, String title) throws RocksDBException {
-        db.put(idManager.getUrlId(url).getBytes(), body.getBytes());
+    /** 
+     * Takes the page header and indexes its page properties
+     */
+    public void addEntry(String url, String lastModified, String size) throws RocksDBException {
+        // TODO: addEntry
+        // Add a "docX Y" entry for the key "word" into hashtable
+        byte[] content = (new String("Last Modified: " + lastModified + " Size of Doc: " + size)).getBytes();
+        String docID = idManager.getUrlId(url);
+        db.put(docID.getBytes(), content);
     }
 }

@@ -107,7 +107,7 @@ public class Parser {
             Document doc = res.parse();
 
             //stop stem
-            String body = stemmer.ss(doc.body().toString());
+            String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
 
             //Handle ID adding here
@@ -123,49 +123,17 @@ public class Parser {
             titleIndexer.addEntry(url, title);
 
             //Handle adding to page prop
-            ppIndexer.addEntry(url, body, title);
-            
-            //------------ BELOW IS OLD PARSE -------------------------
-            // String lastModified = res.header("last-modified");
-
-            // if (lastModified == null) {
-                //     System.out.println("ASDAKDJADKA"); 
-            // }
-            // int size = res.bodyAsBytes().length;
-            // titleIndexer.addEntry(url, "Title: " + title + "\n");
-            // titleIndexer.addEntry(url, "URL: " + url + "\n");
-            // titleIndexer.addEntry(url, "Last Mod: " + lastModified + " Size: " + size + "\n");
-
-            //CALC WORD FREQ
-            // HashMap<String, Integer> wordFreq = new HashMap<String, Integer>(); 
-            // for (String x : words) {
-            //     String preprocessWord = x.replace(".", ""); 
-            //     preprocessWord = preprocessWord.replace("[", "");
-            //     preprocessWord = preprocessWord.replace("]", "");
-            //     preprocessWord = preprocessWord.replace("(", "");
-            //     preprocessWord = preprocessWord.replace(")", "");
-            //     preprocessWord = preprocessWord.replace("…", ""); 
-
-            //     if (wordFreq.containsKey(preprocessWord)) {
-            //         // PART WHERE I INCREMENT THE VALUE 
-            //         Integer temp = wordFreq.get(preprocessWord); 
-            //         temp += 1; 
-            //         wordFreq.replace(preprocessWord, temp); 
-            //     } else {
-            //         wordFreq.put(preprocessWord, 1); 
-            //     }
-            // }
-            // System.out.println(wordFreq);
-            // String formattedWordFreq = ""; 
-            // for (Map.Entry<String, Integer> set: wordFreq.entrySet()) {
-            //     formattedWordFreq = formattedWordFreq + set.getKey() + " " + set.getValue() + ";"; 
-            // }
-            // titleIndexer.addEntry(url, "Words: " + formattedWordFreq + "\n");
-            // titleIndexer.addEntry(url, "Links: " + "\n");
-
-            // for(String link: links) {
-            //     titleIndexer.addEntry(url, link + "\n");
-            // }
+            String lastModified = res.header("last-modified");
+            if (lastModified == null) {
+                try {
+                    String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
+                    lastModified = temp[temp.length - 1]; 
+                } catch (Exception e) {
+                    lastModified = "N/A"; 
+                }
+            }
+            String size = Integer.toString(res.bodyAsBytes().length);
+            ppIndexer.addEntry(url, lastModified, size);
 
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);
@@ -182,5 +150,4 @@ public class Parser {
             System.err.println(e.toString());
         }
     }
-
 }

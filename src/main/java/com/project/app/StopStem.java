@@ -47,15 +47,16 @@ public class StopStem {
 	public String ss(String str){
 		String stemmedString = "";
 		
-		str = str.trim().toLowerCase();
-		
-		String[] words = str.split(" ");
-
-		for(String word: words){
-			if(!stopWords.contains(word) && word != "")
-				stemmedString = stemmedString.concat(porter.stripAffixes(word) + " ");
-		}
-
+		if(str.length() > 0){
+            str = str.trim().toLowerCase();
+            
+            String[] words = str.split(" ");
+    
+            for(String word: words){
+                if(!stopWords.contains(word) && word != "")
+                    stemmedString = stemmedString.concat(porter.stripAffixes(word) + " ");
+            }
+        }
 		return stemmedString;
 	}
 
