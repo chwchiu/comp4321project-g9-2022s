@@ -38,8 +38,6 @@ public class App
             c.crawlLoop();
 
             ppIndexer.printAll();
-            System.out.println("----");
-            System.out.println(idManager.getUrlFromId("1"));
         }
         catch (RocksDBException e) {
             System.out.println(e);

@@ -38,6 +38,8 @@ public class IDManager{
      */
     public void addUrl(String url)
     {
+        if(url == null) return;
+        if(url == "") return;
         try{
             pid.addEntry(url.toLowerCase());
         }

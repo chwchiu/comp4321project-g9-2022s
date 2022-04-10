@@ -46,7 +46,8 @@ public class Indexer {
         RocksIterator iter = db.newIterator();
                     
         for(iter.seekToFirst(); iter.isValid(); iter.next()) {
-            System.out.println("key: " + new String(iter.key()) + "val: " + new String(iter.value()));
+            if(new String(iter.key()) == "") System.out.println("null key");
+            System.out.println("key: " + new String(iter.key()) + " val: " + new String(iter.value()));
         }
     }
 
@@ -56,7 +57,7 @@ public class Indexer {
             RocksIterator iter = db.newIterator();
                         
             for(iter.seekToFirst(); iter.isValid(); iter.next()) {
-                out.println(new String(iter.value()) + "\n------------------\n");
+                out.println("key: " + new String(iter.key()) + " val: " + new String(iter.value()));
             }
         } catch (FileNotFoundException e){
             System.err.println(e);
