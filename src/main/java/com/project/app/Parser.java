@@ -132,6 +132,7 @@ public class Parser {
             //stop stem
             String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
+
             //Handle ID adding here
             manageIDs(body, title, actualURL);
 
@@ -139,20 +140,34 @@ public class Parser {
             forwardIndexer.addEntry(actualURL, body, title);
             
             //Handle adding to body
-            bodyIndexer.addEntry(actualURL, body);
+            Vector<String> words = extractWords(doc); //Extracts all words from body
+            HashMap<String, String> wordPosition = new HashMap<String, String>(); 
+            Integer pos = 1; 
+            for (String w : words) {
+                String preprocessWord = w.replaceAll("[.\\[\\]\\(\\)…]", ""); 
+                if (wordPosition.containsKey(preprocessWord)) {
+                    String currentEntry = wordPosition.get(preprocessWord).toLowerCase(); 
+                    wordPosition.replace(preprocessWord, currentEntry + "," + pos); 
+                } else {
+                    wordPosition.put(preprocessWord, Integer.toString(pos)); 
+                }
+                pos++; 
+            }
+            
+            for (Map.Entry<String, String> set: wordPosition.entrySet()) {
+                bodyIndexer.addEntry(actualURL, set.getKey(), set.getValue()); 
+            }
         
             //Handle adding to title
-            titleIndexer.addEntry(actualURL, title);
+            // titleIndexer.addEntry(actualURL, title);
 
             //Handle adding to page prop
             String lastModified = res.header("last-modified");
             if (lastModified == null) {
-                try {
-                    String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
-                    lastModified = temp[temp.length - 1]; 
-                } catch (Exception e) {
+                String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
+                lastModified = temp[temp.length - 1]; 
+                if (lastModified == "")
                     lastModified = "N/A"; 
-                }
             }
             String size = Integer.toString(res.bodyAsBytes().length);
             ppIndexer.addEntry(actualURL, lastModified, size);

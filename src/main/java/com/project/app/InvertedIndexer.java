@@ -16,17 +16,19 @@ public class InvertedIndexer extends Indexer
     }
 
     //TODO: update this old addEntry
-    public void addEntry(String keyword, String body) throws RocksDBException
+    public void addEntry(String url, String word, String positions) throws RocksDBException
     {
-        db.put(idManager.getUrlId(keyword).getBytes(), body.getBytes());
+        // db.put(idManager.getUrlId(keyword).getBytes(), body.getBytes()); //ASK NATE ABOUT THIS
         
         // Add a "docX Y" entry for the key "word" into hashtable
-        // byte[] content = db.get(keyword.getBytes());
-        // if (content == null) {
-        //     content = ("doc" + x + " " + y).getBytes();
-        // } else {
-        //     content = (new String(content) + " doc" + x + " " + y).getBytes();
-        // }
-        // db.put(keyword.getBytes(), content);
+        String docID = idManager.getUrlId(url); 
+        String wordID = idManager.getWordId(word); 
+        byte[] content = db.get(wordID.getBytes());
+        if (content == null) {
+            content = ("doc" + docID + "#" + positions).getBytes();
+        } else {
+            content = (new String(content) + " doc" + docID + "#" + positions).getBytes();
+        }
+        db.put(wordID.getBytes(), content);
     }
 }

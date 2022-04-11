@@ -36,30 +36,30 @@ public class IDIndexer extends Indexer {
         return "";
     }
     
-    public static void main(String[] args) {
-        try
-        {
-            //setup all dbs
-            IDIndexer pidIndexer = new IDIndexer("./db/PageIDIndex");
-            IDIndexer widIndexer = new IDIndexer("./db/WordIDIndex");
-            IDManager idManager = new IDManager(pidIndexer, widIndexer);
+    // public static void main(String[] args) {
+    //     try
+    //     {
+    //         //setup all dbs
+    //         IDIndexer pidIndexer = new IDIndexer("./db/PageIDIndex");
+    //         IDIndexer widIndexer = new IDIndexer("./db/WordIDIndex");
+    //         IDManager idManager = new IDManager(pidIndexer, widIndexer);
 
-            InvertedIndexer bodyIndexer = new InvertedIndexer("./db/BodyIndex", idManager);
+    //         InvertedIndexer bodyIndexer = new InvertedIndexer("./db/BodyIndex", idManager);
 
-            idManager.addUrl("abc.com");
-            idManager.addUrl("def.com");
-            bodyIndexer.addEntry("abc.com", "abc");
-            bodyIndexer.addEntry("def.com", "def");
+    //         idManager.addUrl("abc.com");
+    //         idManager.addUrl("def.com");
+    //         bodyIndexer.addEntry("abc.com", "abc");
+    //         bodyIndexer.addEntry("def.com", "def");
 
-            System.out.println("bi");
-            bodyIndexer.printAll();
-            idManager.printAll();
-        }
-        catch (RocksDBException e)
-        {
-            e.printStackTrace();
-        }
+    //         System.out.println("bi");
+    //         bodyIndexer.printAll();
+    //         idManager.printAll();
+    //     }
+    //     catch (RocksDBException e)
+    //     {
+    //         e.printStackTrace();
+    //     }
 
 
-    }
+    // }
 }
