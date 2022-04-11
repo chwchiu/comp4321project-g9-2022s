@@ -12,15 +12,13 @@ public class PagePropertiesIndexer extends Indexer {
         this.idManager = idManager;
     }
 
-
     /** 
      * Takes the page header and indexes its page properties
      */
     public void addEntry(String url, String lastModified, String size) throws RocksDBException {
-        // TODO: addEntry
-        // Add a "docX Y" entry for the key "word" into hashtable
         byte[] content = (new String("Last Modified: " + lastModified + " Size of Doc: " + size)).getBytes();
         String docID = idManager.getUrlId(url);
+        if(docID == "") System.out.println("Failed url: " + url);
         db.put(docID.getBytes(), content);
     }
 }
