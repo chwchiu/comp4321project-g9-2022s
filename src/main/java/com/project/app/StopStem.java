@@ -4,6 +4,8 @@ import java.io.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Vector;
 
 public class StopStem {
 	private Porter porter;
@@ -58,6 +60,29 @@ public class StopStem {
             }
         }
 		return stemmedString;
+	}
+
+	/**
+	 * Custom stop stem for wordPosition HashMap
+	 * @param wordPosition
+	 * @return
+	 */
+	public HashMap<String, String> ss(HashMap<String, String> wordPosition)
+	{
+		HashMap<String, String> stemmedHashMap = new HashMap<String, String>();
+		wordPosition.forEach((key, val) -> {
+			if(!stopWords.contains(key)){
+				String stemmedKey = porter.stripAffixes(key);
+				if(stemmedHashMap.containsKey(stemmedKey)){
+					String oldVal = stemmedHashMap.get(stemmedKey);
+					stemmedHashMap.replace(key, oldVal + "," + val);
+				}
+				else{
+					stemmedHashMap.put(stemmedKey, val);
+				}
+			}
+		});
+		return stemmedHashMap;
 	}
 
 	public static void main(String[] arg) {
