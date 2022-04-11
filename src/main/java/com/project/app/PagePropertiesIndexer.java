@@ -12,8 +12,12 @@ public class PagePropertiesIndexer extends Indexer {
         this.idManager = idManager;
     }
 
-    /** 
-     * Takes the page header and indexes its page properties
+
+    /**
+     * Adds entries into the page properties db
+     * @param url the page url
+     * @param lastModified the last modified date of the url
+     * @param size the size of the page 
      */
     public void addEntry(String url, String lastModified, String size) throws RocksDBException {
         byte[] content = (new String("Last Modified: " + lastModified + " Size of Doc: " + size)).getBytes();

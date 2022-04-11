@@ -83,6 +83,22 @@ public class Parser {
         return result;
     }
 
+    
+    /**
+     * Extracts words String text, is overload of {@link #extractWords(Document)}
+     * @param text
+     * @return Vector<String> of all the words in the text
+     */
+    private Vector<String> extractWords(String text) {
+        Vector<String> result = new Vector<String>();
+        StringTokenizer s = new StringTokenizer(text);
+        
+        while (s.hasMoreTokens()) {
+            result.add(s.nextToken());
+        }
+        return result;
+    }
+
     /**
      * Method to get IDManager to add Page and Words to ID Index
      * @param doc
@@ -114,7 +130,34 @@ public class Parser {
             return linkStripPound;
         }
     }
-
+    /**
+     * Method for handling the parsing and inserting into the inverted indexers
+     * @param text the text that needs to be inserted
+     * @param indexer the invereted indexer to handle the inserting
+     */
+    public void invertedIndexParseAndInsert(String url, String text, InvertedIndexer indexer){
+        Vector<String> words = extractWords(text); //Extracts all words from body
+        HashMap<String, String> wordPosition = new HashMap<String, String>(); 
+        Integer bodyPos = 1; 
+        for (String w : words) {
+            String preprocessWord = w.replaceAll("[.\\[\\]\\(\\)…]", ""); 
+            if (wordPosition.containsKey(preprocessWord)) {
+                String currentEntry = wordPosition.get(preprocessWord).toLowerCase(); 
+                wordPosition.replace(preprocessWord, currentEntry + "," + bodyPos); 
+            } else {
+                wordPosition.put(preprocessWord, Integer.toString(bodyPos)); 
+            }
+            bodyPos++; 
+        }
+        
+        for (Map.Entry<String, String> set: wordPosition.entrySet()) {
+            try {
+                indexer.addEntry(url, set.getKey(), set.getValue()); 
+            } catch (RocksDBException e) {
+                System.err.println(e.toString());
+            }
+        }
+    }
     /**
      * Performs document parsing and sends to relevant indexers
      * @param res
@@ -140,26 +183,10 @@ public class Parser {
             forwardIndexer.addEntry(actualURL, body, title);
             
             //Handle adding to body
-            Vector<String> words = extractWords(doc); //Extracts all words from body
-            HashMap<String, String> wordPosition = new HashMap<String, String>(); 
-            Integer pos = 1; 
-            for (String w : words) {
-                String preprocessWord = w.replaceAll("[.\\[\\]\\(\\)…]", ""); 
-                if (wordPosition.containsKey(preprocessWord)) {
-                    String currentEntry = wordPosition.get(preprocessWord).toLowerCase(); 
-                    wordPosition.replace(preprocessWord, currentEntry + "," + pos); 
-                } else {
-                    wordPosition.put(preprocessWord, Integer.toString(pos)); 
-                }
-                pos++; 
-            }
-            
-            for (Map.Entry<String, String> set: wordPosition.entrySet()) {
-                bodyIndexer.addEntry(actualURL, set.getKey(), set.getValue()); 
-            }
+            invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
         
             //Handle adding to title
-            // titleIndexer.addEntry(actualURL, title);
+            invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
 
             //Handle adding to page prop
             String lastModified = res.header("last-modified");

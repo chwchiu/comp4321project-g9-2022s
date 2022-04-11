@@ -33,14 +33,14 @@ public class App
             ForwardIndexer forwardIndexer = new ForwardIndexer("./db/ForwardIndex", idManager);
             PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/PagePropertiesIndex", idManager);
 
-            Parser p = new Parser(pidIndexer, widIndexer, bodyIndexer, titleIndexer, forwardIndexer, ppIndexer);
+            Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
-            // c.crawlLoop();
+            c.crawlLoop();
 
-            // ppIndexer.printAll();
-            // bodyIndexer.printAll(); 
+            // bodyIndexer.printAll();        UNCOMMENT TO CHECK THE DATABASE
+            // titleIndexer.printAll(); 
             // forwardIndexer.printAll();
-            titleIndexer.printAll(); 
+            // ppIndexer.printall(); 
         }
         catch (RocksDBException e) {
             System.out.println(e);

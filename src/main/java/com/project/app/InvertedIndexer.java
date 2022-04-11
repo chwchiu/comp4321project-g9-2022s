@@ -15,7 +15,12 @@ public class InvertedIndexer extends Indexer
         this.idManager = idManager;
     }
 
-    //TODO: update this old addEntry
+    /**
+     * Adds entries into the inverted indexer db
+     * @param url  the page url
+     * @param word  the word/key
+     * @param positions the positions of the word/key 
+     */
     public void addEntry(String url, String word, String positions) throws RocksDBException
     {
         // db.put(idManager.getUrlId(keyword).getBytes(), body.getBytes()); //ASK NATE ABOUT THIS
