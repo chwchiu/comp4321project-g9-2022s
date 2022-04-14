@@ -1,6 +1,7 @@
 package com.project.app;
 import java.util.Vector;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.StringTokenizer;
 import org.jsoup.Jsoup;
 import org.jsoup.Connection;
@@ -158,6 +159,29 @@ public class Parser {
             }
         }
     }
+
+    /**
+     * Method for handling the parsing and inserting into the inverted indexers
+     * @param body the text from the page body that needs to be inserted
+     * @param title the text from the page title tha needs to be inserted 
+     * @param forward the forward indexer to handle the inserting
+     */
+    public void forwardIndexParseandInsert(String url, String body, String title, ForwardIndexer forward){
+        Vector<String> body_w = extractWords(body); 
+        Vector<String> body_t = extractWords(title);
+        Vector<String> words = new Vector<String>(); 
+        words.addAll(body_t);
+        words.addAll(body_w);
+        Iterator<String> iterate = words.iterator(); 
+        try {
+        while(iterate.hasNext()){
+            forward.addEntry(url, iterate.next());
+        }}
+        catch(RocksDBException e){
+            System.err.println(e.toString());
+        }
+        }
+    
     /**
      * Performs document parsing and sends to relevant indexers
      * @param res
@@ -180,8 +204,8 @@ public class Parser {
             manageIDs(body, title, actualURL);
 
             //Handle adding to forward Index
-            forwardIndexer.addEntry(actualURL, body, title);
-            
+            forwardIndexParseandInsert(url, body, title, forwardIndexer);
+
             //Handle adding to body
             invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
         
