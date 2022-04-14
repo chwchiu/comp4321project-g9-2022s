@@ -190,7 +190,7 @@ public class Crawler {
                 Document doc = res.parse(); 
                 Vector<String> links = this.extractLinks(doc, focus);
                 
-                System.out.println(focus.url + " " + focus.level);
+                //System.out.println(focus.url + " " + focus.level);
                 
                 p.parse(res, focus.url, links); 
                 for(String link: links) {
