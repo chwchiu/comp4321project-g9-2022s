@@ -23,7 +23,7 @@ public class App
 
         RocksDB.loadLibrary();
         try{
-            //setup all dbs
+            //setup all dbs 
             IDIndexer pidIndexer = new IDIndexer("./db/PageIDIndex");
             IDIndexer widIndexer = new IDIndexer("./db/WordIDIndex");
             IDManager idManager = new IDManager(pidIndexer, widIndexer);
@@ -32,15 +32,26 @@ public class App
             InvertedIndexer titleIndexer = new InvertedIndexer("./db/TitleIndex", idManager);
             ForwardIndexer forwardIndexer = new ForwardIndexer("./db/ForwardIndex", idManager);
             PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/PagePropertiesIndex", idManager);
+            TFIndexer tfIndexer = new TFIndexer("./db/TFIndex", idManager);
+            WeightCalc weightCalc = new WeightCalc("./db/WeightIndex", tfIndexer, forwardIndexer, titleIndexer, bodyIndexer, idManager); 
 
-            Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer);
+            Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer, tfIndexer);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
-            c.crawlLoop();
+
+            // c.crawlLoop();  //Crawl
+            weightCalc.processWeight();   //Process all weights  
 
             // bodyIndexer.printAll();       // UNCOMMENT TO CHECK THE DATABASE
             // titleIndexer.printAll(); 
             // forwardIndexer.printAll();
             // ppIndexer.printAll(); 
+            // tfIndexer.printAll(); 
+            weightCalc.printAll(); 
+            // pidIndexer.printAll();
+            // tfIndexer.toTextFile("tfIndexer.txt");
+            // forwardIndexer.toTextFile("forwardIndexer.txt"); 
+            // bodyIndexer.toTextFile("bodyIndexer.txt");
+            
         }
         catch (RocksDBException e) {
             System.out.println(e);

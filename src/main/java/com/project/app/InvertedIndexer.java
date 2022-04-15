@@ -34,6 +34,7 @@ public class InvertedIndexer extends Indexer
         } else {
             content = (new String(content) + " doc" + docID + "#" + positions).getBytes();
         }
+        
         db.put(wordID.getBytes(), content);
     }
 }

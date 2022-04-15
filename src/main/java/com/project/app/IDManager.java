@@ -41,7 +41,7 @@ public class IDManager{
         if(url == null) return;
         if(url == "") return;
         try{
-            pid.addEntry(url.toLowerCase());
+            pid.addEntry(url);
         }
         catch(RocksDBException e){
             e.printStackTrace();
@@ -84,6 +84,18 @@ public class IDManager{
         pid.printAll();
         System.out.println("WIDs");
         wid.printAll();
+    }
+
+    /**
+     * Creates 2 text files
+     * @param pidPath path for first text file
+     * @param widPath path for second text file
+     * @see {@link Indexer#toTextFile()}
+     */
+    public void toTextFile(String pidPath, String widPath) throws RocksDBException
+    {
+        pid.toTextFile(pidPath);
+        wid.toTextFile(widPath);
     }
 
     //testing

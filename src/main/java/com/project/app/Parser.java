@@ -40,15 +40,17 @@ public class Parser {
     private ForwardIndexer forwardIndexer;
     private PagePropertiesIndexer ppIndexer;
     private StopStem stemmer;
+    private TFIndexer tfIndexer; 
 
 
-    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer) {
+    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer) {
         this.idManager = new IDManager(pidIndexer, widIndexer);
         this.titleIndexer = titleIndexer;
         this.bodyIndexer = bodyIndexer;
         this.forwardIndexer = forwardIndexer;
         this.ppIndexer = ppIndexer;
         this.stemmer = new StopStem("stopwords.txt");
+        this.tfIndexer = tfIndexer; 
     }
 
     /** Extract words in the web page content.
@@ -151,6 +153,8 @@ public class Parser {
             bodyPos++; 
         }
         
+        // DO STEMMING HERE 
+
         for (Map.Entry<String, String> set: wordPosition.entrySet()) {
             try {
                 indexer.addEntry(url, set.getKey(), set.getValue()); 
@@ -165,27 +169,43 @@ public class Parser {
      * @param body the text from the page body that needs to be inserted
      * @param title the text from the page title tha needs to be inserted 
      * @param forward the forward indexer to handle the inserting
+     * @param tf the term frequency indexer to handle the inserting
      */
-    public void forwardIndexParseandInsert(String url, String body, String title, ForwardIndexer forward){
+    public void forwardIndexAndTFParseAndInsert(String url, String body, String title, ForwardIndexer forward, TFIndexer tf){
         Vector<String> body_w = extractWords(body); 
         Vector<String> body_t = extractWords(title);
         Vector<String> words = new Vector<String>(); 
         Vector<String> parsedWords = new Vector<String>(); 
+        HashMap<String, Integer> wordFreq = new HashMap<String, Integer>(); 
+        
         words.addAll(body_t);
         words.addAll(body_w);
-        for (String w : words) {
+        for (String w : words) { //Parse words and word freq
             String preprocessWord = w.replaceAll("[.\\[\\]\\(\\)…]", ""); 
-            if (!(parsedWords.contains(preprocessWord))) 
+            if (!(parsedWords.contains(preprocessWord)))  //Get preprocessed words
                 parsedWords.add(preprocessWord); 
+            
+            if (wordFreq.containsKey(preprocessWord)) {  //Calculate word frequency at the same time
+                Integer temp = wordFreq.get(preprocessWord); 
+                temp += 1; 
+                wordFreq.replace(preprocessWord, temp); 
+            } else {
+                wordFreq.put(preprocessWord, 1); 
+            }
         }
-        Iterator<String> iterate = parsedWords.iterator(); 
+
+        
+        Iterator<String> iterate = parsedWords.iterator();  //Adding to the forward index
+
         try {
-        while(iterate.hasNext()){
-            forward.addEntry(url, iterate.next());
-        }}
-        catch(RocksDBException e){
+            tf.addEntry(url, wordFreq); //Index word frequency
+
+            while(iterate.hasNext()){
+                forward.addEntry(url, iterate.next());
+            }
+        } catch(RocksDBException e) {
             System.err.println(e.toString());
-        }
+        } 
     }
     
     /**
@@ -206,12 +226,13 @@ public class Parser {
             System.out.println(url);
             String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
+
             //Handle ID adding here
             manageIDs(body, title, actualURL);
 
-            if (idManager.getUrlId(url) != "") {
-                //Handle adding to forward Index
-                forwardIndexParseandInsert(actualURL, body, title, forwardIndexer);
+            if (idManager.getUrlId(actualURL) != "") {
+                //Handle adding to forward Index And Term Frequency
+                forwardIndexAndTFParseAndInsert(actualURL, body, title, forwardIndexer, tfIndexer);
 
                 //Handle adding to body
                 invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
@@ -227,9 +248,13 @@ public class Parser {
                     if (lastModified == "")
                         lastModified = "N/A"; 
                 }
+
                 String size = Integer.toString(res.bodyAsBytes().length);
-                ppIndexer.addEntry(actualURL, lastModified, size);
+                ppIndexer.addEntry(actualURL, lastModified, size); 
+            } else {
+                System.out.println("null key:" + actualURL); 
             }
+
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);
         } catch (HttpStatusException e) {
@@ -244,5 +269,12 @@ public class Parser {
         catch(RocksDBException e) {
             System.err.println(e.toString());
         }
+    }
+
+    public Vector<String> parseInput(String input)
+    {
+        //parse input and stem it
+        String stemmedInput = stemmer.ss(input);
+        return extractWords(stemmedInput);
     }
 }

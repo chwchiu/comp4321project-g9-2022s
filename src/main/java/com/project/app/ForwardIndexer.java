@@ -21,9 +21,9 @@ public class ForwardIndexer extends Indexer {
        String docID = idManager.getUrlId(url); 
        byte[] content = db.get(docID.getBytes());
 
-       if (content == null){
-           content = (wordID + ",").getBytes();
-       }
+        if (content == null){
+            content = (wordID + ",").getBytes();
+        }
         else {
             content = (new String(content) + wordID + ",").getBytes();
         }
