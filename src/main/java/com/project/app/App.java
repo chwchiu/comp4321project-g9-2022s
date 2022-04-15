@@ -37,10 +37,10 @@ public class App
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
             c.crawlLoop();
 
-            // bodyIndexer.printAll();        UNCOMMENT TO CHECK THE DATABASE
+            // bodyIndexer.printAll();       // UNCOMMENT TO CHECK THE DATABASE
             // titleIndexer.printAll(); 
             // forwardIndexer.printAll();
-            // ppIndexer.printall(); 
+            // ppIndexer.printAll(); 
         }
         catch (RocksDBException e) {
             System.out.println(e);

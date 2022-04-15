@@ -170,9 +170,15 @@ public class Parser {
         Vector<String> body_w = extractWords(body); 
         Vector<String> body_t = extractWords(title);
         Vector<String> words = new Vector<String>(); 
+        Vector<String> parsedWords = new Vector<String>(); 
         words.addAll(body_t);
         words.addAll(body_w);
-        Iterator<String> iterate = words.iterator(); 
+        for (String w : words) {
+            String preprocessWord = w.replaceAll("[.\\[\\]\\(\\)…]", ""); 
+            if (!(parsedWords.contains(preprocessWord))) 
+                parsedWords.add(preprocessWord); 
+        }
+        Iterator<String> iterate = parsedWords.iterator(); 
         try {
         while(iterate.hasNext()){
             forward.addEntry(url, iterate.next());
@@ -180,7 +186,7 @@ public class Parser {
         catch(RocksDBException e){
             System.err.println(e.toString());
         }
-        }
+    }
     
     /**
      * Performs document parsing and sends to relevant indexers
@@ -194,15 +200,16 @@ public class Parser {
             Document doc = res.parse();
             
             String actualURL = getActualLink(url);  //USE THIS URL WHEN INDEXING, HANDLES REDIRECTING AND DUPLICATE LINKS
-            System.out.println(actualURL); 
+            //System.out.println(actualURL); 
 
             //stop stem
+            System.out.println(url);
             String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
-
             //Handle ID adding here
             manageIDs(body, title, actualURL);
 
+<<<<<<< HEAD
             //Handle adding to forward Index
             forwardIndexParseandInsert(actualURL, body, title, forwardIndexer);
 
@@ -211,18 +218,29 @@ public class Parser {
         
             //Handle adding to title
             invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
+=======
+            if (idManager.getUrlId(url) != "") {
+                //Handle adding to forward Index
+                forwardIndexParseandInsert(actualURL, body, title, forwardIndexer);
+>>>>>>> 323def4ba6860de2de7a78c008b57bd2d8b94f0d
 
-            //Handle adding to page prop
-            String lastModified = res.header("last-modified");
-            if (lastModified == null) {
-                String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
-                lastModified = temp[temp.length - 1]; 
-                if (lastModified == "")
-                    lastModified = "N/A"; 
+                //Handle adding to body
+                invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
+            
+                //Handle adding to title
+                invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
+
+                //Handle adding to page prop
+                String lastModified = res.header("last-modified");
+                if (lastModified == null) {
+                    String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
+                    lastModified = temp[temp.length - 1]; 
+                    if (lastModified == "")
+                        lastModified = "N/A"; 
+                }
+                String size = Integer.toString(res.bodyAsBytes().length);
+                ppIndexer.addEntry(actualURL, lastModified, size);
             }
-            String size = Integer.toString(res.bodyAsBytes().length);
-            ppIndexer.addEntry(actualURL, lastModified, size);
-
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);
         } catch (HttpStatusException e) {
