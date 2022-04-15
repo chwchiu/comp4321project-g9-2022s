@@ -37,6 +37,8 @@ public class App
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
             c.crawlLoop();
 
+            idManager.toTextFile("pidPrint.txt", "widPrint.txt");
+
             // bodyIndexer.printAll();       // UNCOMMENT TO CHECK THE DATABASE
             // titleIndexer.printAll(); 
             // forwardIndexer.printAll();

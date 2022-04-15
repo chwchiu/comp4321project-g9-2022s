@@ -209,20 +209,9 @@ public class Parser {
             //Handle ID adding here
             manageIDs(body, title, actualURL);
 
-<<<<<<< HEAD
-            //Handle adding to forward Index
-            forwardIndexParseandInsert(actualURL, body, title, forwardIndexer);
-
-            //Handle adding to body
-            invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
-        
-            //Handle adding to title
-            invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
-=======
-            if (idManager.getUrlId(url) != "") {
+            if (idManager.getUrlId(actualURL) != "") {
                 //Handle adding to forward Index
                 forwardIndexParseandInsert(actualURL, body, title, forwardIndexer);
->>>>>>> 323def4ba6860de2de7a78c008b57bd2d8b94f0d
 
                 //Handle adding to body
                 invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
@@ -241,6 +230,9 @@ public class Parser {
                 String size = Integer.toString(res.bodyAsBytes().length);
                 ppIndexer.addEntry(actualURL, lastModified, size);
             }
+            else {
+                System.out.println("null key:" + actualURL);
+            }
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);
         } catch (HttpStatusException e) {
@@ -256,4 +248,12 @@ public class Parser {
             System.err.println(e.toString());
         }
     }
+
+    public Vector<String> parseInput(String input)
+    {
+        //parse input and stem it
+        String stemmedInput = stemmer.ss(input);
+        return extractWords(stemmedInput);
+    }
+
 }

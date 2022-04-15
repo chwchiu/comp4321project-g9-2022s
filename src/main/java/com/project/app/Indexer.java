@@ -36,11 +36,20 @@ public class Indexer {
         else return "";
     }
     
+    /**
+     * Deletes an entry from db
+     * @param word key
+     * @throws RocksDBException
+     */
     public void delEntry(String word) throws RocksDBException
     {
         db.delete(word.getBytes());
     }
 
+    /**
+     * Prints everything in the db
+     * @throws RocksDBException
+     */
     public void printAll() throws RocksDBException
     {
         RocksIterator iter = db.newIterator();
@@ -51,6 +60,11 @@ public class Indexer {
         }
     }
 
+    /**
+     * Alternative to printing everything, instead sends contents of db to a text file
+     * @param word key
+     * @throws RocksDBException
+     */
     public void toTextFile(String filePath) throws RocksDBException
     {
         try(PrintWriter out = new PrintWriter(filePath)){
@@ -63,43 +77,5 @@ public class Indexer {
             System.err.println(e);
         }
     }
-
-    // public static void main(String[] args)
-    // {
-    //     try
-    //     {
-    //         // a static method that loads the RocksDB C++ library.
-    //         RocksDB.loadLibrary();
-
-    //         // modify the path to your database
-    //         String path = "/root/comp4321-test/comp4321project-g9-2022s/db";
-            
-    //         Indexer index = new Indexer(path);
-    
-    //         index.addEntry("cat", 2, 6);
-    //         index.addEntry("dog", 1, 33);
-    //         System.out.println("First print");
-    //         index.printAll();
-            
-    //         index.addEntry("cat", 8, 3);
-    //         index.addEntry("dog", 6, 73);
-    //         index.addEntry("dog", 8, 83);
-    //         index.addEntry("dog", 10, 5);
-    //         index.addEntry("cat", 11, 106);
-    //         System.out.println("Second print");
-    //         index.printAll();
-            
-    //         index.delEntry("dog");
-    //         System.out.println("Third print");
-    //         index.printAll();
-    //     }
-        
-    //     catch(RocksDBException e)
-    //     {
-    //         System.err.println(e.toString());
-    //     }
-    // }
-
-
     
 }
