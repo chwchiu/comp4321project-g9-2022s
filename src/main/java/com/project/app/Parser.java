@@ -165,7 +165,7 @@ public class Parser {
     }
 
     /**
-     * Method for handling the parsing and inserting into the inverted indexers
+     * Method for handling the parsing and inserting into the forward indexers
      * @param body the text from the page body that needs to be inserted
      * @param title the text from the page title tha needs to be inserted 
      * @param forward the forward indexer to handle the inserting
@@ -254,7 +254,6 @@ public class Parser {
             } else {
                 System.out.println("null key:" + actualURL); 
             }
-
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);
         } catch (HttpStatusException e) {

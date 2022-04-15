@@ -41,6 +41,8 @@ public class App
             // c.crawlLoop();  //Crawl
             weightCalc.processWeight();   //Process all weights  
 
+            idManager.toTextFile("pidPrint.txt", "widPrint.txt");
+
             // bodyIndexer.printAll();       // UNCOMMENT TO CHECK THE DATABASE
             // titleIndexer.printAll(); 
             // forwardIndexer.printAll();
@@ -56,6 +58,6 @@ public class App
         catch (RocksDBException e) {
             System.out.println(e);
         }
-        // IDIndexer.main(args);
+        // IDManager.main(args);
     }
 }

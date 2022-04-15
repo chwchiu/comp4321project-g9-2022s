@@ -18,7 +18,7 @@ public class ForwardIndexer extends Indexer {
     public void addEntry(String url, String word) throws RocksDBException
     {
        String wordID = idManager.getWordId(word);
-       String docID = idManager.getUrlId(url); 
+       String docID = idManager.getUrlId(url);
        byte[] content = db.get(docID.getBytes());
 
         if (content == null){
