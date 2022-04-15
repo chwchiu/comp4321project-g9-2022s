@@ -45,6 +45,6 @@ public class App
         catch (RocksDBException e) {
             System.out.println(e);
         }
-        // IDIndexer.main(args);
+        // IDManager.main(args);
     }
 }

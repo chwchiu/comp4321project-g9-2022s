@@ -161,7 +161,7 @@ public class Parser {
     }
 
     /**
-     * Method for handling the parsing and inserting into the inverted indexers
+     * Method for handling the parsing and inserting into the forward indexers
      * @param body the text from the page body that needs to be inserted
      * @param title the text from the page title tha needs to be inserted 
      * @param forward the forward indexer to handle the inserting
@@ -204,7 +204,7 @@ public class Parser {
             manageIDs(body, title, actualURL);
 
             //Handle adding to forward Index
-            forwardIndexParseandInsert(url, body, title, forwardIndexer);
+            forwardIndexParseandInsert(actualURL, body, title, forwardIndexer);
 
             //Handle adding to body
             invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
