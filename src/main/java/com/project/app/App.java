@@ -2,6 +2,7 @@ package com.project.app;
 
 import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
+import java.util.Scanner; 
 
 public class App 
 {
@@ -38,7 +39,7 @@ public class App
             Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer, tfIndexer);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
 
-            // c.crawlLoop();  //Crawl
+            c.crawlLoop();  //Crawl
             weightCalc.processWeight();   //Process all weights  
 
             idManager.toTextFile("pidPrint.txt", "widPrint.txt");
@@ -48,12 +49,15 @@ public class App
             // forwardIndexer.printAll();
             // ppIndexer.printAll(); 
             // tfIndexer.printAll(); 
-            weightCalc.printAll(); 
+            //weightCalc.printAll(); 
             // pidIndexer.printAll();
             // tfIndexer.toTextFile("tfIndexer.txt");
             // forwardIndexer.toTextFile("forwardIndexer.txt"); 
             // bodyIndexer.toTextFile("bodyIndexer.txt");
             
+            Scanner s = new Scanner(System.in); 
+            System.out.println("Enter your query: "); 
+            String query = s.nextLine(); 
         }
         catch (RocksDBException e) {
             System.out.println(e);
