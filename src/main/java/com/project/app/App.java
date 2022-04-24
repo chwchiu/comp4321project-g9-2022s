@@ -48,17 +48,23 @@ public class App
             // titleIndexer.printAll(); 
             // forwardIndexer.printAll();
             // ppIndexer.printAll(); 
-            // tfIndexer.printAll(); 
+            //tfIndexer.printAll(); 
             //weightCalc.printAll(); 
             // pidIndexer.printAll();
-            // tfIndexer.toTextFile("tfIndexer.txt");
+            //tfIndexer.toTextFile("tfIndexer.txt");
             // forwardIndexer.toTextFile("forwardIndexer.txt"); 
             // bodyIndexer.toTextFile("bodyIndexer.txt");
             
             Scanner s = new Scanner(System.in); 
             System.out.println("Enter your query: "); 
             String query = s.nextLine(); 
+
+            CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, p);
+            cossim.calc();
+            //cossim.printAll();
+
         }
+
         catch (RocksDBException e) {
             System.out.println(e);
         }

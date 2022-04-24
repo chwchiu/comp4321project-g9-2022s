@@ -92,7 +92,7 @@ public class Parser {
      * @param text
      * @return Vector<String> of all the words in the text
      */
-    private Vector<String> extractWords(String text) {
+    public Vector<String> extractWords(String text) {
         Vector<String> result = new Vector<String>();
         StringTokenizer s = new StringTokenizer(text);
         
