@@ -42,7 +42,7 @@ import java.net.*;
 public class Crawler {
     private HashSet<String> urls;     // the set of urls that have been visited before
     public Vector<Link> todos; // the queue of URLs to be crawled
-    private int max_crawl_depth = 2;  // feel free to change the depth limit of the spider.
+    private int max_crawl_depth = 1;  // feel free to change the depth limit of the spider.
     public Parser p; 
    
     /** Crawler constructor
@@ -172,7 +172,6 @@ public class Crawler {
         return result;
     }
    
-   
     /** Use a queue to manage crawl tasks.
      * @see "Then sends to:"
      * @see {@link Parser#parse(Response, String, Vector)}
@@ -208,14 +207,5 @@ public class Crawler {
                 e.printStackTrace(); 
             } 
         }
-            // UNCOMMENT THIS LATER
-            // index.toTextFile("spider_result2.txt");
     }
-   
-    // public static void main (String[] args) {
-    //     RocksDB.loadLibrary();
-    //     String url = "https://cse.hkust.edu.hk/";
-    //     Crawler crawler = new Crawler(url);
-    //     crawler.crawlLoop();
-    // }
 }

@@ -100,6 +100,7 @@ public class WeightCalc extends Indexer {
             HashMap<String, Double> weightsOfDoc = new HashMap<String, Double>();    
             String docID = new String(iter2.key()); 
             if (docID == null) { //Skip the null key FIND A WAY TO CHECK NULL KEY REVIEW THIS LATER
+                System.out.println(docID + "is null");
                 continue; 
             }
 

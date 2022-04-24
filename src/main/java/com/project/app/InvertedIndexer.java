@@ -1,8 +1,4 @@
-//IMPORTANT READ!
-//MAKE SURE TO REDO ADDENTRY FOR PROJECT!
 package com.project.app;
-
-import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
 
 public class InvertedIndexer extends Indexer
@@ -27,7 +23,8 @@ public class InvertedIndexer extends Indexer
         
         // Add a "docX Y" entry for the key "word" into hashtable
         String docID = idManager.getUrlId(url); 
-        String wordID = idManager.getWordId(word); 
+        String wordID = idManager.getWordId(word);
+        // if(wordID == "") System.out.println("key null: " + word);
         byte[] content = db.get(wordID.getBytes());
         if (content == null) {
             content = ("doc" + docID + "#" + positions).getBytes();

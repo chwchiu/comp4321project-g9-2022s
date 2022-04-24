@@ -1,6 +1,4 @@
-package com.project.app; 
-
-import org.rocksdb.RocksDB;
+package com.project.app;
 import org.rocksdb.RocksDBException; 
 import java.util.Map;
 import java.util.HashMap; 

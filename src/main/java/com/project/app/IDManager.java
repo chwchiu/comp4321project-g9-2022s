@@ -24,6 +24,8 @@ public class IDManager{
             try
             {
                 wid.addEntry(word.toLowerCase());
+                // boolean a = wid.addEntry(word.toLowerCase());
+                // if (a) System.out.println(word + " " + getWordId(word));
             }
             catch (RocksDBException e){
                 e.printStackTrace();

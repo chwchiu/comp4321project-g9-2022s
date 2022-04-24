@@ -40,7 +40,7 @@ public class App
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
 
             c.crawlLoop();  //Crawl
-            weightCalc.processWeight();   //Process all weights  
+            weightCalc.processWeight();   //Process all weights
 
             idManager.toTextFile("pidPrint.txt", "widPrint.txt");
 
@@ -53,16 +53,17 @@ public class App
             // pidIndexer.printAll();
             //tfIndexer.toTextFile("tfIndexer.txt");
             // forwardIndexer.toTextFile("forwardIndexer.txt"); 
-            // bodyIndexer.toTextFile("bodyIndexer.txt");
+            bodyIndexer.toTextFile("bodyIndexer.txt");
+            titleIndexer.toTextFile("titleIndexer.txt");
             
-            Scanner s = new Scanner(System.in); 
-            System.out.println("Enter your query: "); 
-            String query = s.nextLine(); 
+            // Scanner s = new Scanner(System.in); 
+            // System.out.println("Enter your query: "); 
+            // String query = s.nextLine(); 
 
-            CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, p);
-            cossim.calc();
-            //cossim.printAll();
-
+            // CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, p);
+            // cossim.calc();
+            // cossim.printAll();
+            // s.close();
         }
 
         catch (RocksDBException e) {

@@ -1,7 +1,4 @@
 package com.project.app;
-
-import org.rocksdb.Options;
-import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
 import org.rocksdb.RocksIterator;
 
