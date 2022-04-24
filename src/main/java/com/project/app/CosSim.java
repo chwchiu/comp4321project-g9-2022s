@@ -29,11 +29,6 @@ public class CosSim extends Indexer{
         this.weighter = weighter;  
     }
 
-    /**
-     * Helper function to parse all the words out
-     * @param s all the words in a document
-     * @return returns a list of all the words in a document
-     */
     private HashMap<String, String> docs(Integer indexer, String WID) throws RocksDBException
     {
         String bodyListOfDocs = new String(bodyDB.getByKey(WID));
