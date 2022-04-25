@@ -155,10 +155,10 @@ public class Parser {
         
         // DO STEMMING HERE
         HashMap<String, String> stemmedWordPos = stemmer.ss(wordPosition);
-        System.out.println("word pos");
-        System.out.println(wordPosition);
-        System.out.println("stem word pos");
-        System.out.println(stemmedWordPos);
+        // System.out.println("word pos");
+        // System.out.println(wordPosition);
+        // System.out.println("stem word pos");
+        // System.out.println(stemmedWordPos);
 
         for (Map.Entry<String, String> set: stemmedWordPos.entrySet()) {
             try {

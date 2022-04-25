@@ -1,6 +1,5 @@
 package com.project.app;
 import org.rocksdb.RocksDBException;
-import org.rocksdb.RocksIterator;
 
 import java.util.Vector;
 
@@ -24,8 +23,6 @@ public class IDManager{
             try
             {
                 wid.addEntry(word.toLowerCase());
-                // boolean a = wid.addEntry(word.toLowerCase());
-                // if (a) System.out.println(word + " " + getWordId(word));
             }
             catch (RocksDBException e){
                 e.printStackTrace();
@@ -40,8 +37,7 @@ public class IDManager{
      */
     public void addUrl(String url)
     {
-        if(url == null) return;
-        if(url == "") return;
+        if(url == null || url == "") return;
         try{
             pid.addEntry(url);
         }
@@ -99,40 +95,5 @@ public class IDManager{
         pid.toTextFile(pidPath);
         wid.toTextFile(widPath);
     }
-
-    //testing
-    // public static void main(String[] args) {
-    //     try{
-    //         IDIndexer pidIndexer = new IDIndexer("./db/pidIndexer");
-    //         IDIndexer widIndexer = new IDIndexer("./db/widIndexer");
-    //         IDManager idManager = new IDManager(pidIndexer, widIndexer);
-    //         PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/ppIndexer", idManager);
-    //         PagePropertiesIndexer ppIndexer2 = new PagePropertiesIndexer("./db/ppIndexer2", idManager);
-    //         Vector<String> testVector = new Vector<String>();
-
-    //         testVector.add("Hong");
-    //         testVector.add("Kong");
-    //         testVector.add("is");
-    //         testVector.add("cool");
-
-    //         idManager.addWords(testVector);
-    //         idManager.addUrl("abc.com");
-    //         idManager.addUrl("def.com");
-
-    //         idManager.printAll();
-
-    //         System.out.println("-------");
-
-    //         ppIndexer.addEntry("abc.com", "abc");
-    //         ppIndexer2.addEntry("def.com", "def");
-    //         ppIndexer.addEntry(".com", "nothin");
-    //         ppIndexer.printAll();
-    //         System.out.println("-------");
-    //         ppIndexer2.printAll();
-    //     }
-    //     catch (RocksDBException e){
-    //         e.printStackTrace();
-    //     }
-    // }
 
 }

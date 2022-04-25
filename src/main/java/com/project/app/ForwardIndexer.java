@@ -12,7 +12,6 @@ public class ForwardIndexer extends Indexer {
 
     // TODO: Forward Index addEntry -> massage Data
 
-
     public void addEntry(String url, String word) throws RocksDBException
     {
        String wordID = idManager.getWordId(word);
@@ -28,5 +27,4 @@ public class ForwardIndexer extends Indexer {
 
         db.put(docID.getBytes(), content);
     }
-
 }

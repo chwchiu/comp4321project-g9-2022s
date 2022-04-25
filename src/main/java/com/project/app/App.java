@@ -53,8 +53,8 @@ public class App
             // pidIndexer.printAll();
             //tfIndexer.toTextFile("tfIndexer.txt");
             // forwardIndexer.toTextFile("forwardIndexer.txt"); 
-            bodyIndexer.toTextFile("bodyIndexer.txt");
-            titleIndexer.toTextFile("titleIndexer.txt");
+            // bodyIndexer.toTextFile("bodyIndexer.txt");
+            // titleIndexer.toTextFile("titleIndexer.txt");
             
             // Scanner s = new Scanner(System.in); 
             // System.out.println("Enter your query: "); 

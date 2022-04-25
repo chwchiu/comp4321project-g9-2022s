@@ -25,6 +25,7 @@ public class InvertedIndexer extends Indexer
         String docID = idManager.getUrlId(url); 
         String wordID = idManager.getWordId(word);
         // if(wordID == "") System.out.println("key null: " + word);
+        if (word == "" || word == null) return;
         byte[] content = db.get(wordID.getBytes());
         if (content == null) {
             content = ("doc" + docID + "#" + positions).getBytes();

@@ -70,11 +70,12 @@ public class StopStem {
 	{
 		HashMap<String, String> stemmedHashMap = new HashMap<String, String>();
 		wordPosition.forEach((key, val) -> {
-			if(!stopWords.contains(key)){
-				String stemmedKey = porter.stripAffixes(key);
+			String lowKey = key.toLowerCase();
+			if(!stopWords.contains(lowKey) && lowKey.length() > 0){
+				String stemmedKey = porter.stripAffixes(lowKey);
 				if(stemmedHashMap.containsKey(stemmedKey)){
 					String oldVal = stemmedHashMap.get(stemmedKey);
-					stemmedHashMap.replace(key, oldVal + "," + val);
+					stemmedHashMap.replace(stemmedKey, oldVal + "," + val);
 				}
 				else{
 					stemmedHashMap.put(stemmedKey, val);

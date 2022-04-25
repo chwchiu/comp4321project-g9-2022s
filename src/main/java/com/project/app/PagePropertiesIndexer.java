@@ -1,8 +1,5 @@
 package com.project.app;
-
-import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
-
 
 public class PagePropertiesIndexer extends Indexer {
     private IDManager idManager;
@@ -12,7 +9,6 @@ public class PagePropertiesIndexer extends Indexer {
         super(dbPath);
         this.idManager = idManager;
     }
-
 
     /**
      * Adds entries into the page properties db
