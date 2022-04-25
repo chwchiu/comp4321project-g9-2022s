@@ -3,6 +3,7 @@ package com.project.app;
 import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
 import java.util.Scanner; 
+import java.util.Vector; 
 
 public class App 
 {
@@ -39,10 +40,10 @@ public class App
             Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer, tfIndexer);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
 
-            c.crawlLoop();  //Crawl
-            weightCalc.processWeight();   //Process all weights
+            // c.crawlLoop();  //Crawl
+            // weightCalc.processWeight();   //Process all weights  
 
-            idManager.toTextFile("pidPrint.txt", "widPrint.txt");
+            // idManager.toTextFile("pidPrint.txt", "widPrint.txt");
 
             // bodyIndexer.printAll();       // UNCOMMENT TO CHECK THE DATABASE
             // titleIndexer.printAll(); 
@@ -56,14 +57,19 @@ public class App
             // bodyIndexer.toTextFile("bodyIndexer.txt");
             // titleIndexer.toTextFile("titleIndexer.txt");
             
-            // Scanner s = new Scanner(System.in); 
-            // System.out.println("Enter your query: "); 
-            // String query = s.nextLine(); 
+            Scanner s = new Scanner(System.in); 
+            System.out.println("Enter your query: "); 
+            String query = s.nextLine(); 
+            
+            StopStem ss = new StopStem("stopwords.txt");
+            Vector<String> parsedQuery = ss.parseQuery(query); 
 
+            System.out.println(parsedQuery); 
             // CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, p);
             // cossim.calc();
-            // cossim.printAll();
-            // s.close();
+            // //cossim.printAll();
+
+            s.close();
         }
 
         catch (RocksDBException e) {

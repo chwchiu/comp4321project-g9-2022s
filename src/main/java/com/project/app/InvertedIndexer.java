@@ -1,4 +1,8 @@
+//IMPORTANT READ!
+//MAKE SURE TO REDO ADDENTRY FOR PROJECT!
 package com.project.app;
+
+import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
 
 public class InvertedIndexer extends Indexer

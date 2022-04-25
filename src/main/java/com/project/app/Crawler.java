@@ -172,6 +172,7 @@ public class Crawler {
         return result;
     }
    
+   
     /** Use a queue to manage crawl tasks.
      * @see "Then sends to:"
      * @see {@link Parser#parse(Response, String, Vector)}
@@ -207,5 +208,14 @@ public class Crawler {
                 e.printStackTrace(); 
             } 
         }
+            // UNCOMMENT THIS LATER
+            // index.toTextFile("spider_result2.txt");
     }
+   
+    // public static void main (String[] args) {
+    //     RocksDB.loadLibrary();
+    //     String url = "https://cse.hkust.edu.hk/";
+    //     Crawler crawler = new Crawler(url);
+    //     crawler.crawlLoop();
+    // }
 }

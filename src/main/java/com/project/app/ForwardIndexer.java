@@ -1,4 +1,6 @@
 package com.project.app;
+
+import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
 
 public class ForwardIndexer extends Indexer {

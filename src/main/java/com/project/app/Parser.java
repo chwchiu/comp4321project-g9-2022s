@@ -145,7 +145,7 @@ public class Parser {
         for (String w : words) {
             String preprocessWord = w.replaceAll("[.\\[\\]\\(\\)…]", ""); 
             if (wordPosition.containsKey(preprocessWord)) {
-                String currentEntry = wordPosition.get(preprocessWord).toLowerCase();
+                String currentEntry = wordPosition.get(preprocessWord).toLowerCase(); 
                 wordPosition.replace(preprocessWord, currentEntry + "," + bodyPos); 
             } else {
                 wordPosition.put(preprocessWord, Integer.toString(bodyPos)); 
@@ -160,7 +160,7 @@ public class Parser {
         // System.out.println("stem word pos");
         // System.out.println(stemmedWordPos);
 
-        for (Map.Entry<String, String> set: stemmedWordPos.entrySet()) {
+        for (Map.Entry<String, String> set: wordPosition.entrySet()) {
             try {
                 indexer.addEntry(url, set.getKey(), set.getValue()); 
             } catch (RocksDBException e) {
