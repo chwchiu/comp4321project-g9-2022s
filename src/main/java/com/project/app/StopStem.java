@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.regex.*; 
+import java.util.Vector; 
 
 public class StopStem {
 	private Porter porter;
@@ -82,6 +84,39 @@ public class StopStem {
 			}
 		});
 		return stemmedHashMap;
+	}
+
+	/**
+	 * Method to parse the query into a vector string, supports phrase search
+	 * @param query  the string to parse
+	 * @return a vector<string> 
+	 */
+	public Vector<String> parseQuery(String query) {
+		Vector<String> result = new Vector<String>(); 
+		Pattern p = Pattern.compile("\"([^\"]*)\""); 
+		Matcher m = p.matcher(query); 
+		String nonQuoted = query;
+
+		while (m.find()) {    //Parse phrase
+			String phrase = m.group(1);
+			String [] temp = phrase.split("\\s+"); 
+			String formattedPhrase = ""; 
+			for (String s : temp) 
+				formattedPhrase = formattedPhrase + " " + s; 
+			formattedPhrase = ss(formattedPhrase).trim(); 
+			if (formattedPhrase != "")
+				result.add(formattedPhrase); 
+			nonQuoted = nonQuoted.replace("\"" + phrase + "\"", ""); 
+		}
+
+		String [] split = nonQuoted.trim().split("\\s+");    //Parse non-phrase
+		for (String s : split) {
+			String ssTerm = ss(s).trim(); 
+			if (ssTerm != "")
+				result.add(ssTerm); 
+		}
+
+		return result; 
 	}
 
 	public static void main(String[] arg) {
