@@ -104,7 +104,7 @@ public class StopStem {
 			for (String s : temp) 
 				formattedPhrase = formattedPhrase + " " + s; 
 			formattedPhrase = ss(formattedPhrase).trim(); 
-			if (formattedPhrase != "")
+			if (!formattedPhrase.isEmpty())
 				result.add(formattedPhrase); 
 			nonQuoted = nonQuoted.replace("\"" + phrase + "\"", ""); 
 		}
@@ -112,12 +112,13 @@ public class StopStem {
 		String [] split = nonQuoted.trim().split("\\s+");    //Parse non-phrase
 		for (String s : split) {
 			String ssTerm = ss(s).trim(); 
-			if (ssTerm != "")
+			if (!ssTerm.isEmpty())
 				result.add(ssTerm); 
 		}
 
 		return result; 
 	}
+
 
 	public static void main(String[] arg) {
 		StopStem stopStem = new StopStem("stopwords.txt");
