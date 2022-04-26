@@ -136,8 +136,12 @@ public class Parser {
             http.setInstanceFollowRedirects(false); 
             http.connect(); 
             int responseCode = http.getResponseCode();
-            if (responseCode == 301 || responseCode == 302) 
-                return http.getHeaderField("Location"); 
+            if (responseCode == 301 || responseCode == 302) {
+                String redirectLink = http.getHeaderField("Location"); 
+                redirectLink = link.split("#")[0];
+                redirectLink = link.split("\\?")[0]; 
+                return redirectLink; 
+            }
             return linkStripPound; 
         } catch (SSLHandshakeException e) {
             String linkStripPound = link.split("#")[0]; 
