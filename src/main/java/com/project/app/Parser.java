@@ -54,7 +54,7 @@ public class Parser {
      * @param ppIndexer page properties db
      * @param tfIndexer term frequency db
      */
-    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer, ParentIndexer parentIndexer, ChildIndexer childIndexer) {
+    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer,PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer, ParentIndexer parentIndexer, ChildIndexer childIndexer) {
         this.idManager = new IDManager(pidIndexer, widIndexer);
         this.titleIndexer = titleIndexer;
         this.bodyIndexer = bodyIndexer;
@@ -130,6 +130,7 @@ public class Parser {
     private String getActualLink(String link){
         try {
             String linkStripPound = link.split("#")[0]; 
+            linkStripPound = link.split("?")[0]; 
             URL url = new URL(linkStripPound);
             HttpURLConnection http = (HttpURLConnection)url.openConnection();
             http.setInstanceFollowRedirects(false); 
@@ -252,40 +253,42 @@ public class Parser {
 
             //Handle ID adding here
             manageIDs(body, title, actualURL);
-
-            for (String link : links) {
-                String actualLink = getActualLink(link);
-                if (actualLink.charAt(actualLink.length() - 1) == '/') 
-                    actualLink = actualLink.substring(0, actualLink.length() - 1); 
-                idManager.addUrl(actualLink);
-            }
-
-            if (idManager.getUrlId(actualURL) != "") {
-                //Handle adding to forward Index And Term Frequency
-                forwardIndexAndTFParseAndInsert(actualURL, body, title, forwardIndexer, tfIndexer);
-
-                //Handle adding to body
-                invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
             
-                //Handle adding to title
-                invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
-
-                //Handle adding to page prop
-                String lastModified = res.header("last-modified");
-                if (lastModified == null) {
-                    String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
-                    lastModified = temp[temp.length - 1]; 
-                    if (lastModified == "")
-                        lastModified = "N/A"; 
+            if (forwardIndexer.getByKey(idManager.getUrlId(actualURL)) == "") {
+                for (String link : links) {
+                    String actualLink = getActualLink(link);
+                    if (actualLink.charAt(actualLink.length() - 1) == '/') 
+                        actualLink = actualLink.substring(0, actualLink.length() - 1); 
+                    idManager.addUrl(actualLink);
                 }
 
-                String size = Integer.toString(res.bodyAsBytes().length);
-                ppIndexer.addEntry(actualURL, lastModified, size); 
+                if (idManager.getUrlId(actualURL) != "") {
+                    //Handle adding to forward Index And Term Frequency
+                    forwardIndexAndTFParseAndInsert(actualURL, body, title, forwardIndexer, tfIndexer);
 
-                parentIndexer.addEntry(links, actualURL);
-                childIndexer.addEntry(links, actualURL); 
-            } else {
-                System.out.println("null key:" + actualURL); 
+                    //Handle adding to body
+                    invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
+                
+                    //Handle adding to title
+                    invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
+
+                    //Handle adding to page prop
+                    String lastModified = res.header("last-modified");
+                    if (lastModified == null) {
+                        String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
+                        lastModified = temp[temp.length - 1]; 
+                        if (lastModified == "")
+                            lastModified = "N/A"; 
+                    }
+
+                    String size = Integer.toString(res.bodyAsBytes().length);
+                    ppIndexer.addEntry(actualURL, lastModified, size); 
+
+                    parentIndexer.addEntry(links, actualURL);
+                    childIndexer.addEntry(links, actualURL); 
+                } else {
+                    System.out.println("null key:" + actualURL); 
+                }
             }
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);
