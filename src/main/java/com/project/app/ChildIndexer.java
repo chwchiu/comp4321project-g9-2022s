@@ -28,7 +28,8 @@ public class ChildIndexer extends Indexer {
     public void addEntry(Vector<String> children, String url) throws RocksDBException{
         String formattedChildren = ""; 
         for (String child : children) {
-            formattedChildren = formattedChildren + " " + child; 
+            String docID = idManager.getUrlId(child);  
+            formattedChildren = formattedChildren + " " + docID; 
         }
         byte[] content = formattedChildren.trim().getBytes();
 

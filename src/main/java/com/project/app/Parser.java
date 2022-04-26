@@ -253,6 +253,13 @@ public class Parser {
             //Handle ID adding here
             manageIDs(body, title, actualURL);
 
+            for (String link : links) {
+                String actualLink = getActualLink(link);
+                if (actualLink.charAt(actualLink.length() - 1) == '/') 
+                    actualLink = actualLink.substring(0, actualLink.length() - 1); 
+                idManager.addUrl(actualLink);
+            }
+
             if (idManager.getUrlId(actualURL) != "") {
                 //Handle adding to forward Index And Term Frequency
                 forwardIndexAndTFParseAndInsert(actualURL, body, title, forwardIndexer, tfIndexer);
