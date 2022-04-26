@@ -15,6 +15,7 @@ public class PagePropertiesIndexer extends Indexer {
      * @param url the page url
      * @param lastModified the last modified date of the url
      * @param size the size of the page 
+     * @throws RocksDBException rocks db exception
      */
     public void addEntry(String url, String lastModified, String size) throws RocksDBException {
         byte[] content = (new String("Last Modified: " + lastModified + " Size of Doc: " + size)).getBytes();

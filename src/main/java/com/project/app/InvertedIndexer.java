@@ -17,9 +17,10 @@ public class InvertedIndexer extends Indexer
 
     /**
      * Adds entries into the inverted indexer db
-     * @param url  the page url
-     * @param word  the word/key
-     * @param positions the positions of the word/key 
+     * @param url the page url
+     * @param word the word/key 
+     * @param positions the positions of the word/key
+     * @throws RocksDBException rocks db exception 
      */
     public void addEntry(String url, String word, String positions) throws RocksDBException
     {

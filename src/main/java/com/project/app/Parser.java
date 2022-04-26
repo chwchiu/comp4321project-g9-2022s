@@ -42,7 +42,16 @@ public class Parser {
     private StopStem stemmer;
     private TFIndexer tfIndexer; 
 
-
+    /**
+     * Constructor for the parser
+     * @param pidIndexer page id db
+     * @param widIndexer word id db
+     * @param titleIndexer title text db
+     * @param bodyIndexer body text db
+     * @param forwardIndexer forward db
+     * @param ppIndexer page properties db
+     * @param tfIndexer term frequency db
+     */
     public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer) {
         this.idManager = new IDManager(pidIndexer, widIndexer);
         this.titleIndexer = titleIndexer;
@@ -89,8 +98,8 @@ public class Parser {
     
     /**
      * Extracts words String text, is overload of {@link #extractWords(Document)}
-     * @param text
-     * @return Vector<String> of all the words in the text
+     * @param text the text that we have to extract words from 
+     * @return Vector of all the words in the text
      */
     public Vector<String> extractWords(String text) {
         Vector<String> result = new Vector<String>();
@@ -135,6 +144,7 @@ public class Parser {
     }
     /**
      * Method for handling the parsing and inserting into the inverted indexers
+     * @param url the url to insert
      * @param text the text that needs to be inserted
      * @param indexer the invereted indexer to handle the inserting
      */
@@ -171,6 +181,7 @@ public class Parser {
 
     /**
      * Method for handling the parsing and inserting into the forward indexers
+     * @param url url to parse
      * @param body the text from the page body that needs to be inserted
      * @param title the text from the page title tha needs to be inserted 
      * @param forward the forward indexer to handle the inserting
@@ -215,9 +226,9 @@ public class Parser {
     
     /**
      * Performs document parsing and sends to relevant indexers
-     * @param res
-     * @param url
-     * @param links
+     * @param res  the response of the connection
+     * @param url  the url to parse
+     * @param links the child links for the url
      */
     public void parse(Response res, String url, Vector<String> links) {
         try {
@@ -275,6 +286,11 @@ public class Parser {
         }
     }
 
+    /**
+     * Function to assist with parsing the input
+     * @param input the input to turn into a vector
+     * @return returns a parsed vector of the input
+     */
     public Vector<String> parseInput(String input)
     {
         //parse input and stem it

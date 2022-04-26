@@ -54,11 +54,13 @@ public class Crawler {
         this.p = p; 
     }
    
+
     /**
      * Send an HTTP request and analyze the response, then send to Parser
+     * @param url the url to check the response code of 
      * @return {Response} res
-     * @throws HttpStatusException for non-existing pages
-     * @throws IOException
+     * @throws HttpStatusException throws non-existing pages
+     * @throws IOException I/O Exception
      */
     public Response getResponse(String url) throws HttpStatusException, IOException {
         if (this.urls.contains(url)) {
@@ -174,8 +176,7 @@ public class Crawler {
    
    
     /** Use a queue to manage crawl tasks.
-     * @see "Then sends to:"
-     * @see {@link Parser#parse(Response, String, Vector)}
+     * @see Parser#parse(Response, String, Vector)
      */
     public void crawlLoop() {
         //init indexer
