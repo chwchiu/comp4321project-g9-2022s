@@ -130,7 +130,7 @@ public class Parser {
     public String getActualLink(String link){
         try {
             String linkStripPound = link.split("#")[0]; 
-            linkStripPound = link.split("\\?")[0]; 
+            linkStripPound = linkStripPound.split("\\?")[0]; 
             URL url = new URL(linkStripPound);
             HttpURLConnection http = (HttpURLConnection)url.openConnection();
             http.setInstanceFollowRedirects(false); 
@@ -240,8 +240,7 @@ public class Parser {
             RocksDB.loadLibrary();
             Document doc = res.parse();
             
-            String actualURL = url;
-
+            String actualURL = url; 
             //System.out.println(actualURL); 
 
             //stop stem
