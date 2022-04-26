@@ -20,12 +20,12 @@ import java.net.*;
 // @SuppressWarnings("serial")
 /** This is customized exception for those pages that have been visited before.
  */
-// class RevisitException
-//     extends RuntimeException {
-//     public RevisitException() {
-//         super();
-//     }
-// }
+class RevisitException
+    extends RuntimeException {
+    public RevisitException() {
+        super();
+    }
+}
 
 /** Crawler crawls pages starting from url
  */ 
@@ -147,8 +147,7 @@ public class Crawler {
         }
         return result;
     }
-   
-   
+
     /** Use a queue to manage crawl tasks.
      * @see Parser#parse(Response, String, Vector)
      */
@@ -161,7 +160,12 @@ public class Crawler {
             if (this.urls.contains(focus.url)) continue;   // ignore pages that has been visited
             /* start to crawl on the page */
             try {
-                Response res = this.getResponse(focus.url);
+                String actualURL = p.getActualLink(focus.url); 
+                if (actualURL.charAt(actualURL.length() - 1) == '/') 
+                    actualURL = actualURL.substring(0, actualURL.length() - 1); 
+
+                
+                Response res = this.getResponse(actualURL);
                 Document doc = res.parse(); 
                 Vector<String> links = this.extractLinks(doc, focus);
                 
@@ -177,7 +181,6 @@ public class Crawler {
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (RevisitException e) {
-                System.out.println("TESTING12311\n");
                 e.printStackTrace(); 
             } 
         }
