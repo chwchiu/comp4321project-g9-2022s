@@ -41,6 +41,8 @@ public class Parser {
     private PagePropertiesIndexer ppIndexer;
     private StopStem stemmer;
     private TFIndexer tfIndexer; 
+    private ParentIndexer parentIndexer; 
+    private ChildIndexer childIndexer; 
 
     /**
      * Constructor for the parser
@@ -52,7 +54,7 @@ public class Parser {
      * @param ppIndexer page properties db
      * @param tfIndexer term frequency db
      */
-    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer) {
+    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer, ParentIndexer parentIndexer, ChildIndexer childIndexer) {
         this.idManager = new IDManager(pidIndexer, widIndexer);
         this.titleIndexer = titleIndexer;
         this.bodyIndexer = bodyIndexer;
@@ -60,6 +62,8 @@ public class Parser {
         this.ppIndexer = ppIndexer;
         this.stemmer = new StopStem("stopwords.txt");
         this.tfIndexer = tfIndexer; 
+        this.parentIndexer = parentIndexer; 
+        this.childIndexer = childIndexer; 
     }
 
     /** Extract words in the web page content.
@@ -236,10 +240,13 @@ public class Parser {
             Document doc = res.parse();
             
             String actualURL = getActualLink(url);  //USE THIS URL WHEN INDEXING, HANDLES REDIRECTING AND DUPLICATE LINKS
+            if (actualURL.charAt(actualURL.length() - 1) == '/') 
+                actualURL = actualURL.substring(0, actualURL.length() - 1); 
+
             //System.out.println(actualURL); 
 
             //stop stem
-            System.out.println(url);
+            System.out.println(actualURL);
             String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
 
@@ -267,6 +274,9 @@ public class Parser {
 
                 String size = Integer.toString(res.bodyAsBytes().length);
                 ppIndexer.addEntry(actualURL, lastModified, size); 
+
+                parentIndexer.addEntry(links, actualURL);
+                childIndexer.addEntry(links, actualURL); 
             } else {
                 System.out.println("null key:" + actualURL); 
             }

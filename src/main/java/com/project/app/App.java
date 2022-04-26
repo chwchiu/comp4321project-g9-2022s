@@ -38,11 +38,12 @@ public class App
             PagePropertiesIndexer ppIndexer = new PagePropertiesIndexer("./db/PagePropertiesIndex", idManager);
             TFIndexer tfIndexer = new TFIndexer("./db/TFIndex", idManager);
             WeightCalc weightCalc = new WeightCalc("./db/WeightIndex", tfIndexer, forwardIndexer, titleIndexer, bodyIndexer, idManager); 
-
-            Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer, tfIndexer);
+            ChildIndexer ci = new ChildIndexer("./db/ChildIndex", idManager);
+            ParentIndexer pi = new ParentIndexer("./db/ParentIndex", idManager);
+            Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer, tfIndexer, pi, ci);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
 
-            // c.crawlLoop();  //Crawl
+            c.crawlLoop();  //Crawl
             // weightCalc.processWeight();   //Process all weights  
 
             // idManager.toTextFile("pidPrint.txt", "widPrint.txt");
@@ -54,27 +55,29 @@ public class App
             //tfIndexer.printAll(); 
             //weightCalc.printAll(); 
             // pidIndexer.printAll();
-            //tfIndexer.toTextFile("tfIndexer.txt");
+            // tfIndexer.toTextFile("tfIndexer.txt");
             // forwardIndexer.toTextFile("forwardIndexer.txt"); 
-            bodyIndexer.toTextFile("bodyIndexer.txt");
+            // bodyIndexer.toTextFile("bodyIndexer.txt");
             // titleIndexer.toTextFile("titleIndexer.txt");
-            
-            Scanner s = new Scanner(System.in); 
-            System.out.println("Enter your query: "); 
-            String query = s.nextLine(); 
-            s.close(); 
+ 
+            ci.toTextFile("ci.txt");
+            pi.toTextFile("pi.txt");
+            // Scanner s = new Scanner(System.in); 
+            // System.out.println("Enter your query: "); 
+            // String query = s.nextLine(); 
+            // s.close(); 
 
-            StopStem ss = new StopStem("stopwords.txt");
-            Vector<String> parsedQuery = ss.parseQuery(query); 
+            // StopStem ss = new StopStem("stopwords.txt");
+            // Vector<String> parsedQuery = ss.parseQuery(query); 
 
-            System.out.println(parsedQuery); 
-            CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, p);
-            cossim.calc();
-            cossim.printAll();
+            // System.out.println(parsedQuery); 
+            // CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, p);
+            // cossim.calc();
+            // cossim.printAll();
             
-            Retrieval r = new Retrieval(cossim); 
-            HashMap<Integer, String> top50pages = r.top50();
-            System.out.println(top50pages);
+            // Retrieval r = new Retrieval(cossim); 
+            // HashMap<Integer, String> top50pages = r.top50();
+            // System.out.println(top50pages);
         }
 
         catch (RocksDBException e) {

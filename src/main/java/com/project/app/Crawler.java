@@ -16,16 +16,6 @@ import org.rocksdb.RocksDBException;
 // import org.rocksdb.RocksIterator;
 import javax.net.ssl.SSLHandshakeException; 
 import java.net.*; 
-/** The data structure for the crawling queue.
- */
-// class Link{
-//     String url;
-//     int level;
-//     Link (String url, int level) {  
-//         this.url = url;
-//         this.level = level;
-//     }  
-// }
  
 // @SuppressWarnings("serial")
 /** This is customized exception for those pages that have been visited before.
@@ -101,22 +91,6 @@ public class Crawler {
         // System.out.printf("Language: %s\n", lang);
         return res;
     }
-   
-    // /** Extract words in the web page content.
-    //  * note: use StringTokenizer to tokenize the result
-    //  * @param {Document} doc
-    //  * @return {Vector<String>} a list of words in the web page body
-    //  */
-    // public Vector<String> extractWords(Document doc) {
-    //      Vector<String> result = new Vector<String>();
-    //     // ADD YOUR CODES HERE
-    //      String temp = doc.body().text();
-    //      StringTokenizer s = new StringTokenizer(temp);
-    //      while (s.hasMoreTokens()) {
-    //          result.add(s.nextToken());
-    //      }
-    //      return result;
-    // }
 
     /** NOTE: NOT USED RIGHT NOW DONT DELETE YET
         Used to check for redirects
@@ -191,8 +165,6 @@ public class Crawler {
                 Document doc = res.parse(); 
                 Vector<String> links = this.extractLinks(doc, focus);
                 
-                //System.out.println(focus.url + " " + focus.level);
-                
                 p.parse(res, focus.url, links); 
                 for(String link: links) {
                     this.todos.add(new Link(link, focus.level + 1)); // add links
@@ -209,14 +181,5 @@ public class Crawler {
                 e.printStackTrace(); 
             } 
         }
-            // UNCOMMENT THIS LATER
-            // index.toTextFile("spider_result2.txt");
     }
-   
-    // public static void main (String[] args) {
-    //     RocksDB.loadLibrary();
-    //     String url = "https://cse.hkust.edu.hk/";
-    //     Crawler crawler = new Crawler(url);
-    //     crawler.crawlLoop();
-    // }
 }
