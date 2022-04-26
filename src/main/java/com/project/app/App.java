@@ -2,6 +2,8 @@ package com.project.app;
 
 import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
+
+import java.util.HashMap;
 import java.util.Scanner; 
 import java.util.Vector; 
 
@@ -54,22 +56,25 @@ public class App
             // pidIndexer.printAll();
             //tfIndexer.toTextFile("tfIndexer.txt");
             // forwardIndexer.toTextFile("forwardIndexer.txt"); 
-            // bodyIndexer.toTextFile("bodyIndexer.txt");
+            bodyIndexer.toTextFile("bodyIndexer.txt");
             // titleIndexer.toTextFile("titleIndexer.txt");
             
             Scanner s = new Scanner(System.in); 
             System.out.println("Enter your query: "); 
             String query = s.nextLine(); 
-            
+            s.close(); 
+
             StopStem ss = new StopStem("stopwords.txt");
             Vector<String> parsedQuery = ss.parseQuery(query); 
 
             System.out.println(parsedQuery); 
-            // CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, p);
-            // cossim.calc();
-            // //cossim.printAll();
-
-            s.close();
+            CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, p);
+            cossim.calc();
+            cossim.printAll();
+            
+            Retrieval r = new Retrieval(cossim); 
+            HashMap<Integer, String> top50pages = r.top50();
+            System.out.println(top50pages);
         }
 
         catch (RocksDBException e) {
