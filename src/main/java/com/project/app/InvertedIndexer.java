@@ -29,7 +29,7 @@ public class InvertedIndexer extends Indexer
         // Add a "docX Y" entry for the key "word" into hashtable
         String docID = idManager.getUrlId(url); 
         String wordID = idManager.getWordId(word);
-        if(wordID == "") System.out.println("key null: " + word);
+        // if(wordID == "") System.out.println("key null: " + word);
         if (word == "" || word == null) return;
         byte[] content = db.get(wordID.getBytes());
         if (content == null) {

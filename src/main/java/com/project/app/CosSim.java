@@ -43,7 +43,6 @@ public class CosSim extends Indexer{
             weights.put(temp[0], temp[1]);
         }   
         return weights; 
-        
     }
     private HashMap<String, String> docs_t(Integer indexer, String WID) throws RocksDBException
     {

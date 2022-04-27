@@ -53,8 +53,6 @@ public class Parser {
      * @param forwardIndexer forward db
      * @param ppIndexer page properties db
      * @param tfIndexer term frequency db
-     * @param parentIndexer parent db
-     * @param childIndexer child db
      */
     public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer,PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer, ParentIndexer parentIndexer, ChildIndexer childIndexer) {
         this.idManager = new IDManager(pidIndexer, widIndexer);
@@ -64,7 +62,7 @@ public class Parser {
         this.ppIndexer = ppIndexer;
         this.stemmer = new StopStem("stopwords.txt");
         this.tfIndexer = tfIndexer; 
-        this.parentIndexer = parentIndexer;
+        this.parentIndexer = parentIndexer; 
         this.childIndexer = childIndexer; 
     }
 
@@ -88,11 +86,11 @@ public class Parser {
      * Extracts words from stemmed body and stemmed title, is overload of {@link #extractWords(Document)}
      * @param doc
      * @param title
-     * @return
+     * @return vector of all the words
      */
-    private Vector<String> extractWords(String body, String title) {
+    protected Vector<String> extractWords(String body, String title) {
         Vector<String> result = new Vector<String>();
-        String temp = title.concat(body);
+        String temp = title.concat(" " + body);
         StringTokenizer s = new StringTokenizer(temp);
         
         while (s.hasMoreTokens()) {
@@ -176,9 +174,12 @@ public class Parser {
         
         // DO STEMMING HERE
         HashMap<String, String> stemmedWordPos = stemmer.ss(wordPosition);
-        System.out.println(stemmedWordPos);
+        // System.out.println("word pos");
+        // System.out.println(wordPosition);
+        // System.out.println("stem word pos");
+        // System.out.println(stemmedWordPos);
 
-        for (Map.Entry<String, String> set: stemmedWordPos.entrySet()) {
+        for (Map.Entry<String, String> set: wordPosition.entrySet()) {
             try {
                 indexer.addEntry(url, set.getKey(), set.getValue()); 
             } catch (RocksDBException e) {

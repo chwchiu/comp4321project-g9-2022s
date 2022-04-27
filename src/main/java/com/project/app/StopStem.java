@@ -4,7 +4,6 @@ import java.io.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.security.Key;
 import java.util.HashMap;
 import java.util.regex.*; 
 import java.util.Vector; 
@@ -85,13 +84,7 @@ public class StopStem {
 				}
 			}
 		});
-		HashMap<String, String> stemmedHashMap2 = new HashMap<String, String>();
-    stemmedHashMap.forEach((key, val) -> {
-      if(key != "") stemmedHashMap2.put(key, val);
-    });
-
-
-		return stemmedHashMap2;
+		return stemmedHashMap;
 	}
 
 	/**

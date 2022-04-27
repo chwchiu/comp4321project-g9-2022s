@@ -35,7 +35,7 @@ public class WeightCalc extends Indexer {
      * @param s string to parse
      * @return returns hashmap of all tf in a document
      */
-    private HashMap<String, Integer> parseTF(String s) {
+    protected HashMap<String, Integer> parseTF(String s) {
         HashMap<String, Integer> wordFreq = new HashMap<String, Integer>(); 
         String temp = s;
         if (s.charAt(0) == ',' || s.charAt(0) == ' ') 
@@ -54,7 +54,7 @@ public class WeightCalc extends Indexer {
      * @param s all the words in a document
      * @return returns a list of all the words in a document
      */
-    private ArrayList<String> parseWords(String s) {
+    protected ArrayList<String> parseWords(String s) {
         ArrayList<String> words = new ArrayList<String>(); 
         String temp = s; 
         if (s.charAt(0) == ',' || s.charAt(0) == ' ')
@@ -74,7 +74,7 @@ public class WeightCalc extends Indexer {
      * @return int value of the document frequency
      */
 
-    private int getDocFreq(String wordID) throws RocksDBException{
+    protected int getDocFreq(String wordID) throws RocksDBException{
         String bodyListOfDocs = new String(bodyDB.getByKey(wordID));   //Gets the list of documents with word in body ]
         String [] arr = bodyListOfDocs.split(" "); 
         return arr.length; 
