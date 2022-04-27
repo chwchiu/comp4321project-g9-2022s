@@ -17,7 +17,7 @@ public class CosSim extends Indexer{
     protected Vector<String> query; 
     private Parser parser; 
 
-    CosSim(String dbPath, IDManager idManager, Vector<String> query, WeightCalc weighter, ForwardIndexer forwardDB, InvertedIndexer  titleDB, InvertedIndexer bodyDB, Parser parser) throws RocksDBException
+    CosSim(String dbPath, IDManager idManager, Vector<String> query, WeightCalc weighter, ForwardIndexer forwardDB, InvertedIndexer  titleDB, InvertedIndexer bodyDB) throws RocksDBException
     {
         super(dbPath);
         this.idManager = idManager;
@@ -25,7 +25,6 @@ public class CosSim extends Indexer{
         this.titleDB = titleDB;
         this.bodyDB = bodyDB; 
         this.query = query; 
-        this.parser = parser;
         this.weighter = weighter;  
     }
 
