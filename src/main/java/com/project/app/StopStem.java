@@ -84,7 +84,13 @@ public class StopStem {
 				}
 			}
 		});
-		return stemmedHashMap;
+
+		HashMap<String, String> stemmedHashMap2 = new HashMap<String, String>();
+    stemmedHashMap.forEach((key, val) -> {
+      if(key != "") stemmedHashMap2.put(key, val);
+    });
+
+		return stemmedHashMap2;
 	}
 
 	/**
