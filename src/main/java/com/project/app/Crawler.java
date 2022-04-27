@@ -171,7 +171,8 @@ public class Crawler {
                 
                 p.parse(res, focus.url, links); 
                 for(String link: links) {
-                    this.todos.add(new Link(link, focus.level + 1)); // add links
+                    if (link.contains("https://cse.hkust.edu.hk/"))
+                        this.todos.add(new Link(link, focus.level + 1)); // add links
                 }
             } catch (SSLHandshakeException e) {
                 System.out.printf("\nSSLHandshakeException: %s", focus.url);

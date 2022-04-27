@@ -263,13 +263,13 @@ public class Parser {
             if (forwardIndexer.getByKey(idManager.getUrlId(actualURL)) == "") {
                 Vector<String> actualLinks = new Vector<>(); 
                 for (String link : links) {
-                    String actualLink = getActualLink(link);
-                    while (actualLink.charAt(actualLink.length() - 1) == '/')
-                        actualLink = actualLink.substring(0, actualLink.length() - 1); 
-                    System.out.println("The nonped link: " + link + "endhere"); 
-                    System.out.println("The parsed link: " +  actualLink + "endhere"); 
-                    idManager.addUrl(actualLink);
-                    actualLinks.add(actualLink); 
+                    if (link.contains("https://cse.hkust.edu.hk/")) {
+                        String actualLink = getActualLink(link);
+                        while (actualLink.charAt(actualLink.length() - 1) == '/')
+                            actualLink = actualLink.substring(0, actualLink.length() - 1);  
+                        idManager.addUrl(actualLink);
+                        actualLinks.add(actualLink); 
+                    }
                 }
 
                 if (idManager.getUrlId(actualURL) != "") {
