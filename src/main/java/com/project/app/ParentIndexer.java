@@ -3,8 +3,10 @@ package com.project.app;
 import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException; 
 import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
-import java.util.HashMap; 
+import java.util.HashMap;
+import java.util.HashSet; 
 
 public class ParentIndexer extends Indexer {
     private IDManager idManager;
@@ -26,11 +28,21 @@ public class ParentIndexer extends Indexer {
      * @throws RocksDBException rocks db exception 
      */
     public void addEntry(Vector<String> links, String parent) throws RocksDBException{
+        Set<String> set = new HashSet<String>();
+        set.addAll(links);
+        Vector<String> temp = new Vector<>(); 
+        temp.addAll(set); 
         String parentID = idManager.getUrlId(parent); 
-        byte[] content = parentID.getBytes(); 
-        for (String link : links) {
+        byte [] content; 
+        for (String link : temp) {
             String docID = idManager.getUrlId(link); 
-            db.put(docID.getBytes(), content);
+            content = db.get(docID.getBytes());
+            if (content == null) {
+                content = parentID.getBytes();
+            } else {
+                content = (new String(content) + " " + parentID).getBytes();
+            }
+            db.put(docID.getBytes(), content); 
         }
     }
 }
