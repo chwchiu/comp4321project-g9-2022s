@@ -145,9 +145,11 @@ public class Parser {
             return linkStripPound; 
         } catch (SSLHandshakeException e) {
             String linkStripPound = link.split("#")[0]; 
+            linkStripPound = linkStripPound.split("\\?")[0]; 
             return linkStripPound; 
         } catch (IOException e) {
             String linkStripPound = link.split("#")[0]; 
+            linkStripPound = linkStripPound.split("\\?")[0]; 
             return linkStripPound;
         }
     }
@@ -248,6 +250,9 @@ public class Parser {
             //System.out.println(actualURL); 
 
             //stop stem
+            while (actualURL.charAt(actualURL.length() - 1) == '/') 
+                actualURL = actualURL.substring(0, actualURL.length() - 1); 
+
             System.out.println(actualURL);
             String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
@@ -259,8 +264,10 @@ public class Parser {
                 Vector<String> actualLinks = new Vector<>(); 
                 for (String link : links) {
                     String actualLink = getActualLink(link);
-                    if (actualLink.charAt(actualLink.length() - 1) == '/') 
+                    while (actualLink.charAt(actualLink.length() - 1) == '/')
                         actualLink = actualLink.substring(0, actualLink.length() - 1); 
+                    System.out.println("The nonped link: " + link + "endhere"); 
+                    System.out.println("The parsed link: " +  actualLink + "endhere"); 
                     idManager.addUrl(actualLink);
                     actualLinks.add(actualLink); 
                 }

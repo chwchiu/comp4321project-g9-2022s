@@ -43,7 +43,7 @@ public class App
             Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer, tfIndexer, pi, ci);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
 
-            c.crawlLoop();  //Crawl
+            // c.crawlLoop();  //Crawl
             // weightCalc.processWeight();   //Process all weights  
 
             // idManager.toTextFile("pidPrint.txt", "widPrint.txt");

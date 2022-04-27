@@ -161,7 +161,7 @@ public class Crawler {
             /* start to crawl on the page */
             try {
                 String actualURL = p.getActualLink(focus.url); 
-                if (actualURL.charAt(actualURL.length() - 1) == '/') 
+                while (actualURL.charAt(actualURL.length() - 1) == '/') 
                     actualURL = actualURL.substring(0, actualURL.length() - 1); 
 
                 
