@@ -16,26 +16,16 @@ import org.rocksdb.RocksDBException;
 // import org.rocksdb.RocksIterator;
 import javax.net.ssl.SSLHandshakeException; 
 import java.net.*; 
-/** The data structure for the crawling queue.
- */
-// class Link{
-//     String url;
-//     int level;
-//     Link (String url, int level) {  
-//         this.url = url;
-//         this.level = level;
-//     }  
-// }
  
 // @SuppressWarnings("serial")
 /** This is customized exception for those pages that have been visited before.
  */
-// class RevisitException
-//     extends RuntimeException {
-//     public RevisitException() {
-//         super();
-//     }
-// }
+class RevisitException
+    extends RuntimeException {
+    public RevisitException() {
+        super();
+    }
+}
 
 /** Crawler crawls pages starting from url
  */ 
@@ -54,11 +44,13 @@ public class Crawler {
         this.p = p; 
     }
    
+
     /**
      * Send an HTTP request and analyze the response, then send to Parser
+     * @param url the url to check the response code of 
      * @return {Response} res
-     * @throws HttpStatusException for non-existing pages
-     * @throws IOException
+     * @throws HttpStatusException throws non-existing pages
+     * @throws IOException I/O Exception
      */
     public Response getResponse(String url) throws HttpStatusException, IOException {
         if (this.urls.contains(url)) {
@@ -99,22 +91,6 @@ public class Crawler {
         // System.out.printf("Language: %s\n", lang);
         return res;
     }
-   
-    // /** Extract words in the web page content.
-    //  * note: use StringTokenizer to tokenize the result
-    //  * @param {Document} doc
-    //  * @return {Vector<String>} a list of words in the web page body
-    //  */
-    // public Vector<String> extractWords(Document doc) {
-    //      Vector<String> result = new Vector<String>();
-    //     // ADD YOUR CODES HERE
-    //      String temp = doc.body().text();
-    //      StringTokenizer s = new StringTokenizer(temp);
-    //      while (s.hasMoreTokens()) {
-    //          result.add(s.nextToken());
-    //      }
-    //      return result;
-    // }
 
     /** NOTE: NOT USED RIGHT NOW DONT DELETE YET
         Used to check for redirects
@@ -171,11 +147,9 @@ public class Crawler {
         }
         return result;
     }
-   
-   
+
     /** Use a queue to manage crawl tasks.
-     * @see "Then sends to:"
-     * @see {@link Parser#parse(Response, String, Vector)}
+     * @see Parser#parse(Response, String, Vector)
      */
     public void crawlLoop() {
         //init indexer
@@ -186,11 +160,14 @@ public class Crawler {
             if (this.urls.contains(focus.url)) continue;   // ignore pages that has been visited
             /* start to crawl on the page */
             try {
-                Response res = this.getResponse(focus.url);
+                String actualURL = p.getActualLink(focus.url); 
+                while (actualURL.charAt(actualURL.length() - 1) == '/') 
+                    actualURL = actualURL.substring(0, actualURL.length() - 1); 
+
+                
+                Response res = this.getResponse(actualURL);
                 Document doc = res.parse(); 
                 Vector<String> links = this.extractLinks(doc, focus);
-                
-                //System.out.println(focus.url + " " + focus.level);
                 
                 p.parse(res, focus.url, links); 
                 for(String link: links) {
@@ -204,18 +181,8 @@ public class Crawler {
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (RevisitException e) {
-                System.out.println("TESTING12311\n");
                 e.printStackTrace(); 
             } 
         }
-            // UNCOMMENT THIS LATER
-            // index.toTextFile("spider_result2.txt");
     }
-   
-    // public static void main (String[] args) {
-    //     RocksDB.loadLibrary();
-    //     String url = "https://cse.hkust.edu.hk/";
-    //     Crawler crawler = new Crawler(url);
-    //     crawler.crawlLoop();
-    // }
 }

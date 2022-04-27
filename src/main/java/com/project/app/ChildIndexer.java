@@ -3,9 +3,10 @@ package com.project.app;
 import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException; 
 import java.util.Map;
+import java.util.Vector;
 import java.util.HashMap; 
 
-public class TFIndexer extends Indexer {
+public class ChildIndexer extends Indexer {
     private IDManager idManager;
 
     /**
@@ -14,7 +15,7 @@ public class TFIndexer extends Indexer {
      * @param idManager the manager for ids
      * @throws RocksDBException rocks db exception 
      */
-    TFIndexer(String dbPath, IDManager idManager) throws RocksDBException {
+    ChildIndexer(String dbPath, IDManager idManager) throws RocksDBException {
         super(dbPath); 
         this.idManager = idManager; 
     }
@@ -24,15 +25,15 @@ public class TFIndexer extends Indexer {
      * @param wordFreq a hashmap of word : tf key pairs
      * @throws RocksDBException rocks db exception 
      */
-    public void addEntry(String url, HashMap<String, Integer> wordFreq) throws RocksDBException{
-        String formattedWordFreq = ""; 
-        for (Map.Entry<String, Integer> set : wordFreq.entrySet()) {
-            String wordID = idManager.getWordId(set.getKey()); 
-            formattedWordFreq = formattedWordFreq + "," + wordID + ":" + set.getValue();
+    public void addEntry(Vector<String> children, String url) throws RocksDBException{
+        String formattedChildren = ""; 
+        for (String child : children) {
+            String docID = idManager.getUrlId(child);  
+            formattedChildren = formattedChildren + " " + docID; 
         }
-        
-        byte[] content = formattedWordFreq.getBytes();
-        String docID = idManager.getUrlId(url); 
-        db.put(docID.getBytes(), content); 
+        byte[] content = formattedChildren.trim().getBytes();
+
+        String parent = idManager.getUrlId(url); 
+        db.put(parent.getBytes(), content); 
     }
 }

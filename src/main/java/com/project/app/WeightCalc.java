@@ -11,6 +11,16 @@ public class WeightCalc extends Indexer {
     protected InvertedIndexer bodyDB; 
     private IDManager idManager;
 
+    /**
+     * The constructor for the weight calculation class
+     * @param weightdbPath the path for the weights
+     * @param TFDB the tf db
+     * @param forwardDB the forward db
+     * @param titleDB the title db
+     * @param bodyDB the body db
+     * @param idManager the id db
+     * @throws RocksDBException rocks db exception 
+     */
     WeightCalc(String weightdbPath, TFIndexer TFDB, ForwardIndexer forwardDB, InvertedIndexer  titleDB, InvertedIndexer bodyDB, IDManager idManager) throws RocksDBException {
         super(weightdbPath); 
         this.TFDB = TFDB; 
@@ -25,7 +35,7 @@ public class WeightCalc extends Indexer {
      * @param s string to parse
      * @return returns hashmap of all tf in a document
      */
-    private HashMap<String, Integer> parseTF(String s) {
+    protected HashMap<String, Integer> parseTF(String s) {
         HashMap<String, Integer> wordFreq = new HashMap<String, Integer>(); 
         String temp = s;
         if (s.charAt(0) == ',' || s.charAt(0) == ' ') 
@@ -44,7 +54,7 @@ public class WeightCalc extends Indexer {
      * @param s all the words in a document
      * @return returns a list of all the words in a document
      */
-    private ArrayList<String> parseWords(String s) {
+    protected ArrayList<String> parseWords(String s) {
         ArrayList<String> words = new ArrayList<String>(); 
         String temp = s; 
         if (s.charAt(0) == ',' || s.charAt(0) == ' ')
@@ -64,7 +74,7 @@ public class WeightCalc extends Indexer {
      * @return int value of the document frequency
      */
 
-    private int getDocFreq(String wordID) throws RocksDBException{
+    protected int getDocFreq(String wordID) throws RocksDBException{
         String bodyListOfDocs = new String(bodyDB.getByKey(wordID));   //Gets the list of documents with word in body ]
         String [] arr = bodyListOfDocs.split(" "); 
         return arr.length; 
@@ -74,6 +84,7 @@ public class WeightCalc extends Indexer {
     /** Adds url, term frequency list key pair into tf database
      * @param doc the document 
      * @param weights list of all weights of the doc
+     * @throws RocksDBException rocks db exception
      */
     public void addEntry(String doc, String weights) throws RocksDBException{
         byte[] content = weights.getBytes();
@@ -96,9 +107,6 @@ public class WeightCalc extends Indexer {
         for (iter2.seekToFirst(); iter2.isValid(); iter2.next()) {                 
             HashMap<String, Double> weightsOfDoc = new HashMap<String, Double>();    
             String docID = new String(iter2.key()); 
-            if (docID == null) { //Skip the null key FIND A WAY TO CHECK NULL KEY REVIEW THIS LATER
-                continue; 
-            }
 
             //Get list of all words in a doc
             ArrayList<String> wordList = parseWords(new String(iter2.value()));       

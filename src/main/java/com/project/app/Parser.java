@@ -26,12 +26,12 @@ import java.util.Arrays;
 @SuppressWarnings("serial")
 /** This is customized exception for those pages that have been visited before.
  */
-class RevisitException
-    extends RuntimeException {
-    public RevisitException() {
-        super();
-    }
-}
+// class RevisitException
+//     extends RuntimeException {
+//     public RevisitException() {
+//         super();
+//     }
+// }
 
 public class Parser {
     private IDManager idManager;
@@ -41,9 +41,20 @@ public class Parser {
     private PagePropertiesIndexer ppIndexer;
     private StopStem stemmer;
     private TFIndexer tfIndexer; 
+    private ParentIndexer parentIndexer; 
+    private ChildIndexer childIndexer; 
 
-
-    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer, PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer) {
+    /**
+     * Constructor for the parser
+     * @param pidIndexer page id db
+     * @param widIndexer word id db
+     * @param titleIndexer title text db
+     * @param bodyIndexer body text db
+     * @param forwardIndexer forward db
+     * @param ppIndexer page properties db
+     * @param tfIndexer term frequency db
+     */
+    public Parser(IDIndexer pidIndexer, IDIndexer widIndexer, InvertedIndexer titleIndexer, InvertedIndexer bodyIndexer, ForwardIndexer forwardIndexer,PagePropertiesIndexer ppIndexer, TFIndexer tfIndexer, ParentIndexer parentIndexer, ChildIndexer childIndexer) {
         this.idManager = new IDManager(pidIndexer, widIndexer);
         this.titleIndexer = titleIndexer;
         this.bodyIndexer = bodyIndexer;
@@ -51,6 +62,8 @@ public class Parser {
         this.ppIndexer = ppIndexer;
         this.stemmer = new StopStem("stopwords.txt");
         this.tfIndexer = tfIndexer; 
+        this.parentIndexer = parentIndexer; 
+        this.childIndexer = childIndexer; 
     }
 
     /** Extract words in the web page content.
@@ -73,11 +86,11 @@ public class Parser {
      * Extracts words from stemmed body and stemmed title, is overload of {@link #extractWords(Document)}
      * @param doc
      * @param title
-     * @return
+     * @return vector of all the words
      */
-    private Vector<String> extractWords(String body, String title) {
+    protected Vector<String> extractWords(String body, String title) {
         Vector<String> result = new Vector<String>();
-        String temp = title.concat(body);
+        String temp = title.concat(" " + body);
         StringTokenizer s = new StringTokenizer(temp);
         
         while (s.hasMoreTokens()) {
@@ -89,8 +102,8 @@ public class Parser {
     
     /**
      * Extracts words String text, is overload of {@link #extractWords(Document)}
-     * @param text
-     * @return Vector<String> of all the words in the text
+     * @param text the text that we have to extract words from 
+     * @return Vector of all the words in the text
      */
     public Vector<String> extractWords(String text) {
         Vector<String> result = new Vector<String>();
@@ -114,27 +127,35 @@ public class Parser {
         idManager.addWords(words);
     }
 
-    private String getActualLink(String link){
+    public String getActualLink(String link){
         try {
             String linkStripPound = link.split("#")[0]; 
+            linkStripPound = linkStripPound.split("\\?")[0]; 
             URL url = new URL(linkStripPound);
             HttpURLConnection http = (HttpURLConnection)url.openConnection();
             http.setInstanceFollowRedirects(false); 
             http.connect(); 
             int responseCode = http.getResponseCode();
-            if (responseCode == 301 || responseCode == 302) 
-                return http.getHeaderField("Location"); 
+            if (responseCode == 301 || responseCode == 302) {
+                String redirectLink = http.getHeaderField("Location"); 
+                redirectLink = link.split("#")[0];
+                redirectLink = link.split("\\?")[0]; 
+                return redirectLink; 
+            }
             return linkStripPound; 
         } catch (SSLHandshakeException e) {
             String linkStripPound = link.split("#")[0]; 
+            linkStripPound = linkStripPound.split("\\?")[0]; 
             return linkStripPound; 
         } catch (IOException e) {
             String linkStripPound = link.split("#")[0]; 
+            linkStripPound = linkStripPound.split("\\?")[0]; 
             return linkStripPound;
         }
     }
     /**
      * Method for handling the parsing and inserting into the inverted indexers
+     * @param url the url to insert
      * @param text the text that needs to be inserted
      * @param indexer the invereted indexer to handle the inserting
      */
@@ -171,6 +192,7 @@ public class Parser {
 
     /**
      * Method for handling the parsing and inserting into the forward indexers
+     * @param url url to parse
      * @param body the text from the page body that needs to be inserted
      * @param title the text from the page title tha needs to be inserted 
      * @param forward the forward indexer to handle the inserting
@@ -215,49 +237,68 @@ public class Parser {
     
     /**
      * Performs document parsing and sends to relevant indexers
-     * @param res
-     * @param url
-     * @param links
+     * @param res  the response of the connection
+     * @param url  the url to parse
+     * @param links the child links for the url
      */
     public void parse(Response res, String url, Vector<String> links) {
         try {
             RocksDB.loadLibrary();
             Document doc = res.parse();
             
-            String actualURL = getActualLink(url);  //USE THIS URL WHEN INDEXING, HANDLES REDIRECTING AND DUPLICATE LINKS
+            String actualURL = url; 
             //System.out.println(actualURL); 
 
             //stop stem
-            System.out.println(url);
+            while (actualURL.charAt(actualURL.length() - 1) == '/') 
+                actualURL = actualURL.substring(0, actualURL.length() - 1); 
+
+            System.out.println(actualURL);
             String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
 
             //Handle ID adding here
             manageIDs(body, title, actualURL);
-
-            if (idManager.getUrlId(actualURL) != "") {
-                //Handle adding to forward Index And Term Frequency
-                forwardIndexAndTFParseAndInsert(actualURL, body, title, forwardIndexer, tfIndexer);
-
-                //Handle adding to body
-                invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
             
-                //Handle adding to title
-                invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
-
-                //Handle adding to page prop
-                String lastModified = res.header("last-modified");
-                if (lastModified == null) {
-                    String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
-                    lastModified = temp[temp.length - 1]; 
-                    if (lastModified == "")
-                        lastModified = "N/A"; 
+            if (forwardIndexer.getByKey(idManager.getUrlId(actualURL)) == "") {
+                Vector<String> actualLinks = new Vector<>(); 
+                for (String link : links) {
+                    String actualLink = getActualLink(link);
+                    while (actualLink.charAt(actualLink.length() - 1) == '/')
+                        actualLink = actualLink.substring(0, actualLink.length() - 1); 
+                    System.out.println("The nonped link: " + link + "endhere"); 
+                    System.out.println("The parsed link: " +  actualLink + "endhere"); 
+                    idManager.addUrl(actualLink);
+                    actualLinks.add(actualLink); 
                 }
 
-                String size = Integer.toString(res.bodyAsBytes().length);
-                ppIndexer.addEntry(actualURL, lastModified, size); 
-            } else {
-                System.out.println("null key:" + actualURL); 
+                if (idManager.getUrlId(actualURL) != "") {
+                    //Handle adding to forward Index And Term Frequency
+                    forwardIndexAndTFParseAndInsert(actualURL, body, title, forwardIndexer, tfIndexer);
+
+                    //Handle adding to body
+                    invertedIndexParseAndInsert(actualURL, doc.body().text(), bodyIndexer); 
+                
+                    //Handle adding to title
+                    invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
+
+                    //Handle adding to page prop
+                    String lastModified = res.header("last-modified");
+                    if (lastModified == null) {
+                        String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
+                        lastModified = temp[temp.length - 1]; 
+                        if (lastModified == "")
+                            lastModified = "N/A"; 
+                    }
+
+                    String size = Integer.toString(res.bodyAsBytes().length);
+                    ppIndexer.addEntry(actualURL, lastModified, size); 
+
+                    parentIndexer.addEntry(actualLinks, actualURL);
+                    childIndexer.addEntry(actualLinks, actualURL); 
+                } else {
+                    System.out.println("null key:" + actualURL); 
+                }
             }
         } catch (SSLHandshakeException e) {
             System.out.printf("\nSSLHandshakeException: %s", url);
@@ -275,6 +316,11 @@ public class Parser {
         }
     }
 
+    /**
+     * Function to assist with parsing the input
+     * @param input the input to turn into a vector
+     * @return returns a parsed vector of the input
+     */
     public Vector<String> parseInput(String input)
     {
         //parse input and stem it

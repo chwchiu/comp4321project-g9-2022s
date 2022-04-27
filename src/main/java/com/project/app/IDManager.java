@@ -15,7 +15,7 @@ public class IDManager{
 
     /**
      * Creates an ID for new words, nothing happens if a word has an ID
-     * @param words
+     * @param words the list words to add
      */
     public void addWords(Vector<String> words)
     {
@@ -32,7 +32,7 @@ public class IDManager{
 
     /**
      * Creates an ID for new urls, nothing happens if url already has an ID
-     * @param url
+     * @param url the url to add into db
      * @see IDIndexer#addEntry(String)
      */
     public void addUrl(String url)
@@ -48,8 +48,9 @@ public class IDManager{
     
     /**
      * Gets id of URL by passing a String url into it, returns an empty string if no id found.
-     * @param url
+     * @param url the url 
      * @return String pageID
+     * @throws RocksDBException rocks db exception
      */
     public String getUrlId(String url) throws RocksDBException
     {
@@ -58,14 +59,21 @@ public class IDManager{
 
     /**
      * Gets id of word by passing a String word into it, returns an empty string if no id found.
-     * @param url
+     * @param word the word 
      * @return String wordID
+     * @throws RocksDBException rocks db excception
      */
     public String getWordId(String word) throws RocksDBException
     {
         return wid.getByKey(word);
     }
 
+    /**
+     * Gets url from id
+     * @param id the id
+     * @return the url
+     * @throws RocksDBException rocks db exception
+     */
     public String getUrlFromId(String id) throws RocksDBException
     {
         return pid.getKeyfromVal(id);
@@ -73,8 +81,8 @@ public class IDManager{
 
     /**
      * Debugging function to printAll both Page and Word ID Indexers
-     * @throws RocksDBException
-     * @see {@link Indexer#printAll()}
+     * @throws RocksDBException rocks db exception
+     * @see Indexer#printAll()
      */
     public void printAll() throws RocksDBException
     {
@@ -88,7 +96,8 @@ public class IDManager{
      * Creates 2 text files
      * @param pidPath path for first text file
      * @param widPath path for second text file
-     * @see {@link Indexer#toTextFile()}
+     * @see Indexer#toTextFile
+     * @throws RocksDBException rocks db exception
      */
     public void toTextFile(String pidPath, String widPath) throws RocksDBException
     {

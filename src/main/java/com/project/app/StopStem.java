@@ -44,8 +44,8 @@ public class StopStem {
 
 	/**
 	 * main method for stopstemming
-	 * @param str
-	 * @return
+	 * @param str the string to stop stem
+	 * @return the stem
 	 */
 	public String ss(String str){
 		String stemmedString = "";
@@ -65,8 +65,8 @@ public class StopStem {
 
 	/**
 	 * Custom stop stem for wordPosition HashMap
-	 * @param wordPosition
-	 * @return
+	 * @param wordPosition the hashmap of wordid, word positions
+	 * @return a version of the hashmap with all the keys stemmed
 	 */
 	public HashMap<String, String> ss(HashMap<String, String> wordPosition)
 	{
@@ -84,13 +84,19 @@ public class StopStem {
 				}
 			}
 		});
-		return stemmedHashMap;
+
+		HashMap<String, String> stemmedHashMap2 = new HashMap<String, String>();
+    stemmedHashMap.forEach((key, val) -> {
+      if(key != "") stemmedHashMap2.put(key, val);
+    });
+
+		return stemmedHashMap2;
 	}
 
 	/**
 	 * Method to parse the query into a vector string, supports phrase search
 	 * @param query  the string to parse
-	 * @return a vector<string> 
+	 * @return a vector of strings
 	 */
 	public Vector<String> parseQuery(String query) {
 		Vector<String> result = new Vector<String>(); 
