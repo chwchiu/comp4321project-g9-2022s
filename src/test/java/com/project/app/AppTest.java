@@ -44,7 +44,7 @@ public class AppTest
         testbodyIndexer = new InvertedIndexer("./testdb/testBodyIndex", testidManager);
         testtitleIndexer = new InvertedIndexer("./testdb/testTitleIndex", testidManager);
         testforwardIndexer = new ForwardIndexer("./testdb/testForwardIndex", testidManager);
-        testtfIndexer = new TFIndexer("./db/TFIndex", testidManager);
+        testtfIndexer = new TFIndexer("./testdb/testTFIndex", testidManager);
         testci = new ChildIndexer("./testdb/testChildIndex", testidManager);
         testpi = new ParentIndexer("./testdb/testParentIndex", testidManager);
         p = new Parser(testpidIndexer, testwidIndexer, testtitleIndexer, testbodyIndexer, testforwardIndexer, testppIndexer, testtfIndexer, testpi, testci);

@@ -46,7 +46,7 @@ public class App
             c.crawlLoop();  //Crawl
             // weightCalc.processWeight();   //Process all weights  
 
-            idManager.toTextFile("pidPrint.txt", "widPrint.txt");
+            // idManager.toTextFile("pidPrint.txt", "widPrint.txt");
 
             // bodyIndexer.printAll();       // UNCOMMENT TO CHECK THE DATABASE
             // titleIndexer.printAll(); 
@@ -60,8 +60,8 @@ public class App
             // bodyIndexer.toTextFile("bodyIndexer.txt");
             // titleIndexer.toTextFile("titleIndexer.txt");
  
-            // ci.toTextFile("ci.txt");
-            // pi.toTextFile("pi.txt");
+            ci.toTextFile("ci.txt");
+            pi.toTextFile("pi.txt");
             // Scanner s = new Scanner(System.in); 
             // System.out.println("Enter your query: "); 
             // String query = s.nextLine(); 

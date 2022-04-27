@@ -256,11 +256,13 @@ public class Parser {
             manageIDs(body, title, actualURL);
             
             if (forwardIndexer.getByKey(idManager.getUrlId(actualURL)) == "") {
+                Vector<String> actualLinks = new Vector<>(); 
                 for (String link : links) {
                     String actualLink = getActualLink(link);
                     if (actualLink.charAt(actualLink.length() - 1) == '/') 
                         actualLink = actualLink.substring(0, actualLink.length() - 1); 
                     idManager.addUrl(actualLink);
+                    actualLinks.add(actualLink); 
                 }
 
                 if (idManager.getUrlId(actualURL) != "") {
@@ -285,8 +287,8 @@ public class Parser {
                     String size = Integer.toString(res.bodyAsBytes().length);
                     ppIndexer.addEntry(actualURL, lastModified, size); 
 
-                    parentIndexer.addEntry(links, actualURL);
-                    childIndexer.addEntry(links, actualURL); 
+                    parentIndexer.addEntry(actualLinks, actualURL);
+                    childIndexer.addEntry(actualLinks, actualURL); 
                 } else {
                     System.out.println("null key:" + actualURL); 
                 }
