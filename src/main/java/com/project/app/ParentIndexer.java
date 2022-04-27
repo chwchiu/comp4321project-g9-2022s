@@ -26,7 +26,7 @@ public class ParentIndexer extends Indexer {
      * @throws RocksDBException rocks db exception 
      */
     public void addEntry(Vector<String> links, String parent) throws RocksDBException{
-        String parentID = idManager.getUrlId(parent); 
+        String parentID = idManager.getUrlId(parent);
         byte[] content = parentID.getBytes(); 
         for (String link : links) {
             String docID = idManager.getUrlId(link); 
