@@ -12,11 +12,6 @@ public class Indexer {
     // public String name = "";
     protected RocksDB db;
 
-    /**
-     * Constructor for the indexer
-     * @param dbPath the path for the database 
-     * @throws RocksDBException rocks db exception 
-     */
     Indexer(String dbPath) throws RocksDBException
     {
         // the Options class contains a set of configurable DB options
@@ -30,9 +25,9 @@ public class Indexer {
 
     /**
      * Returns String val associated with key, returns empty String if key not found
-     * @param key the key to search for 
-     * @return the value based on the key
-     * @throws RocksDBException rocks db exception
+     * @param key
+     * @return
+     * @throws RocksDBException
      */
     public String getByKey(String key) throws RocksDBException
     {
@@ -43,8 +38,8 @@ public class Indexer {
     
     /**
      * Deletes an entry from db
-     * @param word to key of the entry to delete
-     * @throws RocksDBException rocks db exception
+     * @param word key
+     * @throws RocksDBException
      */
     public void delEntry(String word) throws RocksDBException
     {
@@ -53,7 +48,7 @@ public class Indexer {
 
     /**
      * Prints everything in the db
-     * @throws RocksDBException rocks db exception
+     * @throws RocksDBException
      */
     public void printAll() throws RocksDBException
     {
@@ -67,8 +62,8 @@ public class Indexer {
 
     /**
      * Alternative to printing everything, instead sends contents of db to a text file
-     * @param filePath the path to write to 
-     * @throws RocksDBException rocks db exception
+     * @param word key
+     * @throws RocksDBException
      */
     public void toTextFile(String filePath) throws RocksDBException
     {

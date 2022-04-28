@@ -128,30 +128,30 @@ public class Parser {
     }
 
     public String getActualLink(String link){
-        try {
-            String linkStripPound = link.split("#")[0]; 
-            linkStripPound = linkStripPound.split("\\?")[0]; 
-            URL url = new URL(linkStripPound);
-            HttpURLConnection http = (HttpURLConnection)url.openConnection();
-            http.setInstanceFollowRedirects(false); 
-            http.connect(); 
-            int responseCode = http.getResponseCode();
-            if (responseCode == 301 || responseCode == 302) {
-                String redirectLink = http.getHeaderField("Location"); 
-                redirectLink = link.split("#")[0];
-                redirectLink = link.split("\\?")[0]; 
-                return redirectLink; 
-            }
-            return linkStripPound; 
-        } catch (SSLHandshakeException e) {
-            String linkStripPound = link.split("#")[0]; 
-            linkStripPound = linkStripPound.split("\\?")[0]; 
-            return linkStripPound; 
-        } catch (IOException e) {
-            String linkStripPound = link.split("#")[0]; 
-            linkStripPound = linkStripPound.split("\\?")[0]; 
-            return linkStripPound;
-        }
+        // try {
+        String linkStripPound = link.split("#")[0]; 
+        linkStripPound = linkStripPound.split("\\?")[0]; 
+            // URL url = new URL(linkStripPound);
+            // HttpURLConnection http = (HttpURLConnection)url.openConnection();
+            // http.setInstanceFollowRedirects(false); 
+            // http.connect(); 
+            // int responseCode = http.getResponseCode();
+            // if (responseCode == 301 || responseCode == 302) {
+            //     String redirectLink = http.getHeaderField("Location"); 
+            //     redirectLink = link.split("#")[0];
+            //     redirectLink = link.split("\\?")[0]; 
+            //     return redirectLink; 
+            // }
+        return linkStripPound; 
+        // } catch (SSLHandshakeException e) {
+        //     String linkStripPound = link.split("#")[0]; 
+        //     linkStripPound = linkStripPound.split("\\?")[0]; 
+        //     return linkStripPound; 
+        // } catch (IOException e) {
+        //     String linkStripPound = link.split("#")[0]; 
+        //     linkStripPound = linkStripPound.split("\\?")[0]; 
+        //     return linkStripPound;
+        // }
     }
     /**
      * Method for handling the parsing and inserting into the inverted indexers
@@ -241,17 +241,15 @@ public class Parser {
      * @param url  the url to parse
      * @param links the child links for the url
      */
-    public void parse(Response res, String url, Vector<String> links) {
+    public void parse(Document d, String url, Vector<String> links, String lastModified, String size) {
         try {
             RocksDB.loadLibrary();
-            Document doc = res.parse();
+            Document doc = d;
             
             String actualURL = url; 
             //System.out.println(actualURL); 
 
             //stop stem
-            while (actualURL.charAt(actualURL.length() - 1) == '/') 
-                actualURL = actualURL.substring(0, actualURL.length() - 1); 
 
             System.out.println(actualURL);
             String body = stemmer.ss(doc.body().text());
@@ -263,13 +261,9 @@ public class Parser {
             if (forwardIndexer.getByKey(idManager.getUrlId(actualURL)) == "") {
                 Vector<String> actualLinks = new Vector<>(); 
                 for (String link : links) {
-                    if (link.contains("https://cse.hkust.edu.hk/")) {
-                        String actualLink = getActualLink(link);
-                        while (actualLink.charAt(actualLink.length() - 1) == '/')
-                            actualLink = actualLink.substring(0, actualLink.length() - 1);  
-                        idManager.addUrl(actualLink);
-                        actualLinks.add(actualLink); 
-                    }
+                    String actualLink = getActualLink(link);
+                    idManager.addUrl(actualLink);
+                    actualLinks.add(actualLink); 
                 }
 
                 if (idManager.getUrlId(actualURL) != "") {
@@ -283,15 +277,6 @@ public class Parser {
                     invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
 
                     //Handle adding to page prop
-                    String lastModified = res.header("last-modified");
-                    if (lastModified == null) {
-                        String [] temp = doc.select("#footer > div > div:nth-child(2) > div > p > span").text().split(" ");
-                        lastModified = temp[temp.length - 1]; 
-                        if (lastModified == "")
-                            lastModified = "N/A"; 
-                    }
-
-                    String size = Integer.toString(res.bodyAsBytes().length);
                     ppIndexer.addEntry(actualURL, lastModified, size); 
 
                     parentIndexer.addEntry(actualLinks, actualURL);
@@ -300,13 +285,6 @@ public class Parser {
                     System.out.println("null key:" + actualURL); 
                 }
             }
-        } catch (SSLHandshakeException e) {
-            System.out.printf("\nSSLHandshakeException: %s", url);
-        } catch (HttpStatusException e) {
-            System.out.printf("\nLink Error: %s\n", url);
-            // e.printStackTrace ();
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (RevisitException e) {
             System.out.printf("RevisitException: %s\n", url);
             e.printStackTrace(); 
@@ -327,4 +305,4 @@ public class Parser {
         String stemmedInput = stemmer.ss(input);
         return extractWords(stemmedInput);
     }
-}
+} 

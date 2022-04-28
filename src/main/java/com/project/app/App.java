@@ -42,25 +42,28 @@ public class App
             ParentIndexer pi = new ParentIndexer("./db/ParentIndex", idManager);
             Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer, tfIndexer, pi, ci);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
+           //Crawler c = new Crawler("https://cse.hkust.edu.hk/ug/", p);
+            // bodyIndexer.addEntry("testing", "word", "15");
+            // bodyIndexer.addEntry("justAnotherTest", "word", "10"); 
+            //System.out.println(bodyIndexer.getByKey("testing"));
 
-            // c.crawlLoop();  //Crawl
-            // weightCalc.processWeight();   //Process all weights  
-
+            c.crawlLoop();  //Crawl
+            //weightCalc.processWeight();   //Process all weights  
             // idManager.toTextFile("pidPrint.txt", "widPrint.txt");
 
             // bodyIndexer.printAll();       // UNCOMMENT TO CHECK THE DATABASE
             // titleIndexer.printAll(); 
             // forwardIndexer.printAll();
             // ppIndexer.printAll(); 
-            //tfIndexer.printAll(); 
-            //weightCalc.printAll(); 
+            // tfIndexer.printAll(); 
+            // weightCalc.printAll(); 
             // pidIndexer.printAll();
             // tfIndexer.toTextFile("tfIndexer.txt");
             // forwardIndexer.toTextFile("forwardIndexer.txt"); 
             // bodyIndexer.toTextFile("bodyIndexer.txt");
             // titleIndexer.toTextFile("titleIndexer.txt");
  
-            ci.toTextFile("ci.txt");
+            // ci.toTextFile("ci.txt");
             pi.toTextFile("pi.txt");
             // Scanner s = new Scanner(System.in); 
             // System.out.println("Enter your query: "); 
