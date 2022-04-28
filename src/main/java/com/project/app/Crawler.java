@@ -33,7 +33,7 @@ class RevisitException
 public class Crawler {
     private HashSet<String> urls;     // the set of urls that have been visited before
     public Vector<Link> todos; // the queue of URLs to be crawled
-    private int max_crawl_depth = 4;  // feel free to change the depth limit of the spider.
+    private int max_crawl_depth = 2;  // feel free to change the depth limit of the spider.
     public Parser p; 
    
     /** Crawler constructor
@@ -58,9 +58,9 @@ public class Crawler {
             throw new RevisitException(); // if the page has been visited, break the function
          }
        
-        // Connection conn = Jsoup.connect(url).followRedirects(false);
+        Connection conn = Jsoup.connect(url).followRedirects(false);
         // the default body size is 2Mb, to attain unlimited page, use the following.
-        Connection conn = Jsoup.connect(url).maxBodySize(0).followRedirects(false);
+        //Connection conn = Jsoup.connect(url).maxBodySize(0).followRedirects(false);
         Response res;
         try {
             /* establish the connection and retrieve the response */
