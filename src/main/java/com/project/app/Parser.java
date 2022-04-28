@@ -173,15 +173,11 @@ public class Parser {
             }
             bodyPos++; 
         }
-        
+
         // DO STEMMING HERE
         HashMap<String, String> stemmedWordPos = stemmer.ss(wordPosition);
-        // System.out.println("word pos");
-        // System.out.println(wordPosition);
-        // System.out.println("stem word pos");
-        // System.out.println(stemmedWordPos);
 
-        for (Map.Entry<String, String> set: wordPosition.entrySet()) {
+        for (Map.Entry<String, String> set: stemmedWordPos.entrySet()) {
             try {
                 indexer.addEntry(url, set.getKey(), set.getValue()); 
             } catch (RocksDBException e) {
@@ -246,12 +242,10 @@ public class Parser {
             RocksDB.loadLibrary();
             Document doc = d;
             
-            String actualURL = url; 
-            //System.out.println(actualURL); 
+            String actualURL = url;
 
             //stop stem
-
-            System.out.println(actualURL);
+            // System.out.println(actualURL);
             String body = stemmer.ss(doc.body().text());
             String title = stemmer.ss(doc.title());
 
@@ -259,7 +253,7 @@ public class Parser {
             manageIDs(body, title, actualURL);
             
             if (forwardIndexer.getByKey(idManager.getUrlId(actualURL)) == "") {
-                Vector<String> actualLinks = new Vector<>(); 
+                Vector<String> actualLinks = new Vector<>();
                 for (String link : links) {
                     String actualLink = getActualLink(link);
                     idManager.addUrl(actualLink);
