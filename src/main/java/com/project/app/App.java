@@ -44,7 +44,7 @@ public class App
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
 
             // c.crawlLoop();  //Crawl
-            // weightCalc.processWeight();   //Process all weights
+            weightCalc.processWeight();   //Process all weights
             idManager.toTextFile("pidPrint.txt", "widPrint.txt");
 
             // pidIndexer.addEntry("testing");
