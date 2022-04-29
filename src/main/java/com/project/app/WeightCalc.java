@@ -122,7 +122,7 @@ public class WeightCalc extends Indexer {
                         int tfMax = Collections.max(tfList.values()); 
 
                         double weight = idf * tf; 
-                        double norm_weight = weight / tfMax;
+                        double norm_weight = (weight / tfMax) + 0.01;
                         weightsOfDoc.put(word, norm_weight); 
                     } catch (RocksDBException e) {
                         System.out.println("idManager getWordID rocksdbexception");
@@ -133,7 +133,7 @@ public class WeightCalc extends Indexer {
                     for (Map.Entry<String, Double> set : weightsOfDoc.entrySet()) {
                         formattedNormWeights = formattedNormWeights + "," + set.getKey() + ":" + String.format("%.02f", set.getValue());
                     }
-                    formattedNormWeights = formattedNormWeights.substring(1); 
+                    formattedNormWeights = formattedNormWeights.substring(1);
                     this.addEntry(docID, formattedNormWeights); 
                 } catch (RocksDBException e) {
                     System.out.println("addentry rocksdb error");
