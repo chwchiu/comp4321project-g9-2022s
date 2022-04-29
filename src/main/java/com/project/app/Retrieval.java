@@ -1,5 +1,6 @@
 package com.project.app;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -55,7 +56,11 @@ public class Retrieval {
                     
         for(iter.seekToFirst(); iter.isValid(); iter.next()) {   //Store all values into arraylist
             System.out.println("key: " + new String(iter.key()) + " val: " + new String(iter.value()));
-            temp.add(new Pair(new String(iter.key()), new String(iter.value()))); 
+            try{
+              temp.add(new Pair(new String(iter.key()), new BigDecimal(Double.parseDouble(new String(iter.value()))).toPlainString())); 
+            } catch(NumberFormatException e ){
+              e.printStackTrace();
+            }
         }
 
         Collections.sort(temp, Comparator.comparing(p -> p.getValue()));   //Sort by descending 
@@ -64,6 +69,6 @@ public class Retrieval {
         for (Integer i = 0; i < 50; i++) {
             result.put(i+1, temp.get(i).getKey()); 
         }
-        return result; 
+        return result;
     }
 }
