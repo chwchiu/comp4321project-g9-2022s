@@ -33,7 +33,7 @@ class RevisitException
 public class Crawler {
     private HashSet<String> urls;     // the set of urls that have been visited before
     public Vector<Link> todos; // the queue of URLs to be crawled
-    private int max_crawl_depth = 3;  // feel free to change the depth limit of the spider.
+    private int max_crawl_depth = 20;  // feel free to change the depth limit of the spider.
     public Parser p; 
    
     /** Crawler constructor
