@@ -8,6 +8,8 @@ import org.jsoup.Connection.Response;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.io.FileWriter;
 import java.io.IOException;
 import org.jsoup.HttpStatusException;
 import java.util.regex.Pattern;
@@ -33,14 +35,14 @@ class RevisitException
 public class Crawler {
     private HashSet<String> urls;     // the set of urls that have been visited before
     public Vector<Link> todos; // the queue of URLs to be crawled
-    private int max_crawl_depth = 20;  // feel free to change the depth limit of the spider.
+    private int max_crawl_depth = 5;  // feel free to change the depth limit of the spider.
     public Parser p; 
    
     /** Crawler constructor
     */
     Crawler(String _url, Parser p) {
         this.todos = new Vector<Link>();
-        this.todos.add(new Link(_url, 1));
+        this.todos.add(new Link(_url, 1, 0));
         this.urls = new HashSet<String>();
         this.p = p; 
     }
@@ -162,11 +164,19 @@ public class Crawler {
             /* start to crawl on the page */
             try {
                 String actualURL = p.getActualLink(focus.url);  
-                //System.out.println(actualURL); 
-                if (actualURL.contains("https://cse.hkust.edu.hk")) {
+                // System.out.println(actualURL);
+                if (actualURL.contains("https://cse.hkust.edu.hk") || focus.distance < 1) {
                     Response res = this.getResponse(actualURL);
                     Document doc = res.parse(); 
                     Vector<String> links = this.extractLinks(doc, focus);
+
+                    String htmlLang = res.parse().select("html").first().attr("lang");
+                    String bodyLang = res.parse().select("body").first().attr("lang");
+                    try(FileWriter out = new FileWriter("lang.txt", true)){
+                      out.write("URL: " + actualURL + " bLang: " + bodyLang + " hLang: " + htmlLang + "\n");
+                    }catch(IOException e ){
+                      e.printStackTrace();
+                    }
                     
                     Set<String> set = new HashSet<String>();
                     set.addAll(links);
@@ -181,30 +191,41 @@ public class Crawler {
                         if (lastModified == "")
                             lastModified = "N/A"; 
                     }
+
+                    //avoid non english pages
                     int size = res.bodyAsBytes().length;
-                    p.parse(doc, focus.url, links, lastModified, Integer.toString(size)); 
+                    if((
+                      htmlLang == "" ||
+                      htmlLang.toLowerCase().contains("en")
+                    ) && (
+                      bodyLang == "" ||
+                      bodyLang.toLowerCase().contains("en")
+                    )) p.parse(doc, focus.url, links, lastModified, Integer.toString(size));
                         
                     for(String link: links) {
                         if (link.contains("https://cse.hkust.edu.hk"))
-                            this.todos.add(new Link(link, focus.level + 1)); // add links
+                          this.todos.add(new Link(link, focus.level + 1, 0)); 
+                        else
+                          this.todos.add(new Link(link, focus.level + 1, focus.distance + 1));
+                          // add links
                     }
                 }
             } catch (SSLHandshakeException e) {
-                System.out.printf("\nSSLHandshakeException: %s", focus.url);
+                // System.out.printf("\nSSLHandshakeException: %s", focus.url);
             } catch (HttpStatusException e) {
                 // e.printStackTrace ();
-                System.out.printf("\nLink Error: %s\n", focus.url);
+                // System.out.printf("\nLink Error: %s\n", focus.url);
             } catch (IOException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
             } catch (RevisitException e) {
-                System.out.println("Revisit Exception: " + focus.url);
+                // System.out.println("Revisit Exception: " + focus.url);
                 // Vector<String> printtodo2 = new Vector<>(); 
                 // for (int i = 0; i < todos.size(); i++) {
                 //     printtodo2.add(todos.get(i).url);
                 // }
                 // System.out.println("THE TODOs LIST INSIDE REVISIT: " + printtodo2);   
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
             }
         }
     }

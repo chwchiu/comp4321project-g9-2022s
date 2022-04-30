@@ -271,7 +271,7 @@ public class Parser {
                     invertedIndexParseAndInsert(actualURL, doc.title(), titleIndexer); 
 
                     //Handle adding to page prop
-                    ppIndexer.addEntry(actualURL, lastModified, size); 
+                    ppIndexer.addEntry(actualURL, lastModified, size, doc.title());
 
                     parentIndexer.addEntry(actualLinks, actualURL);
                     childIndexer.addEntry(actualLinks, actualURL); 
@@ -281,7 +281,7 @@ public class Parser {
             }
         } catch (RevisitException e) {
             System.out.printf("RevisitException: %s\n", url);
-            e.printStackTrace(); 
+            // e.printStackTrace();
         }
         catch(RocksDBException e) {
             System.err.println(e.toString());
