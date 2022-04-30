@@ -16,8 +16,9 @@ public class CosSim extends Indexer{
     protected WeightCalc weighter; 
     protected Vector<String> query; 
     private Parser parser; 
+    protected StopStem ss; 
 
-    CosSim(String dbPath, IDManager idManager, Vector<String> query, WeightCalc weighter, ForwardIndexer forwardDB, InvertedIndexer  titleDB, InvertedIndexer bodyDB) throws RocksDBException
+    CosSim(String dbPath, IDManager idManager, String query, WeightCalc weighter, ForwardIndexer forwardDB, InvertedIndexer  titleDB, InvertedIndexer bodyDB, StopStem ss) throws RocksDBException
     {
         super(dbPath);
         this.idManager = idManager;
@@ -26,6 +27,7 @@ public class CosSim extends Indexer{
         this.bodyDB = bodyDB; 
         this.query = query; 
         this.weighter = weighter;  
+        this.ss = ss; 
     }
 
     private HashMap<String, String> docs(Integer indexer, String WID) throws RocksDBException
@@ -63,11 +65,13 @@ public class CosSim extends Indexer{
 
 
     public void calc() throws RocksDBException{ 
+        Vector<String> parsedQuery = ss.parseQuery(query); 
+
         Vector<String> q_WID = new Vector<String>(); //To store the query Word Ids 
-        for (int index = 0; index < query.size(); index++){ //Finding the query word IDs 
+        for (int index = 0; index < parsedQuery.size(); index++){ //Finding the query word IDs 
             
             Vector<String> phrase = new Vector<String>(); 
-            String[] phrases = query.get(index).split(" "); //If it's a phrase, then we can separate it 
+            String[] phrases = parsedQuery.get(index).split(" "); //If it's a phrase, then we can separate it 
             for (int indexing = 0; indexing < phrases.length; indexing++){
                 String temp = idManager.getWordId(phrases[indexing]);
                 if (temp == ""){
@@ -231,6 +235,5 @@ public class CosSim extends Indexer{
 
     }
 }}
-
 
 
