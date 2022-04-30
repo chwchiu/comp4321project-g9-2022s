@@ -43,8 +43,8 @@ public class App
             Parser p = new Parser(pidIndexer, widIndexer, titleIndexer, bodyIndexer, forwardIndexer, ppIndexer, tfIndexer, pi, ci);
             Crawler c = new Crawler("https://cse.hkust.edu.hk/", p);
 
-            // c.crawlLoop();  //Crawl
-            // weightCalc.processWeight();   //Process all weights
+            c.crawlLoop();  //Crawl
+            weightCalc.processWeight();   //Process all weights
             idManager.toTextFile("pidPrint.txt", "widPrint.txt");
 
             // pidIndexer.addEntry("testing");
@@ -67,8 +67,8 @@ public class App
             bodyIndexer.toTextFile("bodyIndexer.txt");
             titleIndexer.toTextFile("titleIndexer.txt");
  
-            // ci.toTextFile("ci.txt");
-            //pi.toTextFile("pi.txt");
+            ci.toTextFile("ci.txt");
+            pi.toTextFile("pi.txt");
 
             Scanner s = new Scanner(System.in); 
             System.out.println("Enter your query: "); 
@@ -78,15 +78,17 @@ public class App
             StopStem ss = new StopStem("stopwords.txt");
             Vector<String> parsedQuery = ss.parseQuery(query); 
 
-            System.out.println(parsedQuery); 
+            //System.out.println(parsedQuery); 
             CosSim cossim = new CosSim("./db/CosSimIndex", idManager, parsedQuery, weightCalc, forwardIndexer, titleIndexer, bodyIndexer);
             cossim.calc();
             cossim.toTextFile("cossimPrint.txt");
-            // cossim.printAll();
+            //cossim.printAll();
             
             Retrieval r = new Retrieval(cossim); 
             HashMap<Integer, String> top50pages = r.top50();
             System.out.println(top50pages);
+            SearchEngine se = new SearchEngine(query, top50pages, cossim, pidIndexer, c, ppIndexer);
+            System.out.println(se.search());
         }
 
         catch (RocksDBException e) {
