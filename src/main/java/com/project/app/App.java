@@ -76,10 +76,10 @@ public class App
             s.close(); 
 
             StopStem ss = new StopStem("stopwords.txt");
-            Vector<String> parsedQuery = ss.parseQuery(query); 
+            
 
             //System.out.println(parsedQuery); 
-            CosSim cossim = new CosSim("./db/CosSimIndex", idManager, parsedQuery, weightCalc, forwardIndexer, titleIndexer, bodyIndexer);
+            CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, ss);
             cossim.calc();
             cossim.toTextFile("cossimPrint.txt");
             //cossim.printAll();
