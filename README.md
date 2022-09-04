@@ -1,8 +1,6 @@
 # comp4321project-g9-2022s
 Hello! Welcome to the Phase 1 readme!
 
-Please follow these steps to run the crawler:
-
 1. Make sure mvn works, install it if needed, and add to path.
 
 2. Ensure that line 89 of the pom.xml file carries this line:
