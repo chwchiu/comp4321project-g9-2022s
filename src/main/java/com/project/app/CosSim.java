@@ -14,7 +14,7 @@ public class CosSim extends Indexer{
     protected InvertedIndexer titleDB;  
     protected InvertedIndexer bodyDB; 
     protected WeightCalc weighter; 
-    protected Vector<String> query; 
+    protected String query; 
     private Parser parser; 
     protected StopStem ss; 
 

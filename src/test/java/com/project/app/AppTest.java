@@ -32,8 +32,8 @@
 //     public static ChildIndexer testci; 
 //     public static ParentIndexer testpi; 
 //     public static Parser p;
-//     public static CosSim testcs; 
-//     public static Retrieval r; 
+//     // public static CosSim testcs;
+//     // public static Retrieval r; 
 //     public static StopStem testss; 
 //     @BeforeClass                                         
 //     public static void setUp() throws RocksDBException {
@@ -52,7 +52,7 @@
 //         testweightCalc = new WeightCalc("./testdb/testWeightIndex", testtfIndexer, testforwardIndexer, testtitleIndexer, testbodyIndexer, testidManager); 
 //         String testquery = "Hong Kong \"is cool\""; 
 //         // testcs = new CosSim("./testdb/testCosSimIndex", testidManager, testquery, testweightCalc, testforwardIndexer, testtitleIndexer, testbodyIndexer, p);
-//         r = new Retrieval(testcs);
+//         // r = new Retrieval(testcs);
 //         testss = new StopStem("stopwords.txt"); 
 //     }
 

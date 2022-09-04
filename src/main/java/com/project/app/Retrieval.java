@@ -55,7 +55,7 @@ public class Retrieval {
         RocksIterator iter = cs.db.newIterator();
                     
         for(iter.seekToFirst(); iter.isValid(); iter.next()) {   //Store all values into arraylist
-            System.out.println("key: " + new String(iter.key()) + " val: " + new String(iter.value())); //can delete later
+            // System.out.println("key: " + new String(iter.key()) + " val: " + new String(iter.value())); //can delete later
             try{
               if(Double.parseDouble(new String(iter.value())) != Double.parseDouble("0"))
                 temp.add(new Pair(new String(iter.key()), new BigDecimal(Double.parseDouble(new String(iter.value()))).toPlainString()));

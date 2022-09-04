@@ -11,20 +11,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        // RocksDB.loadLibrary();
-        // String url = "https://cse.hkust.edu.hk/";
-        // Crawler crawler = new Crawler(url);
-        // crawler.crawlLoop();
-        
-        // RocksDB.loadLibrary();
-        // setup all dbs
-        // crawl
-        
-        // ask for user input
-        // send input to retrieval
-        // Result[] results = search(input);
-        // display results
-
         RocksDB.loadLibrary();
         try{
             //setup all dbs 
@@ -45,7 +31,7 @@ public class App
 
             c.crawlLoop();  //Crawl
             weightCalc.processWeight();   //Process all weights
-            idManager.toTextFile("pidPrint.txt", "widPrint.txt");
+            // idManager.toTextFile("pidPrint.txt", "widPrint.txt");
 
             // pidIndexer.addEntry("testing");
             // widIndexer.addEntry("word");
@@ -60,40 +46,41 @@ public class App
             // ppIndexer.printAll(); 
             // tfIndexer.printAll(); 
             // weightCalc.printAll();
-            weightCalc.toTextFile("weightcalc.txt");
-            ppIndexer.toTextFile("ppIndexer.txt");
-            tfIndexer.toTextFile("tfIndexer.txt");
-            forwardIndexer.toTextFile("forwardIndexer.txt"); 
-            bodyIndexer.toTextFile("bodyIndexer.txt");
-            titleIndexer.toTextFile("titleIndexer.txt");
+            // ppIndexer.toTextFile("ppIndexer.txt");
+            // weightCalc.toTextFile("weightcalc.txt");
+            // ppIndexer.toTextFile("ppIndexer.txt");
+            // tfIndexer.toTextFile("tfIndexer.txt");
+            // forwardIndexer.toTextFile("forwardIndexer.txt"); 
+            // bodyIndexer.toTextFile("bodyIndexer.txt");
+            // titleIndexer.toTextFile("titleIndexer.txt");
  
-            ci.toTextFile("ci.txt");
-            pi.toTextFile("pi.txt");
+            // ci.toTextFile("ci.txt");
+            // pi.toTextFile("pi.txt");
 
-            Scanner s = new Scanner(System.in); 
-            System.out.println("Enter your query: "); 
-            String query = s.nextLine(); 
-            s.close(); 
+            // // Scanner s = new Scanner(System.in); 
+            // // System.out.println("Enter your query: "); 
+            // // String query = s.nextLine(); 
+            // // s.close(); 
 
-            StopStem ss = new StopStem("stopwords.txt");
+            // StopStem ss = new StopStem("stopwords.txt");
+
+            // //System.out.println(parsedQuery); 
+            // CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, ss);
+            // cossim.calc();
+            // cossim.toTextFile("cossimPrint.txt");
+            // //cossim.printAll();
             
-
-            //System.out.println(parsedQuery); 
-            CosSim cossim = new CosSim("./db/CosSimIndex", idManager, query, weightCalc, forwardIndexer, titleIndexer, bodyIndexer, ss);
-            cossim.calc();
-            cossim.toTextFile("cossimPrint.txt");
-            //cossim.printAll();
+            // Retrieval r = new Retrieval(cossim); 
+            // HashMap<Integer, String> top50pages = r.top50();
+            // System.out.println(top50pages);
+            // SearchEngine se = new SearchEngine(query, top50pages, cossim, pidIndexer, c, ppIndexer);
+            // System.out.println(se.search());
             
-            Retrieval r = new Retrieval(cossim); 
-            HashMap<Integer, String> top50pages = r.top50();
-            System.out.println(top50pages);
-            SearchEngine se = new SearchEngine(query, top50pages, cossim, pidIndexer, c, ppIndexer);
-            System.out.println(se.search());
         }
-
         catch (RocksDBException e) {
             System.out.println(e);
         }
-        // IDManager.main(args);
+        // SearchEngine se = new SearchEngine("717720");
+        // System.out.println(se.search());
     }
 }

@@ -35,7 +35,7 @@ class RevisitException
 public class Crawler {
     private HashSet<String> urls;     // the set of urls that have been visited before
     public Vector<Link> todos; // the queue of URLs to be crawled
-    private int max_crawl_depth = 5;  // feel free to change the depth limit of the spider.
+    private int max_crawl_depth = 20;  // feel free to change the depth limit of the spider.
     public Parser p; 
    
     /** Crawler constructor
@@ -172,11 +172,6 @@ public class Crawler {
 
                     String htmlLang = res.parse().select("html").first().attr("lang");
                     String bodyLang = res.parse().select("body").first().attr("lang");
-                    try(FileWriter out = new FileWriter("lang.txt", true)){
-                      out.write("URL: " + actualURL + " bLang: " + bodyLang + " hLang: " + htmlLang + "\n");
-                    }catch(IOException e ){
-                      e.printStackTrace();
-                    }
                     
                     Set<String> set = new HashSet<String>();
                     set.addAll(links);
