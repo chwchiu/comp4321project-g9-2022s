@@ -8,7 +8,7 @@ Here is a demo of the search engine in action:
 
 ## Home Page
 ![Home Page Image](./imgs/Bingle.png)
-## Sample Search Page:
+## Sample Search Page
 ![Sample Search Image](./imgs/searchCloud.png)
 
 ## Exact phrasal match
