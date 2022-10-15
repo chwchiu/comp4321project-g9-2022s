@@ -1,0 +1,650 @@
+key: 0 val: doc0#1 doc11#5 doc132#4 doc1003#6 doc1016#2
+key: 1 val: doc0#3 doc3#3 doc28#1 doc132#6 doc149#12 doc218#4 doc408#13 doc476#3 doc484#3
+key: 1002 val: doc670#8 doc2325#8 doc2428#1
+key: 1003 val: doc989#5 doc990#6 doc1008#15 doc1013#5
+key: 1009 val: doc670#7
+key: 10168 val: doc1730#2
+key: 1022 val: doc1473#3
+key: 1034 val: doc992#12 doc1002#9
+key: 10348 val: doc1920#1 doc1932#1 doc1933#1 doc2109#1 doc2127#1 doc2130#1 doc2139#1 doc2143#1 doc2145#1 doc2149#1 doc2150#1 doc2151#1 doc2152#1 doc2385#1 doc2407#1 doc2485#1 doc2486#1 doc2487#1 doc2489#1
+key: 1041 val: doc2467#2
+key: 1052 val: doc1042#4
+key: 1054 val: doc484#1
+key: 1056 val: doc681#1
+key: 1057 val: doc476#1
+key: 107 val: doc5#10 doc148#5 doc391#14 doc394#11 doc397#4 doc412#11 doc413#25
+key: 1078 val: doc395#8 doc664#3
+key: 1084 val: doc995#1
+key: 1091 val: doc664#4
+key: 1093 val: doc1728#2
+key: 11 val: doc47#2
+key: 1104 val: doc395#9 doc999#9 doc1012#11
+key: 1107 val: doc2157#4
+key: 1111 val: doc659#1
+key: 11261 val: doc945#1
+key: 113 val: doc2268#15
+key: 115 val: doc2157#5
+key: 116 val: doc62#1 doc466#6 doc467#6 doc468#4
+key: 11713 val: doc959#1
+key: 11764 val: doc2443#1
+key: 118 val: doc1024#5
+key: 11928 val: doc966#4 doc2125#1 doc2140#5 doc2148#7 doc2156#8 doc2157#19 doc2424#8 doc2425#5 doc2426#6 doc2428#4,10 doc2429#5 doc2430#3 doc2495#3 doc2434#4 doc2438#3 doc2439#3 doc2442#4 doc2443#4 doc2446#4
+key: 11938 val: doc2438#1
+key: 11946 val: doc2156#6
+key: 1195 val: doc394#5 doc405#10 doc412#4 doc1000#8
+key: 11958 val: doc2156#3
+key: 1196 val: doc408#15 doc988#5 doc996#4 doc1003#11 doc1014#4 doc2268#4 doc2285#4
+key: 11960 val: doc2443#2
+key: 11961 val: doc2434#2
+key: 11962 val: doc2429#3
+key: 11963 val: doc2148#4
+key: 11964 val: doc2148#5
+key: 11968 val: doc2425#3
+key: 1198 val: doc2305#2
+key: 12 val: doc146#2
+key: 1203 val: doc2348#5 doc2355#6
+key: 121 val: doc670#5
+key: 1219 val: doc409#9
+key: 1230 val: doc399#10
+key: 1243 val: doc402#13 doc493#2 doc1026#1 doc1042#3
+key: 1247 val: doc661#2
+key: 1264 val: doc391#8
+key: 1273 val: doc132#1
+key: 129 val: doc5#2 doc7#2 doc52#2 doc63#6 doc64#2 doc162#6 doc201#2 doc211#2 doc391#2 doc393#2 doc399#6 doc401#2 doc402#1 doc403#6 doc405#9 doc413#6 doc473#5 doc990#3 doc1001#3 doc1004#3 doc1006#15 doc1022#8 doc1024#9 doc1026#5 doc2305#5 doc2428#8
+key: 1305 val: doc744#1
+key: 13273 val: doc2321#1
+key: 13274 val: doc1466#3
+key: 13275 val: doc1466#6
+key: 13394 val: doc2355#4
+key: 1348 val: doc696#3
+key: 135 val: doc2268#14 doc2285#13
+key: 1357 val: doc2156#2
+key: 136 val: doc5#1 doc48#2 doc52#1 doc162#5 doc368#4 doc393#1 doc398#8 doc399#5 doc405#6 doc410#1 doc413#5,15 doc671#1 doc936#3 doc986#2 doc987#1 doc997#6 doc998#5 doc999#1,7 doc1000#6 doc1001#2 doc1002#1 doc1004#2 doc1008#6 doc1010#1 doc1012#2,9 doc1015#5
+key: 1365 val: doc139#1 doc403#2
+key: 1368 val: doc1003#16 doc1014#10 doc2285#10
+key: 137 val: doc5#3
+key: 138 val: doc5#4 doc446#2
+key: 139 val: doc5#5 doc52#5 doc63#7 doc162#9 doc391#3 doc393#5 doc398#4 doc399#9 doc400#4 doc401#3 doc402#14 doc403#9 doc408#4 doc413#19 doc990#4 doc997#8 doc998#14 doc1001#23 doc1002#5 doc1004#15 doc1008#8 doc1015#9
+key: 14 val: doc15#1 doc26#1 doc1005#2
+key: 140 val: doc5#7 doc63#12 doc162#14 doc399#11 doc403#11 doc405#13 doc408#6 doc690#2 doc990#8 doc997#12 doc998#16 doc1000#13 doc1001#27 doc1008#10 doc1015#14
+key: 1401 val: doc140#1 doc399#2
+key: 141 val: doc5#8 doc162#15 doc391#6 doc394#7 doc395#10 doc398#10 doc399#12 doc400#8 doc401#5 doc402#18 doc403#12 doc405#16 doc408#7 doc413#22 doc415#6 doc666#4 doc987#3 doc988#11 doc990#9 doc997#13 doc998#17 doc999#5,10 doc1000#14 doc1001#28 doc1002#10 doc1004#20 doc1008#11 doc1012#7,12 doc1015#15
+key: 1415 val: doc162#12 doc1014#5 doc1015#12 doc2285#5,15
+key: 1419 val: doc991#3 doc1011#3 doc2274#3
+key: 142 val: doc5#11
+key: 143 val: doc5#12 doc63#20 doc1721#3
+key: 144 val: doc52#3
+key: 145 val: doc52#4
+key: 14514 val: doc2424#4
+key: 14515 val: doc2424#6
+key: 1453 val: doc410#15
+key: 1455 val: doc2270#1 doc2450#1
+key: 14558 val: doc2270#2
+key: 1457 val: doc998#6 doc1001#9 doc1004#7
+key: 146 val: doc52#6
+key: 14699 val: doc2490#1
+key: 147 val: doc52#8 doc393#9 doc987#8
+key: 1476 val: doc1929#1
+key: 148 val: doc63#1 doc394#1 doc396#1 doc405#1 doc409#1 doc411#1 doc413#1 doc415#1 doc986#4 doc992#1,5 doc997#1 doc998#7,11 doc1000#1 doc1004#12 doc1008#1 doc1015#1 doc1728#6
+key: 1487 val: doc395#11 doc396#6 doc399#15 doc402#30 doc403#15 doc405#20 doc408#10 doc998#21 doc2157#2
+key: 149 val: doc63#2 doc213#1 doc718#1 doc1727#1 doc1728#7
+key: 1494 val: doc368#6
+key: 15 val: doc12#5
+key: 150 val: doc63#3 doc118#2 doc139#2 doc213#2 doc403#3 doc447#2 doc512#2 doc718#2 doc953#2 doc999#4 doc1727#2 doc1728#8
+key: 1501 val: doc405#18 doc696#1 doc998#19 doc1000#10 doc1008#13
+key: 151 val: doc63#10
+key: 154 val: doc5#13 doc63#16 doc690#1 doc997#18
+key: 1540 val: doc1471#2
+key: 1542 val: doc152#1 doc415#2
+key: 1543 val: doc152#2 doc407#2 doc415#3 doc458#2 doc976#2
+key: 155 val: doc63#14
+key: 1550 val: doc998#3 doc1001#7
+key: 156 val: doc63#15 doc997#17
+key: 1569 val: doc660#4
+key: 157 val: doc3#1
+key: 158 val: doc3#2
+key: 159 val: doc24#1
+key: 1596 val: doc409#11
+key: 16 val: doc15#2 doc25#2
+key: 160 val: doc24#2 doc46#1
+key: 1603 val: doc410#13 doc1010#10,12
+key: 161 val: doc12#2 doc17#1 doc24#3 doc46#2 doc57#5 doc1003#17 doc1014#11 doc2285#11
+key: 162 val: doc24#4
+key: 1620 val: doc1006#14 doc1042#2
+key: 1621 val: doc146#4
+key: 1622 val: doc155#2
+key: 1623 val: doc155#4
+key: 163 val: doc24#6
+key: 1636 val: doc407#4
+key: 164 val: doc24#7
+key: 1642 val: doc459#1 doc977#1,4
+key: 1643 val: doc459#2 doc977#2
+key: 1644 val: doc407#6
+key: 1646 val: doc163#1 doc164#1
+key: 1647 val: doc163#2 doc164#2
+key: 165 val: doc16#1
+key: 1650 val: doc428#1 doc920#1 doc998#12 doc1000#2 doc2279#1
+key: 1652 val: doc405#2 doc413#2 doc419#1
+key: 1653 val: doc405#3 doc413#3 doc419#2
+key: 1655 val: doc409#2 doc427#1 doc1015#2
+key: 1656 val: doc409#3 doc427#2 doc1015#3
+key: 166 val: doc16#2 doc67#1
+key: 1661 val: doc113#2 doc510#1
+key: 1664 val: doc450#1
+key: 1666 val: doc425#1 doc916#1 doc992#2 doc997#2 doc1004#13
+key: 1667 val: doc425#2 doc916#2 doc992#3 doc997#3 doc1004#14
+key: 1669 val: doc429#1
+key: 1670 val: doc429#2
+key: 1672 val: doc449#1
+key: 1674 val: doc449#3 doc715#3 doc956#3
+key: 1676 val: doc390#1 doc858#1
+key: 1678 val: doc390#3 doc858#2
+key: 168 val: doc16#4 doc41#2
+key: 1680 val: doc385#1 doc440#1
+key: 1681 val: doc440#2
+key: 1682 val: doc385#2 doc440#3
+key: 1684 val: doc448#1 doc955#1
+key: 1685 val: doc448#2 doc955#2
+key: 1687 val: doc146#1 doc443#1 doc946#1
+key: 1688 val: doc443#2 doc946#2
+key: 169 val: doc16#6
+key: 1690 val: doc215#1 doc452#1 doc741#1 doc962#1
+key: 1691 val: doc452#2 doc962#2
+key: 1693 val: doc437#1 doc936#1
+key: 1694 val: doc437#2 doc936#2
+key: 1696 val: doc463#2 doc985#2
+key: 1698 val: doc431#1 doc926#1
+key: 1699 val: doc431#2 doc926#3
+key: 170 val: doc16#7
+key: 1701 val: doc457#1 doc972#1
+key: 1702 val: doc457#2 doc972#2
+key: 1704 val: doc439#1
+key: 1705 val: doc439#2
+key: 1707 val: doc455#1
+key: 1709 val: doc161#2 doc162#3 doc394#3 doc396#3 doc538#2
+key: 171 val: doc57#1
+key: 1711 val: doc88#2
+key: 1713 val: doc432#1 doc927#1
+key: 1714 val: doc432#2 doc927#2
+key: 1716 val: doc442#1
+key: 1717 val: doc442#2
+key: 1719 val: doc445#1
+key: 172 val: doc57#2 doc77#6
+key: 1721 val: doc430#1 doc924#2
+key: 1722 val: doc430#2
+key: 1724 val: doc441#1 doc942#1
+key: 1726 val: doc441#3 doc942#3
+key: 1728 val: doc456#1
+key: 1729 val: doc456#2
+key: 173 val: doc57#3
+key: 1730 val: doc456#3
+key: 1734 val: doc400#2 doc423#1 doc875#1 doc1001#21
+key: 1738 val: doc438#1 doc937#1,4 doc1829#1,4 doc1839#1
+key: 1740 val: doc398#2 doc435#1 doc2434#1
+key: 1741 val: doc398#3 doc435#2
+key: 1743 val: doc215#2 doc408#3 doc741#2
+key: 1745 val: doc454#1 doc966#1
+key: 1746 val: doc454#2 doc966#2
+key: 1748 val: doc460#1 doc979#1
+key: 175 val: doc12#1
+key: 1750 val: doc446#1
+key: 176 val: doc12#3 doc996#7 doc2268#7 doc2355#10 doc2442#2
+key: 177 val: doc12#4
+key: 178 val: doc12#7 doc39#8 doc2355#7 doc2430#1
+key: 179 val: doc46#4
+key: 180 val: doc46#5 doc2148#2
+key: 181 val: doc46#7
+key: 182 val: doc46#8
+key: 183 val: doc6#1 doc402#23 doc408#14 doc995#3 doc1016#7
+key: 184 val: doc6#2 doc9#4
+key: 185 val: doc6#3
+key: 186 val: doc45#1
+key: 187 val: doc45#3
+key: 188 val: doc45#5
+key: 189 val: doc9#2 doc45#6
+key: 19 val: doc700#2
+key: 190 val: doc72#1
+key: 191 val: doc72#2
+key: 192 val: doc72#4
+key: 1928 val: doc395#7
+key: 193 val: doc72#5
+key: 1936 val: doc1329#2
+key: 194 val: doc72#6
+key: 1943 val: doc409#6 doc986#9
+key: 195 val: doc67#2
+key: 1954 val: doc407#10
+key: 1955 val: doc989#4 doc991#5 doc995#4 doc1011#5 doc1013#4 doc2274#5
+key: 196 val: doc67#3 doc695#3
+key: 197 val: doc38#4 doc39#4 doc67#6 doc415#15 doc486#4 doc675#1 doc996#11 doc1003#14 doc1014#8 doc2268#11 doc2285#8
+key: 198 val: doc1#2 doc38#1
+key: 1988 val: doc162#10 doc394#9 doc396#7 doc407#9 doc408#11 doc495#2 doc992#10 doc997#9 doc1001#24 doc1004#16 doc1015#10
+key: 1989 val: doc162#11
+key: 199 val: doc38#3
+key: 1998 val: doc162#1 doc395#1 doc398#1 doc399#1 doc400#1 doc403#1 doc407#1 doc408#1 doc410#3 doc717#1 doc998#1 doc1001#10,13,16,20 doc1004#8 doc1010#3 doc1012#4
+key: 2 val: doc0#4 doc132#7 doc149#13 doc218#5 doc476#4 doc484#4 doc1010#15
+key: 20 val: doc42#1 doc69#1 doc202#2 doc211#1
+key: 200 val: doc55#1
+key: 2004 val: doc679#2 doc2321#2
+key: 2009 val: doc404#2
+key: 201 val: doc55#3 doc997#20
+key: 2013 val: doc149#15 doc1022#3
+key: 2018 val: doc510#5 doc538#4 doc717#4 doc955#4 doc972#4 doc985#5
+key: 202 val: doc55#4
+key: 203 val: doc55#6
+key: 2039 val: doc673#3 doc674#3 doc676#2 doc677#3 doc697#2 doc699#2 doc2329#2
+key: 204 val: doc55#7
+key: 205 val: doc32#2 doc55#8 doc69#2 doc218#6 doc397#2 doc412#2,9 doc468#2 doc495#3 doc1416#2 doc2157#11 doc2448#6
+key: 2051 val: doc188#1 doc508#1 doc512#3 doc920#3 doc946#3 doc949#4 doc976#3 doc2279#3 doc2450#5
+key: 2053 val: doc662#1
+key: 2058 val: doc402#8,11 doc484#5 doc681#5 doc1042#1 doc2467#1
+key: 2059 val: doc1010#13
+key: 206 val: doc41#1
+key: 2060 val: doc473#1 doc699#3 doc1025#1 doc1027#1
+key: 2066 val: doc986#13
+key: 208 val: doc41#4
+key: 209 val: doc41#5
+key: 2098 val: doc1004#4
+key: 21 val: doc7#1 doc32#1 doc64#1 doc74#1 doc201#1 doc473#4
+key: 210 val: doc41#6 doc675#2
+key: 211 val: doc41#8
+key: 212 val: doc41#9
+key: 213 val: doc50#1
+key: 214 val: doc50#2
+key: 2141 val: doc192#2
+key: 2142 val: doc192#1
+key: 215 val: doc50#4
+key: 2151 val: doc190#1
+key: 2153 val: doc714#2
+key: 216 val: doc39#1
+key: 2164 val: doc860#2
+key: 2169 val: doc1022#1 doc1024#1
+key: 217 val: doc39#2
+key: 2171 val: doc188#3
+key: 2174 val: doc2270#3 doc2450#4
+key: 218 val: doc39#5 doc996#8 doc1025#4 doc2268#8 doc2426#3
+key: 2181 val: doc462#1
+key: 2182 val: doc2284#1
+key: 2187 val: doc399#8 doc1001#14,15
+key: 2188 val: doc399#7
+key: 219 val: doc39#7 doc996#9 doc2268#9
+key: 2191 val: doc187#2
+key: 2192 val: doc187#1
+key: 2195 val: doc194#3
+key: 2196 val: doc194#4
+key: 2197 val: doc194#1
+key: 2198 val: doc194#2
+key: 2199 val: doc193#2
+key: 22 val: doc33#1
+key: 220 val: doc18#1
+key: 2200 val: doc193#1
+key: 221 val: doc18#3
+key: 2214 val: doc395#6
+key: 2216 val: doc993#1
+key: 222 val: doc18#4 doc402#25
+key: 2222 val: doc202#3
+key: 223 val: doc18#5
+key: 2235 val: doc411#11
+key: 224 val: doc77#1
+key: 225 val: doc77#4
+key: 2254 val: doc2426#4
+key: 226 val: doc77#5
+key: 227 val: doc77#8 doc692#2
+key: 228 val: doc77#10
+key: 2283 val: doc408#2
+key: 229 val: doc77#11
+key: 23 val: doc61#1 doc405#7 doc410#2 doc464#3 doc986#3 doc988#3,10 doc989#1 doc991#2 doc996#2 doc997#7 doc1003#7 doc1005#4 doc1006#2 doc1010#2 doc1011#2 doc1013#1 doc1014#2 doc1015#6 doc2268#2 doc2274#2 doc2285#2
+key: 230 val: doc77#12
+key: 2301 val: doc2355#5
+key: 231 val: doc77#13
+key: 232 val: doc17#3
+key: 2321 val: doc2140#2
+key: 2323 val: doc70#2 doc491#2
+key: 233 val: doc9#5
+key: 2333 val: doc493#4
+key: 234 val: doc30#1
+key: 2341 val: doc2348#7 doc2355#9 doc2356#8
+key: 235 val: doc30#2 doc2356#6
+key: 236 val: doc30#3
+key: 2365 val: doc2348#4
+key: 237 val: doc37#1 doc214#1
+key: 238 val: doc37#2 doc214#2
+key: 239 val: doc4#1
+key: 24 val: doc29#1 doc466#4 doc700#1
+key: 240 val: doc4#2
+key: 241 val: doc4#4 doc2350#4 doc2495#1
+key: 2416 val: doc465#3
+key: 242 val: doc4#6
+key: 243 val: doc31#1
+key: 244 val: doc31#3 doc682#1
+key: 245 val: doc31#4
+key: 2454 val: doc395#4 doc405#14 doc415#12 doc493#1 doc1005#16
+key: 246 val: doc31#6
+key: 2464 val: doc466#1 doc491#1
+key: 2465 val: doc218#1 doc396#8 doc400#6 doc988#9 doc992#11 doc997#11 doc1001#26 doc1004#18
+key: 247 val: doc31#7
+key: 2472 val: doc659#3 doc668#2 doc670#1 doc672#1 doc673#1 doc674#1 doc676#1 doc677#1 doc679#1 doc684#1 doc685#1 doc691#1 doc698#1 doc699#1 doc2325#1
+key: 248 val: doc31#8
+key: 249 val: doc31#9
+key: 255 val: doc148#3 doc486#5
+key: 2583 val: doc672#2
+key: 26 val: doc62#3 doc466#8 doc468#6
+key: 2617 val: doc691#2
+key: 262 val: doc1#1 doc47#1 doc669#2
+key: 2620 val: doc401#9
+key: 2635 val: doc415#8 doc1005#8
+key: 265 val: doc1920#2 doc1932#2 doc1933#2 doc2109#2 doc2127#2 doc2130#2 doc2139#2 doc2143#2 doc2145#2 doc2149#2 doc2150#2 doc2151#2 doc2152#2 doc2385#2 doc2407#2 doc2485#2 doc2486#2 doc2487#2 doc2489#2
+key: 2658 val: doc400#5 doc401#7
+key: 2670 val: doc1002#4
+key: 2673 val: doc433#1
+key: 2682 val: doc391#12
+key: 2685 val: doc1006#12
+key: 2687 val: doc64#6
+key: 2694 val: doc992#6 doc1015#8
+key: 2695 val: doc992#7
+key: 27 val: doc62#5 doc467#8,1 doc989#3 doc1013#3 doc2467#3
+key: 2701 val: doc410#5 doc1010#5
+key: 2702 val: doc436#1
+key: 2709 val: doc304#1
+key: 271 val: doc402#26
+key: 272 val: doc669#1
+key: 2734 val: doc413#17
+key: 2736 val: doc393#6
+key: 2737 val: doc393#8
+key: 2741 val: doc410#4 doc1010#4
+key: 275 val: doc2157#17,7 doc2442#1 doc2446#1 doc2448#12,2
+key: 2767 val: doc162#7
+key: 2771 val: doc1001#11
+key: 2774 val: doc993#4
+key: 2775 val: doc993#5
+key: 2781 val: doc197#3
+key: 2797 val: doc999#3
+key: 28 val: doc62#6 doc467#9
+key: 2804 val: doc936#5
+key: 2813 val: doc1004#9
+key: 2836 val: doc451#1
+key: 2837 val: doc1721#5
+key: 284 val: doc201#3 doc211#3
+key: 2850 val: doc1002#3
+key: 2859 val: doc328#1
+key: 2860 val: doc328#2
+key: 2891 val: doc1015#7
+key: 29 val: doc11#1 doc2424#1 doc2425#1
+key: 2922 val: doc368#1 doc395#2
+key: 2923 val: doc368#2
+key: 2924 val: doc368#3 doc395#3 doc870#3
+key: 293 val: doc218#2
+key: 2949 val: doc2157#6 doc2448#1
+key: 297 val: doc676#3
+key: 2976 val: doc998#9
+key: 2991 val: doc451#2
+key: 3 val: doc0#6 doc132#9 doc986#15 doc997#21
+key: 30 val: doc14#1
+key: 3002 val: doc1006#5
+key: 3003 val: doc1001#4
+key: 3021 val: doc1001#5
+key: 3037 val: doc998#8
+key: 3039 val: doc986#5
+key: 3055 val: doc403#7
+key: 3092 val: doc214#3 doc1714#3 doc2347#3 doc2348#3 doc2350#3 doc2353#3 doc2354#3 doc2355#3 doc2356#3
+key: 31 val: doc14#3
+key: 3102 val: doc486#1 doc490#2
+key: 3174 val: doc397#1
+key: 3175 val: doc397#3 doc412#10
+key: 3176 val: doc396#4 doc409#4 doc411#4 doc986#7 doc992#8
+key: 3177 val: doc411#10
+key: 3179 val: doc412#6
+key: 3180 val: doc412#8
+key: 3181 val: doc394#6
+key: 3182 val: doc394#10
+key: 3184 val: doc413#7
+key: 3185 val: doc393#4 doc413#9
+key: 3186 val: doc404#3
+key: 3187 val: doc404#5
+key: 3188 val: doc404#10
+key: 319 val: doc675#3 doc681#2 doc1024#6
+key: 3192 val: doc415#10 doc1005#10,14
+key: 3193 val: doc415#11 doc1005#11,15
+key: 3194 val: doc391#5
+key: 3195 val: doc391#9 doc405#15 doc413#21 doc415#13 doc1005#17
+key: 3198 val: doc398#6
+key: 3199 val: doc398#9 doc671#2
+key: 32 val: doc1#5 doc3#6 doc4#9 doc5#16 doc6#6 doc7#5 doc9#8 doc11#8 doc12#10 doc14#6 doc15#5 doc16#10 doc17#7 doc18#8 doc20#5 doc21#5 doc23#13 doc24#10 doc25#1,5 doc26#4 doc28#5 doc29#5 doc30#6 doc31#12 doc32#5 doc33#4 doc36#5 doc37#5 doc38#7 doc39#11 doc41#12 doc42#5 doc45#9 doc46#11 doc47#5 doc48#6 doc50#7 doc51#4 doc52#11 doc54#5 doc55#11 doc57#8 doc59#5 doc61#4 doc62#9 doc63#23 doc64#10 doc67#9 doc69#5 doc70#5 doc71#2,5 doc72#9 doc74#5 doc77#16 doc79#7 doc80#5 doc82#5 doc88#6 doc90#5 doc113#6 doc118#5 doc132#13 doc139#5 doc140#5 doc148#8 doc149#19 doc152#5 doc155#7 doc161#5 doc162#18 doc163#5 doc197#2 doc201#6 doc202#7 doc211#6 doc213#5 doc215#5 doc218#11 doc390#6 doc391#1,17 doc393#12 doc394#14 doc395#14 doc396#12 doc397#7 doc398#13 doc399#18 doc400#11 doc401#16 doc402#3,33 doc403#18 doc404#13 doc405#5,23 doc407#15 doc408#18 doc409#14 doc410#18 doc411#16 doc412#1,14 doc413#28 doc415#19 doc419#5 doc423#5 doc425#5 doc427#5 doc428#5 doc429#5 doc430#6 doc431#5 doc432#5 doc433#6 doc435#5 doc436#5 doc437#5 doc438#5 doc439#5 doc440#6 doc441#6 doc442#5 doc443#5 doc445#5 doc446#5 doc447#5 doc448#5 doc449#6 doc450#5 doc451#5 doc452#5 doc453#5 doc454#5 doc455#5 doc456#6 doc457#5 doc458#5 doc459#6 doc460#5 doc462#5 doc463#5 doc464#2 doc465#1 doc466#11 doc467#12 doc468#9 doc473#8 doc476#8 doc479#6 doc484#8 doc486#8 doc490#8 doc491#5 doc493#8 doc666#7 doc744#5 doc860#7 doc870#6 doc949#3 doc977#7 doc986#1,18 doc987#13 doc988#2,14 doc989#8 doc990#1,12 doc991#1,9 doc992#15 doc993#8 doc995#7 doc996#1 doc997#5,24 doc998#4,24 doc999#14 doc1000#5,17 doc1001#1,8,31 doc1002#14 doc1003#5,20 doc1004#1,6,23 doc1005#1,20 doc1006#1,18 doc1008#5,18 doc1010#20 doc1011#1 doc1012#1,16 doc1013#8 doc1014#1 doc1015#18 doc1016#1,11 doc1022#11 doc1024#12 doc1025#7 doc1026#8 doc1027#8 doc1042#7 doc1329#8 doc2305#8 doc1416#5 doc2321#7 doc1466#10 doc2157#3 doc2268#1 doc2270#6 doc2271#8 doc2274#1 doc2284#6 doc2285#1 doc2467#7 doc2448#15
+key: 3200 val: doc401#4 doc402#17
+key: 3201 val: doc401#8
+key: 3202 val: doc401#12
+key: 3204 val: doc408#8
+key: 3205 val: doc402#4
+key: 3206 val: doc402#5
+key: 3207 val: doc402#9
+key: 3208 val: doc402#12
+key: 3210 val: doc407#3 doc458#1 doc976#1
+key: 3211 val: doc409#8
+key: 3212 val: doc410#10
+key: 3215 val: doc413#20
+key: 3216 val: doc413#24
+key: 3219 val: doc391#13
+key: 322 val: doc924#1
+key: 3220 val: doc401#13
+key: 3221 val: doc402#15
+key: 3222 val: doc402#22
+key: 3223 val: doc402#28
+key: 3224 val: doc405#19
+key: 3225 val: doc403#14
+key: 3226 val: doc399#14
+key: 323 val: doc82#1
+key: 3230 val: doc659#4
+key: 324 val: doc82#2 doc1001#18
+key: 3246 val: doc2321#4 doc1466#7
+key: 3247 val: doc476#5 doc1022#7 doc1024#8 doc1025#3 doc1026#4 doc1027#3
+key: 3252 val: doc490#3
+key: 328 val: doc415#16
+key: 3288 val: doc995#2
+key: 33 val: doc54#1
+key: 330 val: doc202#4 doc402#6 doc412#3 doc495#4
+key: 3364 val: doc1714#1 doc2347#1 doc2348#1,8 doc2350#1 doc2353#1 doc2354#1 doc2355#1 doc2356#1,9
+key: 3388 val: doc468#1 doc1416#1
+key: 34 val: doc21#2 doc1003#9
+key: 3425 val: doc64#5 doc2157#1
+key: 3426 val: doc64#7
+key: 343 val: doc1022#5
+key: 3436 val: doc987#5 doc1000#9
+key: 3446 val: doc1022#4
+key: 3448 val: doc670#4 doc2325#4
+key: 3456 val: doc667#3
+key: 3459 val: doc718#4 doc1727#4
+key: 3460 val: doc680#3
+key: 3473 val: doc473#3
+key: 3474 val: doc695#2
+key: 3485 val: doc1473#2
+key: 349 val: doc149#3 doc402#29
+key: 35 val: doc29#2
+key: 3540 val: doc479#1
+key: 36 val: doc20#1
+key: 360 val: doc2157#8 doc2446#2 doc2448#3
+key: 3615 val: doc1718#1
+key: 3653 val: doc936#6
+key: 37 val: doc2347#4
+key: 3706 val: doc1008#14
+key: 373 val: doc490#4 doc1027#5
+key: 3748 val: doc149#4
+key: 376 val: doc680#1
+key: 3762 val: doc998#20 doc1000#11
+key: 3771 val: doc2426#1
+key: 3772 val: doc684#2,6 doc685#2
+key: 3773 val: doc684#3 doc685#3
+key: 3799 val: doc146#5
+key: 38 val: doc59#1 doc63#11 doc79#1 doc80#1 doc148#1 doc393#7 doc999#8 doc1012#10 doc2305#1 doc1714#2 doc2347#2 doc2348#2 doc2350#2 doc2353#2 doc2354#2,4 doc2355#2 doc2356#2
+key: 3800 val: doc662#3 doc668#3 doc672#3 doc681#3
+key: 388 val: doc1721#2
+key: 39 val: doc79#2 doc966#5 doc2125#2 doc2140#6 doc2148#8 doc2156#9 doc2157#20 doc2424#9 doc2425#6 doc2426#7 doc2428#5,11 doc2429#6 doc2430#4 doc2495#4 doc2434#5 doc2438#4 doc2439#4 doc2442#5 doc2443#5 doc2446#5
+key: 3905 val: doc999#6 doc1012#8
+key: 3951 val: doc2274#8
+key: 3983 val: doc2325#5
+key: 3984 val: doc490#5
+key: 4 val: doc0#8 doc1#4 doc3#5 doc4#8 doc5#15 doc6#5 doc7#4 doc9#7 doc11#7 doc12#9 doc14#5 doc15#4 doc16#9 doc17#6 doc18#7 doc20#4 doc21#4 doc23#12 doc24#9 doc25#4 doc26#3 doc28#4 doc29#4 doc30#5 doc31#11 doc32#4 doc33#3 doc36#4 doc37#4 doc38#6 doc39#10 doc41#11 doc42#4 doc45#8 doc46#10 doc47#4 doc48#5 doc50#6 doc51#3 doc52#10 doc54#4 doc55#10 doc57#7 doc59#4 doc61#3 doc62#8 doc63#22 doc64#9 doc67#8 doc69#4 doc70#4 doc71#4 doc72#8 doc74#4 doc77#15 doc79#6 doc80#4 doc82#4 doc88#5 doc90#4 doc113#5 doc118#4 doc132#10,12 doc139#4 doc140#4 doc146#7 doc148#7 doc149#18 doc152#4 doc155#6 doc161#4 doc162#17 doc163#4 doc197#1 doc201#5 doc202#6 doc211#5 doc213#4 doc215#4 doc218#8,10 doc368#5 doc390#5 doc391#11,16 doc393#11 doc394#13 doc395#13 doc396#11 doc397#6 doc398#12 doc399#17 doc400#10 doc401#1,15 doc402#32 doc403#17 doc404#12 doc405#22 doc407#14 doc408#17 doc409#13 doc410#17 doc411#15 doc412#13 doc413#27 doc415#18 doc419#4 doc423#4 doc425#4 doc427#4 doc428#4 doc429#4 doc430#5 doc431#4 doc432#4 doc433#5 doc435#4 doc436#4 doc437#4 doc438#4 doc439#4 doc440#5 doc441#5 doc442#4 doc443#4 doc445#4 doc446#4 doc447#4 doc448#4 doc449#5 doc450#4 doc451#4 doc452#4 doc453#4 doc454#4 doc455#4 doc456#5 doc457#4 doc458#4 doc459#5 doc460#4 doc462#4 doc463#4 doc464#1 doc466#10 doc467#11 doc468#8 doc473#7 doc476#7 doc479#5 doc484#7 doc486#7 doc490#7 doc491#4 doc493#7 doc495#1 doc666#6 doc741#4 doc744#4 doc860#6 doc870#5 doc977#6 doc986#17 doc987#12 doc988#1,13 doc989#7 doc990#11 doc991#8 doc992#14 doc993#7 doc995#6 doc997#23 doc998#23 doc999#13 doc1000#16 doc1001#30 doc1002#13 doc1003#1,19 doc1004#22 doc1005#19 doc1006#17 doc1008#17 doc1010#19 doc1012#15 doc1013#7 doc1015#17 doc1016#10 doc1022#10 doc1024#11 doc1025#6 doc1026#7 doc1027#7 doc1042#6 doc1329#7 doc2305#7 doc1416#4 doc2321#6 doc1466#9 doc1721#1 doc1728#1 doc1730#1 doc2270#5 doc2271#7 doc2284#5 doc2467#6 doc2448#14
+key: 40 val: doc79#4
+key: 4033 val: doc2157#14 doc2448#9
+key: 4045 val: doc860#3
+key: 41 val: doc80#2 doc467#4 doc2271#4 doc2354#5
+key: 410 val: doc48#1 doc410#6 doc2271#1
+key: 4114 val: doc668#1
+key: 413 val: doc1728#3
+key: 416 val: doc870#1
+key: 42 val: doc28#2 doc155#1
+key: 421 val: doc685#4 doc697#3
+key: 4242 val: doc1329#5
+key: 4284 val: doc673#2
+key: 43 val: doc70#1
+key: 431 val: doc661#1
+key: 435 val: doc192#3 doc985#3
+key: 4393 val: doc1016#4
+key: 44 val: doc36#1
+key: 4407 val: doc667#2
+key: 445 val: doc976#6
+key: 4452 val: doc1466#5
+key: 4498 val: doc993#2 doc1003#3
+key: 45 val: doc36#2
+key: 458 val: doc1010#6
+key: 46 val: doc42#2 doc74#2
+key: 4627 val: doc1000#12
+key: 463 val: doc88#1 doc411#2
+key: 4644 val: doc660#1
+key: 465 val: doc88#3 doc90#2 doc400#3 doc411#3 doc423#2 doc462#2 doc508#4 doc875#2 doc1001#22 doc1008#3
+key: 47 val: doc667#1 doc990#2 doc2305#4
+key: 4702 val: doc2353#4
+key: 471 val: doc407#12
+key: 472 val: doc404#7
+key: 474 val: doc467#2 doc677#2 doc1466#1 doc2271#2
+key: 4741 val: doc662#2 doc684#7
+key: 48 val: doc64#4
+key: 49 val: doc48#3 doc52#7 doc413#16 doc465#2 doc466#3 doc987#2 doc999#2 doc1000#7 doc1002#2 doc1008#7 doc1012#3 doc1027#4
+key: 502 val: doc407#7
+key: 516 val: doc413#8 doc428#2 doc479#3 doc920#2 doc998#13 doc1000#3 doc2279#2
+key: 517 val: doc698#2
+key: 52 val: doc23#1
+key: 53 val: doc23#2,6
+key: 531 val: doc148#4 doc1016#8
+key: 532 val: doc1006#6
+key: 533 val: doc674#2
+key: 5337 val: doc1004#19
+key: 5348 val: doc186#1
+key: 5352 val: doc666#2 doc688#1 doc692#1 doc695#1 doc697#1 doc1329#1
+key: 5353 val: doc680#4
+key: 5356 val: doc688#3
+key: 5358 val: doc945#2
+key: 5359 val: doc661#3
+key: 5360 val: doc681#6
+key: 5361 val: doc660#2
+key: 5362 val: doc660#5
+key: 5363 val: doc663#1
+key: 5364 val: doc663#2
+key: 5365 val: doc665#1
+key: 5366 val: doc665#3
+key: 5367 val: doc683#1
+key: 5368 val: doc693#1
+key: 54 val: doc23#3
+key: 5421 val: doc2424#3
+key: 544 val: doc696#2 doc1470#3
+key: 5447 val: doc717#2 doc860#1
+key: 5448 val: doc717#3 doc860#4
+key: 545 val: doc197#4 doc694#2
+key: 548 val: doc11#3
+key: 5489 val: doc2426#2
+key: 55 val: doc23#4 doc39#6
+key: 5579 val: doc936#4
+key: 559 val: doc664#1 doc718#3 doc1727#3
+key: 56 val: doc23#5
+key: 560 val: doc1010#17
+key: 57 val: doc23#7
+key: 5714 val: doc990#5
+key: 58 val: doc23#9
+key: 5810 val: doc2271#5
+key: 585 val: doc90#1 doc508#3 doc1008#2
+key: 59 val: doc23#10
+key: 590 val: doc744#2
+key: 5947 val: doc2140#1
+key: 596 val: doc1005#5
+key: 6 val: doc51#1
+key: 60 val: doc410#11 doc1010#9
+key: 6003 val: doc997#10 doc1001#25 doc1004#17
+key: 627 val: doc214#4 doc510#4 doc538#3 doc916#3 doc955#3 doc972#3 doc985#4 doc1714#4
+key: 6296 val: doc1010#8
+key: 637 val: doc190#2
+key: 642 val: doc1016#3
+key: 6483 val: doc433#2
+key: 6504 val: doc1470#1
+key: 6582 val: doc988#8
+key: 6635 val: doc949#1
+key: 67 val: doc404#1 doc415#7 doc1005#7
+key: 6721 val: doc2439#1
+key: 68 val: doc408#12
+key: 6808 val: doc2268#13 doc2285#12
+key: 6809 val: doc988#4 doc991#4 doc996#3 doc1003#8 doc1011#4 doc1014#3 doc2268#3 doc2274#4 doc2285#3
+key: 6810 val: doc2274#6
+key: 6812 val: doc997#15
+key: 6813 val: doc997#16
+key: 6814 val: doc998#2
+key: 6815 val: doc986#12
+key: 6816 val: doc1001#6
+key: 6817 val: doc1001#17
+key: 6818 val: doc1012#13
+key: 6819 val: doc1015#11
+key: 6820 val: doc987#6
+key: 6821 val: doc987#7
+key: 6822 val: doc987#10
+key: 6823 val: doc999#11
+key: 6830 val: doc996#12 doc2268#12
+key: 6832 val: doc1003#2
+key: 6842 val: doc1006#4
+key: 6843 val: doc1006#11
+key: 70 val: doc401#10 doc402#20 doc1002#6
+key: 7000 val: doc1026#2
+key: 7083 val: doc2157#10 doc2448#5
+key: 71 val: doc401#11 doc402#21 doc1002#7
+key: 73 val: doc9#1
+key: 7364 val: doc2356#4
+key: 74 val: doc55#2
+key: 770 val: doc2268#18 doc2285#17
+key: 792 val: doc149#16,2
+key: 795 val: doc1006#9 doc2467#4
+key: 8141 val: doc714#1
+key: 817 val: doc118#1 doc512#1
+key: 819 val: doc433#3 doc438#2 doc450#2 doc937#2,5 doc1829#2,5 doc1839#2
+key: 82 val: doc17#4
+key: 8224 val: doc670#3 doc684#5 doc2325#3
+key: 8242 val: doc1471#1
+key: 8247 val: doc2140#3
+key: 83 val: doc666#3 doc688#2
+key: 8310 val: doc2329#1
+key: 8344 val: doc2321#3
+key: 8400 val: doc2356#5
+key: 841 val: doc161#1 doc162#2 doc394#2 doc396#2 doc538#1
+key: 842 val: doc445#2 doc949#2
+key: 854 val: doc436#2 doc986#6 doc1004#10
+key: 855 val: doc479#2
+key: 870 val: doc403#8
+key: 873 val: doc304#2 doc413#18 doc453#2 doc460#2 doc964#2 doc979#2 doc1012#6
+key: 878 val: doc413#13 doc453#1 doc964#1 doc1004#5
+key: 879 val: doc413#12
+key: 884 val: doc459#3 doc977#5,3
+key: 888 val: doc870#2
+key: 890 val: doc162#8 doc393#3 doc413#10 doc455#2 doc1001#12
+key: 899 val: doc447#1 doc953#1 doc1012#5
+key: 9019 val: doc1920#3 doc1932#3 doc1933#3 doc2109#3 doc2127#3 doc2130#3 doc2139#3 doc2143#3 doc2145#3 doc2149#3 doc2150#3 doc2151#3 doc2152#3 doc2385#3 doc2407#3 doc2485#3 doc2486#3 doc2487#3 doc2489#3
+key: 91 val: doc1473#1
+key: 92 val: doc2274#7
+key: 926 val: doc403#5
+key: 930 val: doc430#3 doc924#4
+key: 9389 val: doc2148#1
+key: 940 val: doc140#2 doc399#3
+key: 9472 val: doc2156#5 doc2157#15 doc2448#10
+key: 95 val: doc988#6 doc996#5 doc2268#5,16
+key: 959 val: doc113#1 doc510#2
+key: 96 val: doc2285#14
+key: 960 val: doc113#3 doc188#4 doc510#3 doc2284#3
+key: 9753 val: doc2429#1
+key: 98 val: doc991#6 doc1002#11 doc2274#9
+key: 980 val: doc400#7
+key: 983 val: doc1024#3
+key: 986 val: doc411#13
+key: 987 val: doc681#9 doc1006#8

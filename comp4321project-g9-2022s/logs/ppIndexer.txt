@@ -1,0 +1,374 @@
+key: 0 val: Title: Department of Computer Science and Engineering - HKUST,Last Modified: 2022-10-13,Size of Doc: 48701
+key: 1 val: Title: Site Search | HKUST CSE,Last Modified: 2018-03-15,Size of Doc: 19305
+key: 1000 val: Title: Prof Bo LI and CSE PhD Graduate Won Prestigious IEEE INFOCOM Test-of-Time Paper Award | HKUST CSE,Last Modified: 2015-04-08,Size of Doc: 21509
+key: 1001 val: Title: CSE PhD Students Gang FAN, Qingkai SHI, CSE Alumnus Dr. Rongxin WU, Dr. Xiao XIAO, Dr. Jingguo ZHOU and Dr. Charles ZHANG Received ACM SIGSOFT Distinguished Paper Award | HKUST CSE,Last Modified: 2019-06-05,Size of Doc: 21664
+key: 1002 val: Title: PhD Graduate Da YAN Received Hong Kong Young Scientist Award 2015 | HKUST CSE,Last Modified: 2016-01-28,Size of Doc: 21150
+key: 1003 val: Title: HKUST 25th Celebration - CSE Department Alumni Homecoming Event and Workshop on Big Data and Deep Learning | HKUST CSE,Last Modified: 2016-06-29,Size of Doc: 25597
+key: 1004 val: Title: CSE PhD Student Lili WEI, CSE Alumnus Dr. Yepang LIU and Prof. Shing-Chi CHEUNG Received ACM SIGSOFT Distinguished Artifact Award | HKUST CSE,Last Modified: 2019-06-26,Size of Doc: 21282
+key: 1005 val: Title: CSE Faculty and Alumni Recognized as AI 2000 Most Influential Scholars and Most Influential Scholars Honorable Mention | HKUST CSE,Last Modified: 2020-05-18,Size of Doc: 21932
+key: 1006 val: Title: CSE Alumni Mr. Terence Tsang Shared His Entrepreneurship Experience of Madhead Ltd. with UG Students | HKUST CSE,Last Modified: 2015-10-08,Size of Doc: 20629
+key: 1008 val: Title: Prof. Qian Zhang and CSE PhD Graduate Received Best Paper Award of IEEE ICC 2019 | HKUST CSE,Last Modified: 2019-06-18,Size of Doc: 21010
+key: 1010 val: Title: PhD Alumni Dr. Quanming YAO Named in Forbes China 30 Under 30 List under Science & Healthcare | HKUST CSE,Last Modified: 2020-11-17,Size of Doc: 21199
+key: 1011 val: Title: CSE Alumni Family Homecoming Day,Last Modified: Thu, 03 Dec 2015 06:28:36 GMT,Size of Doc: 7218
+key: 1012 val: Title: CSE PhD Graduate Dr. Hao WANG Awarded SENG PhD Research Excellence Award 2017-18 | HKUST CSE,Last Modified: 2018-05-16,Size of Doc: 23264
+key: 1013 val: Title: Alumni and Industry Day 2019 | HKUST CSE,Last Modified: 2019-05-10,Size of Doc: 21937
+key: 1014 val: Title: CSE Alumni Homecoming Workshop 2016 - Big Data and Deep Learning,Last Modified: Wed, 15 Jun 2016 18:29:18 GMT,Size of Doc: 5391
+key: 1015 val: Title: Prof. Qiang YANG and PhD Alumni Weike PAN Received ACM TiiS 2016 Best Paper Award | HKUST CSE,Last Modified: 2018-01-01,Size of Doc: 21305
+key: 1016 val: Title: CSE Department Successfully Held the First Security Forum | HKUST CSE,Last Modified: 2016-11-22,Size of Doc: 22141
+key: 1022 val: Title: Instructions for Submitting Enrollment Forms for COSC Students | HKUST CSE,Last Modified: 2022-07-18,Size of Doc: 22809
+key: 1024 val: Title: Instructions for Drawing Up Study Plan for COSC Students | HKUST CSE,Last Modified: 2022-07-13,Size of Doc: 33899
+key: 1025 val: Title: FAQ for COSC Applicants | HKUST CSE,Last Modified: 2022-07-20,Size of Doc: 40069
+key: 1026 val: Title: Course Substitution for COSC Students | HKUST CSE,Last Modified: 2022-08-25,Size of Doc: 30868
+key: 1027 val: Title: FAQ on COSC Graduation Requirements | HKUST CSE,Last Modified: 2022-09-26,Size of Doc: 37755
+key: 1038 val: Title: ,Last Modified: ,Size of Doc: 0
+key: 1042 val: Title: COMP UG Course Offerings | HKUST CSE,Last Modified: 2022-08-09,Size of Doc: 21297
+key: 11 val: Title: Welcome from Head of Department | HKUST CSE,Last Modified: 2022-08-30,Size of Doc: 23090
+key: 113 val: Title: Gary Shueng-Han CHAN | HKUST CSE,Last Modified: 2021-12-30,Size of Doc: 25290
+key: 118 val: Title: Kai CHEN | HKUST CSE,Last Modified: 2022-07-28,Size of Doc: 24848
+key: 12 val: Title: Federated Learning Systems: Performance Profiling and Optimization | HKUST CSE,Last Modified: 2020-07-15,Size of Doc: 24752
+key: 130 val: Title: ,Last Modified: ,Size of Doc: 0
+key: 132 val: Title: Logos of the Department of Computer Science and Engineering, HKUST | HKUST CSE,Last Modified: 2022-01-06,Size of Doc: 21280
+key: 1329 val: Title: FYP/FYT Deadlines at a Glance | HKUST CSE,Last Modified: 2022-07-11,Size of Doc: 20912
+key: 133 val: Title: ,Last Modified: ,Size of Doc: 0
+key: 139 val: Title: Qifeng CHEN | HKUST CSE,Last Modified: 2018-07-06,Size of Doc: 24444
+key: 14 val: Title: Mission and Vision | HKUST CSE,Last Modified: 2018-03-15,Size of Doc: 22832
+key: 140 val: Title: Yangqiu SONG | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24388
+key: 1416 val: Title: Co-op Program | HKUST CSE,Last Modified: 2022-08-05,Size of Doc: 26297
+key: 146 val: Title: Qiong's Directions to CS Dept of HKUST,Last Modified: Mon, 14 Sep 2020 04:54:51 GMT,Size of Doc: 3415
+key: 1466 val: Title: Final Year Projects/Final Year Theses (COMP/CPEG/DSCT) 2022-2023 | HKUST CSE,Last Modified: 2022-07-11,Size of Doc: 38973
+key: 1470 val: Title: Citations and References,Last Modified: ,Size of Doc: 17996
+key: 1471 val: Title: Appendix: Minutes,Last Modified: ,Size of Doc: 17016
+key: 1473 val: Title: 1.3 Literature Survey,Last Modified: ,Size of Doc: 11901
+key: 148 val: Title: Research and Technology Forum 2022 | HKUST CSE,Last Modified: 2022-03-18,Size of Doc: 25415
+key: 149 val: Title: Big Idea Challenge: "What would be the next big things in Computer Science?" - Submitted Ideas | HKUST CSE,Last Modified: 2022-05-16,Size of Doc: 97701
+key: 15 val: Title: Faculty Intranet | HKUST CSE,Last Modified: 2022-04-29,Size of Doc: 23064
+key: 152 val: Title: Dit-Yan YEUNG | HKUST CSE,Last Modified: 2022-06-16,Size of Doc: 24629
+key: 155 val: Title: Facility Committee & Policies | HKUST CSE,Last Modified: 2022-09-15,Size of Doc: 21168
+key: 16 val: Title: Towards Understanding of Engagement in Human-Robot Interaction | HKUST CSE,Last Modified: 2018-03-10,Size of Doc: 24087
+key: 161 val: Title: Ke YI | HKUST CSE,Last Modified: 2022-06-30,Size of Doc: 24542
+key: 162 val: Title: Dr Ke YI and PhD student Bin WU received ACM SIGMOD 2016 Best Paper Award | HKUST CSE,Last Modified: 2016-07-04,Size of Doc: 20719
+key: 163 val: Title: Xiaojuan MA | HKUST CSE,Last Modified: 2021-12-29,Size of Doc: 24753
+key: 164 val: Title: Xiaojuan Ma,Last Modified: Mon, 10 Oct 2022 08:18:41 GMT,Size of Doc: 108732
+key: 17 val: Title: Learning to Synthesize Images | HKUST CSE,Last Modified: 2019-07-15,Size of Doc: 22089
+key: 1714 val: Title: Graph Research Group: Home,Last Modified: Tue, 27 Sep 2022 05:56:04 GMT,Size of Doc: 23843
+key: 1718 val: Title: ML Group,Last Modified: Sun, 25 Sep 2022 05:36:03 GMT,Size of Doc: 18757
+key: 1721 val: Title: HKUST Advanced Database & Blockchain Group,Last Modified: Fri, 23 Sep 2022 11:24:44 GMT,Size of Doc: 11448
+key: 1727 val: Title: Lei CHEN's personal Webpage,Last Modified: Tue, 07 Sep 2021 10:21:42 GMT,Size of Doc: 142602
+key: 1728 val: Title: HKUST Knowledge Base Group of Prof. Lei Chen,Last Modified: Tue, 27 Sep 2022 07:26:46 GMT,Size of Doc: 27735
+key: 1730 val: Title: HKUST DB4AI Group,Last Modified: Tue, 27 Sep 2022 13:48:17 GMT,Size of Doc: 21651
+key: 18 val: Title: Robo-lawyer: A Contract Generator Chatbot | HKUST CSE,Last Modified: 2019-07-08,Size of Doc: 22693
+key: 1829 val: Title: Minhao Cheng - Minhao Cheng,Last Modified: Wed, 12 Oct 2022 03:39:59 GMT,Size of Doc: 19947
+key: 1839 val: Title: Minhao Cheng,Last Modified: Wed, 12 Oct 2022 03:40:00 GMT,Size of Doc: 13676
+key: 186 val: Title: Tak,Last Modified: Mon, 09 Oct 2006 04:04:22 GMT,Size of Doc: 728
+key: 187 val: Title: Shauna Dalton,Last Modified: ,Size of Doc: 9331
+key: 188 val: Title: Homepage of Namkiu Chan,Last Modified: Fri, 28 Jan 2022 10:58:44 GMT,Size of Doc: 1133
+key: 190 val: Title: Dominic Lai,Last Modified: Tue, 22 Oct 2019 07:32:21 GMT,Size of Doc: 1149
+key: 191 val: Title: ,Last Modified: Tue, 13 Mar 2018 13:29:19 GMT,Size of Doc: 206
+key: 1919 val: Title: ,Last Modified: Sun, 13 Sep 2020 14:20:54 GMT,Size of Doc: 3364
+key: 192 val: Title: Vincent CHOI's Web,Last Modified: Thu, 31 Mar 2016 08:36:26 GMT,Size of Doc: 1321
+key: 1920 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 239
+key: 1924 val: Title: ,Last Modified: Wed, 18 Aug 2021 14:24:06 GMT,Size of Doc: 1642
+key: 1926 val: Title: ,Last Modified: Mon, 04 Apr 2022 04:50:52 GMT,Size of Doc: 5487
+key: 1929 val: Title: Mars,Last Modified: Wed, 06 Sep 2017 08:02:27 GMT,Size of Doc: 2760
+key: 193 val: Title: Ted Spaeth,Last Modified: ,Size of Doc: 9713
+key: 1932 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 241
+key: 1933 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 242
+key: 194 val: Title: Noor Liza MD. ISA,Last Modified: ,Size of Doc: 9699
+key: 197 val: Title: HKUST CSE CT Website,Last Modified: ,Size of Doc: 13066
+key: 20 val: Title: Contact Us | HKUST CSE,Last Modified: 2018-03-09,Size of Doc: 20555
+key: 201 val: Title: Postgraduate Student Representatives | HKUST CSE,Last Modified: 2022-09-01,Size of Doc: 19190
+key: 202 val: Title: Our Undergraduate Advising Team | HKUST CSE,Last Modified: 2022-09-02,Size of Doc: 20932
+key: 21 val: Title: Latest Events | HKUST CSE,Last Modified: 2022-10-13,Size of Doc: 35208
+key: 2109 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 238
+key: 211 val: Title: Undergraduate Student Representatives | HKUST CSE,Last Modified: 2022-09-05,Size of Doc: 19071
+key: 2125 val: Title: TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:44 GMT,Size of Doc: 16848
+key: 2127 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 260
+key: 213 val: Title: Lei CHEN | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24165
+key: 2130 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 260
+key: 2139 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 262
+key: 214 val: Title: Spatial-Temporal Crowdsourcing Group: Home,Last Modified: Fri, 23 Sep 2022 11:40:32 GMT,Size of Doc: 21767
+key: 2140 val: Title: Quoted Staged Rewriting | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 21393
+key: 2143 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 248
+key: 2145 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 259
+key: 2148 val: Title: Unifying Analytic and Statically-Typed Quasiquotes | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 20857
+key: 2149 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 260
+key: 215 val: Title: Dimitris PAPADOPOULOS | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24521
+key: 2150 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 248
+key: 2151 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 247
+key: 2152 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 246
+key: 2156 val: Title: The Simple Essence of Algebraic Subtyping | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 20359
+key: 2157 val: Title: Fall 2021 CSE Departmental Seminar: Principal Type Inference for Object-Oriented Programming in a Boolean Algebra of Types | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 18678
+key: 218 val: Title: Distinguishing Features of Computer Science Programs at HKUST | HKUST CSE,Last Modified: 2021-11-10,Size of Doc: 24832
+key: 2268 val: Title: CSE Alumni Homecoming Workshop 2017 - Systems, Applications, Networks and Data (SAND) (Saturday June 17, 2017) - Photos,Last Modified: Thu, 29 Jun 2017 10:29:31 GMT,Size of Doc: 26708
+key: 2270 val: Title: Albert Chi-Shing CHUNG | HKUST CSE,Last Modified: 2018-01-11,Size of Doc: 23680
+key: 2271 val: Title: Selected Final Year Projects (2018-2019) | HKUST CSE,Last Modified: 2022-05-13,Size of Doc: 28673
+key: 2274 val: Title: CSE Alumni Family Homecoming Day (Sunday November 22, 2015),Last Modified: Mon, 30 Nov 2015 04:21:50 GMT,Size of Doc: 46995
+key: 2279 val: Title: Bo Li's Homepage,Last Modified: Wed, 13 Feb 2019 08:19:44 GMT,Size of Doc: 12078
+key: 2284 val: Title: Tony F. CHAN | HKUST CSE,Last Modified: 2018-10-10,Size of Doc: 27214
+key: 2285 val: Title: CSE Alumni Homecoming Workshop 2016 - Big Data and Deep Learning (Saturday June 18, 2016) - Photos,Last Modified: Wed, 22 Jun 2016 05:50:09 GMT,Size of Doc: 94797
+key: 2296 val: Title: ,Last Modified: Thu, 23 Jan 2020 08:41:45 GMT,Size of Doc: 87
+key: 23 val: Title: Visible Light Positioning via Ambient Light Sensor for Indoor Localization | HKUST CSE,Last Modified: 2020-11-17,Size of Doc: 20574
+key: 2305 val: Title: Research Guides for PG students | HKUST CSE,Last Modified: 2022-09-15,Size of Doc: 21977
+key: 2321 val: Title: FYP/FYT/Co-op Poster Gallery (2022-2023) | HKUST CSE,Last Modified: 2022-09-19,Size of Doc: 18871
+key: 2325 val: Title: FYP / FYT Phase 0 - Before Starting,Last Modified: ,Size of Doc: 10636
+key: 2329 val: Title: Self-assessment Report,Last Modified: ,Size of Doc: 11044
+key: 2347 val: Title: Graph Research Group: People,Last Modified: Tue, 27 Sep 2022 05:56:05 GMT,Size of Doc: 16618
+key: 2348 val: Title: Graph Research Group: Incremental Operators on Distributed Graphs,Last Modified: Tue, 27 Sep 2022 05:56:24 GMT,Size of Doc: 5950
+key: 2350 val: Title: Graph Research Group: Publications,Last Modified: Tue, 27 Sep 2022 05:56:07 GMT,Size of Doc: 13225
+key: 2353 val: Title: Graph Research Group: Blog,Last Modified: Tue, 27 Sep 2022 05:56:03 GMT,Size of Doc: 8371
+key: 2354 val: Title: Graph Research Group: Research Projects,Last Modified: Tue, 27 Sep 2022 05:56:06 GMT,Size of Doc: 8432
+key: 2355 val: Title: Graph Research Group: Theta-join SQL Operators Optimization on Distributed Systems,Last Modified: Tue, 27 Sep 2022 05:56:26 GMT,Size of Doc: 6240
+key: 2356 val: Title: Graph Research Group: Multi-Hop Neighbor Query on Distributed Graphs,Last Modified: Tue, 27 Sep 2022 05:56:25 GMT,Size of Doc: 6082
+key: 2385 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 244
+key: 24 val: Title: Spatiotemporal Machine Learning Models for Precipitation Nowcasting | HKUST CSE,Last Modified: 2018-03-27,Size of Doc: 24232
+key: 2407 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 236
+key: 2424 val: Title: Welcome to John, Anto, and Andong | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 14115
+key: 2425 val: Title: Welcome to Ishan | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 13135
+key: 2426 val: Title: ECS Grant Application Accepted! | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 14273
+key: 2428 val: Title: Start of the TACO Lab and First Students | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 13959
+key: 2429 val: Title: Christoph E. Koch | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:44 GMT,Size of Doc: 9484
+key: 2430 val: Title: Optimization | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 9486
+key: 2434 val: Title: Amir Shaikhha | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:44 GMT,Size of Doc: 9456
+key: 2438 val: Title: Scala | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 9437
+key: 2439 val: Title: Metaprogramming | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 9934
+key: 2442 val: Title: Type Systems | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 9931
+key: 2443 val: Title: Antoine Voizard | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:44 GMT,Size of Doc: 9368
+key: 2446 val: Title: Type Inference | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 9518
+key: 2448 val: Title: Principal Type Inference for Object-Oriented Programming in a Boolean Algebra of Types | HKUST CSE,Last Modified: 2021-11-15,Size of Doc: 21221
+key: 2450 val: Title: Albert C. S. Chung's homepage,Last Modified: Fri, 06 Aug 2021 09:25:04 GMT,Size of Doc: 440564
+key: 2467 val: Title: COMP 1991 Industrial Experience | HKUST CSE,Last Modified: 2022-09-06,Size of Doc: 37945
+key: 2476 val: Title: ,Last Modified: Sat, 24 Sep 2022 09:10:17 GMT,Size of Doc: 13074
+key: 2485 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 259
+key: 2486 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 258
+key: 2487 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 257
+key: 2489 val: Title: 301 Moved Permanently,Last Modified: ,Size of Doc: 262
+key: 2490 val: Title: 分享到微博-微博-随时随地分享身边的新鲜事儿,Last Modified: ,Size of Doc: 5637
+key: 2493 val: Title: ,Last Modified: ,Size of Doc: 0
+key: 2494 val: Title: ,Last Modified: ,Size of Doc: 0
+key: 2495 val: Title: Publications | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 13955
+key: 2496 val: Title: ,Last Modified: ,Size of Doc: 0
+key: 2497 val: Title: ,Last Modified: ,Size of Doc: 0
+key: 2498 val: Title: ,Last Modified: Sat, 15 Oct 2022 07:52:35 GMT,Size of Doc: 137177
+key: 25 val: Title: CSE Intranet | HKUST CSE,Last Modified: 2022-04-25,Size of Doc: 20342
+key: 26 val: Title: Faculty | HKUST CSE,Last Modified: 2022-10-11,Size of Doc: 139944
+key: 28 val: Title: Computing Facilities | HKUST CSE,Last Modified: 2021-07-01,Size of Doc: 21232
+key: 29 val: Title: Job Openings | HKUST CSE,Last Modified: 2022-10-06,Size of Doc: 20081
+key: 3 val: Title: Spatial Trajectory Computing | HKUST CSE,Last Modified: 2021-08-09,Size of Doc: 24974
+key: 30 val: Title: Approximate Query Processing | HKUST CSE,Last Modified: 2018-05-02,Size of Doc: 21853
+key: 304 val: Title: Yaqing Wang,Last Modified: Thu, 06 Oct 2022 12:45:53 GMT,Size of Doc: 23169
+key: 31 val: Title: MepsBot: A Writing Assistant for Mental Health Peer Support | HKUST CSE,Last Modified: 2020-07-01,Size of Doc: 24410
+key: 32 val: Title: Postgraduate Programs | HKUST CSE,Last Modified: 2022-09-19,Size of Doc: 24382
+key: 328 val: Title: Yin Zhu,Last Modified: Sat, 04 Jun 2022 00:19:44 GMT,Size of Doc: 6261
+key: 33 val: Title: Staff | HKUST CSE,Last Modified: 2022-09-07,Size of Doc: 38368
+key: 36 val: Title: Quality Assurance | HKUST CSE,Last Modified: 2021-11-10,Size of Doc: 25467
+key: 368 val: Title: Kenneth Wai-Ting LEUNG (PhD, HKUST, 2010),Last Modified: Wed, 04 Feb 2015 15:18:03 GMT,Size of Doc: 46170
+key: 37 val: Title: Spatial-Temporal Crowdsourcing | HKUST CSE,Last Modified: 2018-03-10,Size of Doc: 22771
+key: 38 val: Title: Searching on Encrypted Data | HKUST CSE,Last Modified: 2021-08-06,Size of Doc: 22812
+key: 385 val: Title: James Kwok,Last Modified: Fri, 07 Oct 2022 07:50:36 GMT,Size of Doc: 10590
+key: 39 val: Title: CODA: Facilitating Big Data Applications via Network Optimization | HKUST CSE,Last Modified: 2018-04-04,Size of Doc: 24574
+key: 390 val: Title: Andrew B. HORNER | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24323
+key: 391 val: Title: CSE Students Received the Silver Award and Special Mention of HKUST President's Cup 2022 | HKUST CSE,Last Modified: 2022-04-27,Size of Doc: 27061
+key: 393 val: Title: PhD Student Wu Aoyu Received Microsoft Research Asia Fellowship | HKUST CSE,Last Modified: 2021-11-16,Size of Doc: 22393
+key: 394 val: Title: Prof. Ke YI's Group Won Triple Awards at ACM SIGMOD/PODS 2022 | HKUST CSE,Last Modified: 2022-06-30,Size of Doc: 23081
+key: 395 val: Title: Dr. Kenneth LEUNG Honored in Common Core Teaching Excellence Award 2021 | HKUST CSE,Last Modified: 2022-09-02,Size of Doc: 22587
+key: 396 val: Title: Prof. Ke YI Elected as 2021 ACM Distinguished Member | HKUST CSE,Last Modified: 2022-01-10,Size of Doc: 20955
+key: 397 val: Title: Tsinghua-HKUST Programming Contest 2022 | HKUST CSE,Last Modified: 2022-09-14,Size of Doc: 21271
+key: 398 val: Title: Dr. Amir Goharshady Received the EAPLS Best PhD Dissertation Award | HKUST CSE,Last Modified: 2022-03-14,Size of Doc: 21480
+key: 399 val: Title: Dr. Yangqiu Song and PhD Student Huiru Xiao Received Outstanding Paper Award at AKBC 2021 | HKUST CSE,Last Modified: 2021-10-21,Size of Doc: 21617
+key: 4 val: Title: Panoramic View of Publications by HKUST-CSE | HKUST CSE,Last Modified: 2019-06-25,Size of Doc: 22403
+key: 400 val: Title: Dr. Charles Zhang Received Huawei's Distinguished Collaborator Award | HKUST CSE,Last Modified: 2021-12-17,Size of Doc: 20871
+key: 401 val: Title: HKUST Students Received Bronze Award at Huawei ICT Competition Hong Kong SAR 2021-2022 | HKUST CSE,Last Modified: 2022-02-18,Size of Doc: 21323
+key: 402 val: Title: Students from CSE Firebird CTF Team, the COMP 4901N and COMP 4901P Courses Received Gold and Bronze Award at Hong Kong Cyber Security New Generation Capture The Flag Challenge 2021 | HKUST CSE,Last Modified: 2022-01-10,Size of Doc: 22479
+key: 403 val: Title: Dr. Qifeng Chen and MPhil Student Patrick Wan Received Best Paper Award at FTL-IJCAI 2021 | HKUST CSE,Last Modified: 2021-11-16,Size of Doc: 22211
+key: 404 val: Title: AI, Choosing Replies from Trillions of Words, Is Still Dumb | HKUST CSE,Last Modified: 2022-06-24,Size of Doc: 38666
+key: 405 val: Title: Prof. Huamin Qu and CSE PhD Alumni and Students Won Four Best Paper Honorable Mention Awards in IEEE VIS 2021 | HKUST CSE,Last Modified: 2021-12-14,Size of Doc: 24961
+key: 407 val: Title: Dr. YEUNG Sai-Kit Appointed as Associate Editor of ACM Transactions on Graphics | HKUST CSE,Last Modified: 2021-12-10,Size of Doc: 23240
+key: 408 val: Title: Dr. Dimitrios PAPADOPOULOS Received Best Paper Award Runner-Up at 2021 ACM Cloud Computing Security Workshop | HKUST CSE,Last Modified: 2022-01-10,Size of Doc: 21346
+key: 409 val: Title: Prof. Qiang YANG Elected as Fellow of Royal Society of Canada | HKUST CSE,Last Modified: 2021-11-16,Size of Doc: 21449
+key: 41 val: Title: Fostering Engagement in Technology-Mediated Stress Management with Biofeedback Design | HKUST CSE,Last Modified: 2020-07-01,Size of Doc: 25237
+key: 410 val: Title: PhD Alumni Dr. Quanming Yao Selected as One of Hurun China Under 30s To Watch | HKUST CSE,Last Modified: 2021-11-06,Size of Doc: 21883
+key: 411 val: Title: Prof. Nevin Zhang Elected as a Member of the AUAI Board of Directors | HKUST CSE,Last Modified: 2022-09-05,Size of Doc: 20721
+key: 412 val: Title: CSE Programming Team Won the Championship in ACM-HK Programming Contest 2022 | HKUST CSE,Last Modified: 2022-07-13,Size of Doc: 21905
+key: 413 val: Title: Prof. Huamin QU and PhD students Haotian LI, Aoyu WU and Huan WEI, and PhD graduate Yong WANG Received Honourable Mention Award at CHI 2022 | HKUST CSE,Last Modified: 2022-06-30,Size of Doc: 21481
+key: 415 val: Title: Prof. Dit-Yan Yeung Has Been Awarded "AI 2000 Most Influential Scholar Honorable Mention in Data Mining" | HKUST CSE,Last Modified: 2022-05-04,Size of Doc: 21078
+key: 419 val: Title: Huamin QU | HKUST CSE,Last Modified: 2020-04-18,Size of Doc: 26833
+key: 42 val: Title: Undergraduate Admissions | HKUST CSE,Last Modified: 2022-09-07,Size of Doc: 23397
+key: 423 val: Title: Charles ZHANG | HKUST CSE,Last Modified: 2018-01-29,Size of Doc: 24884
+key: 425 val: Title: Shing-Chi CHEUNG | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 25458
+key: 427 val: Title: Qiang YANG | HKUST CSE,Last Modified: 2018-01-29,Size of Doc: 24427
+key: 428 val: Title: Bo LI | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 28550
+key: 429 val: Title: Cunsheng DING | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 25698
+key: 430 val: Title: Brian Kan-Wing MAK | HKUST CSE,Last Modified: 2018-04-10,Size of Doc: 24627
+key: 431 val: Title: Pedro SANDER | HKUST CSE,Last Modified: 2020-07-01,Size of Doc: 24381
+key: 432 val: Title: Sunil ARYA | HKUST CSE,Last Modified: 2018-01-29,Size of Doc: 24286
+key: 433 val: Title: Tim Kwang-Ting CHENG | HKUST CSE,Last Modified: 2018-01-11,Size of Doc: 27059
+key: 435 val: Title: Amir GOHARSHADY | HKUST CSE,Last Modified: 2021-07-26,Size of Doc: 25353
+key: 436 val: Title: Ming LIU | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 25579
+key: 437 val: Title: Ting-Chuen PONG | HKUST CSE,Last Modified: 2021-07-05,Size of Doc: 27897
+key: 438 val: Title: Minhao CHENG | HKUST CSE,Last Modified: 2021-12-30,Size of Doc: 24456
+key: 439 val: Title: Chi-Keung TANG | HKUST CSE,Last Modified: 2018-01-29,Size of Doc: 24867
+key: 440 val: Title: James Tin-Yau KWOK | HKUST CSE,Last Modified: 2019-03-19,Size of Doc: 25181
+key: 441 val: Title: Jogesh K. MUPPALA | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 26112
+key: 442 val: Title: Brahim BENSAOU | HKUST CSE,Last Modified: 2018-03-14,Size of Doc: 24945
+key: 443 val: Title: Qiong LUO | HKUST CSE,Last Modified: 2021-07-01,Size of Doc: 24699
+key: 445 val: Title: Sunghun KIM | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24970
+key: 446 val: Title: Dan XU | HKUST CSE,Last Modified: 2021-08-12,Size of Doc: 24897
+key: 447 val: Title: Hao CHEN | HKUST CSE,Last Modified: 2022-01-04,Size of Doc: 25151
+key: 448 val: Title: Fangzhen LIN | HKUST CSE,Last Modified: 2018-01-29,Size of Doc: 24731
+key: 449 val: Title: Mordecai J. GOLIN | HKUST CSE,Last Modified: 2019-02-08,Size of Doc: 24268
+key: 45 val: Title: Pushing the Limit of IoT Sensing | HKUST CSE,Last Modified: 2020-07-13,Size of Doc: 27790
+key: 450 val: Title: Siu-Wing CHENG | HKUST CSE,Last Modified: 2018-01-11,Size of Doc: 24421
+key: 451 val: Title: Zhiqiang SHEN | HKUST CSE,Last Modified: 2022-02-22,Size of Doc: 24381
+key: 452 val: Title: Dimitris PAPADIAS | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24643
+key: 453 val: Title: Wei WANG | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24083
+key: 454 val: Title: Lionel PARREAUX | HKUST CSE,Last Modified: 2021-02-26,Size of Doc: 24574
+key: 455 val: Title: Dekai WU | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 25107
+key: 456 val: Title: Wilfred Siu-Hung NG | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24903
+key: 457 val: Title: Chiew-Lan TAI | HKUST CSE,Last Modified: 2018-01-11,Size of Doc: 24426
+key: 458 val: Title: Sai-Kit YEUNG | HKUST CSE,Last Modified: 2018-09-21,Size of Doc: 25778
+key: 459 val: Title: Raymond Chi-Wing WONG | HKUST CSE,Last Modified: 2020-07-01,Size of Doc: 25239
+key: 46 val: Title: Machine Learning for Predictive Analytics on e-Learning Platforms | HKUST CSE,Last Modified: 2018-03-27,Size of Doc: 24351
+key: 460 val: Title: Shuai WANG | HKUST CSE,Last Modified: 2019-01-08,Size of Doc: 24451
+key: 462 val: Title: Tong ZHANG | HKUST CSE,Last Modified: 2019-10-22,Size of Doc: 26054
+key: 463 val: Title: Long QUAN | HKUST CSE,Last Modified: 2018-01-16,Size of Doc: 24947
+key: 464 val: Title: HKUST CSE Alumni,Last Modified: Tue, 14 Dec 2021 08:44:25 GMT,Size of Doc: 21787
+key: 465 val: Title: CSE Graduate Statistics,Last Modified: Mon, 19 Sep 2022 09:37:03 GMT,Size of Doc: 10566
+key: 466 val: Title: Internship and Graduate Jobs - Information for Employers | HKUST CSE,Last Modified: 2022-09-06,Size of Doc: 28157
+key: 467 val: Title: Industrial Final Year Projects - Information for Industry Partners | HKUST CSE,Last Modified: 2021-02-04,Size of Doc: 20474
+key: 468 val: Title: Co-op Program - Information for Employers | HKUST CSE,Last Modified: 2020-04-02,Size of Doc: 22158
+key: 47 val: Title: Site Map | HKUST CSE,Last Modified: 2018-08-14,Size of Doc: 20745
+key: 473 val: Title: FAQ for Prospective Postgraduate Students | HKUST CSE,Last Modified: 2022-09-18,Size of Doc: 27038
+key: 476 val: Title: BSc in Computer Science (COSC) | HKUST CSE,Last Modified: 2021-08-16,Size of Doc: 24177
+key: 479 val: Title: Cindy Xin LI | HKUST CSE,Last Modified: 2018-04-13,Size of Doc: 24010
+key: 48 val: Title: Selected PhD Graduates | HKUST CSE,Last Modified: 2022-09-18,Size of Doc: 192793
+key: 484 val: Title: BEng in Computer Science (COMP) | HKUST CSE,Last Modified: 2021-06-18,Size of Doc: 25660
+key: 486 val: Title: Minor in Big Data Technology | HKUST CSE,Last Modified: 2022-09-15,Size of Doc: 21730
+key: 490 val: Title: IT Minor Credit Requirements Explained | HKUST CSE,Last Modified: 2016-07-13,Size of Doc: 22101
+key: 491 val: Title: Internship Opportunities | HKUST CSE,Last Modified: 2018-04-09,Size of Doc: 28477
+key: 493 val: Title: Honors Courses and Independent Work | HKUST CSE,Last Modified: 2014-01-23,Size of Doc: 21281
+key: 495 val: Title: HKUST ACM Programming Team,Last Modified: Fri, 01 Oct 2021 13:37:22 GMT,Size of Doc: 58466
+key: 5 val: Title: PhD Student Yehong Xu Received Best Paper Award at 2022 Australasian Database Conference | HKUST CSE,Last Modified: 2022-10-13,Size of Doc: 21550
+key: 50 val: Title: Mood Modulation of Music | HKUST CSE,Last Modified: 2018-03-10,Size of Doc: 23128
+key: 508 val: Title: Homepage of Qian Zhang,Last Modified: Fri, 19 Aug 2022 04:38:37 GMT,Size of Doc: 90386
+key: 51 val: Title: News | HKUST CSE,Last Modified: 2022-10-13,Size of Doc: 45105
+key: 510 val: Title: Shueng-Han Gary Chan Home Page,Last Modified: Sat, 24 Sep 2022 05:00:13 GMT,Size of Doc: 28397
+key: 512 val: Title: Kai Chen's Homepage,Last Modified: Sun, 09 Oct 2022 14:24:55 GMT,Size of Doc: 18476
+key: 513 val: Title: ,Last Modified: Sat, 19 Jan 2019 07:05:39 GMT,Size of Doc: 60
+key: 515 val: Title: ,Last Modified: Mon, 10 Oct 2022 02:26:49 GMT,Size of Doc: 21708
+key: 52 val: Title: Ph.D. Student YUAN Linping Received Style3D Graduate Fellowship | HKUST CSE,Last Modified: 2022-10-13,Size of Doc: 22419
+key: 523 val: Title: ,Last Modified: Thu, 23 Jan 2020 08:41:45 GMT,Size of Doc: 87
+key: 538 val: Title: Ke Yi's Home Page,Last Modified: Tue, 27 Sep 2022 07:53:11 GMT,Size of Doc: 8580
+key: 54 val: Title: Fast Facts | HKUST CSE,Last Modified: 2022-09-06,Size of Doc: 24878
+key: 55 val: Title: Pinpoint: Finding Software Vulnerabilities in Real World Programs | HKUST CSE,Last Modified: 2018-10-29,Size of Doc: 23504
+key: 57 val: Title: Code Analysis, Testing and Learning | HKUST CSE,Last Modified: 2020-06-18,Size of Doc: 24935
+key: 59 val: Title: Research Areas | HKUST CSE,Last Modified: 2022-10-11,Size of Doc: 41215
+key: 6 val: Title: Securing Smart Devices | HKUST CSE,Last Modified: 2018-03-10,Size of Doc: 29306
+key: 61 val: Title: Alumni | HKUST CSE,Last Modified: 2021-07-07,Size of Doc: 20019
+key: 62 val: Title: Information for Employers & Industry Partners | HKUST CSE,Last Modified: 2020-03-20,Size of Doc: 19205
+key: 63 val: Title: Prof. Lei CHEN and His Students Received the Best Regular Research Paper at 48th International Conference on Very Large Databases | HKUST CSE,Last Modified: 2022-09-14,Size of Doc: 23204
+key: 64 val: Title: Postgraduate Student Early Recruiting (Fall 2023 Intake) | HKUST CSE,Last Modified: 2022-09-18,Size of Doc: 26288
+key: 659 val: Title: Comments from FYP Winners,Last Modified: ,Size of Doc: 36994
+key: 660 val: Title: CVs, Résumés and Cover Letters,Last Modified: ,Size of Doc: 13914
+key: 661 val: Title: Individual Ethics Essay,Last Modified: ,Size of Doc: 15050
+key: 662 val: Title: Thesis Defense Tips,Last Modified: ,Size of Doc: 9836
+key: 663 val: Title: Proofreading Checklist,Last Modified: ,Size of Doc: 10198
+key: 664 val: Title: Personal and Teaching Statements,Last Modified: ,Size of Doc: 11850
+key: 665 val: Title: TOEFL or IELTS,Last Modified: ,Size of Doc: 8969
+key: 666 val: Title: Best FYP/FYT Video Award | HKUST CSE,Last Modified: 2022-06-15,Size of Doc: 53249
+key: 667 val: Title: PG Conversation Classes,Last Modified: ,Size of Doc: 8544
+key: 668 val: Title: Game FYP Tips,Last Modified: ,Size of Doc: 10398
+key: 669 val: Title: Useful Sites,Last Modified: ,Size of Doc: 8339
+key: 67 val: Title: Understanding Users' Preference on Big Data | HKUST CSE,Last Modified: 2019-08-19,Size of Doc: 22676
+key: 670 val: Title: FYP / FYT Phase 1 - Getting Started,Last Modified: ,Size of Doc: 13354
+key: 671 val: Title: PhD Dissertations,Last Modified: ,Size of Doc: 10352
+key: 672 val: Title: FYP Success Tips,Last Modified: ,Size of Doc: 10388
+key: 673 val: Title: FYP Monthly Reports,Last Modified: ,Size of Doc: 10030
+key: 674 val: Title: FYP Progress Report,Last Modified: ,Size of Doc: 16778
+key: 675 val: Title: Data Management Plan,Last Modified: ,Size of Doc: 10409
+key: 676 val: Title: FYP Report Structure,Last Modified: ,Size of Doc: 15317
+key: 677 val: Title: FYP Final Report,Last Modified: ,Size of Doc: 22120
+key: 679 val: Title: FYP Poster,Last Modified: ,Size of Doc: 17878
+key: 680 val: Title: Dealing with Free Riders,Last Modified: ,Size of Doc: 16507
+key: 681 val: Title: Business plan tips for COMP 4911 - IT Entrepreneurship,Last Modified: ,Size of Doc: 10594
+key: 682 val: Title: Writing,Last Modified: ,Size of Doc: 8568
+key: 683 val: Title: Grammar,Last Modified: ,Size of Doc: 9287
+key: 684 val: Title: FYP Oral Presentations and FYT Oral Defenses,Last Modified: ,Size of Doc: 13292
+key: 685 val: Title: FYP Oral Presentation Examples,Last Modified: ,Size of Doc: 90044
+key: 688 val: Title: FYP/FYT Video Trailer,Last Modified: ,Size of Doc: 12906
+key: 69 val: Title: Undergraduate Programs | HKUST CSE,Last Modified: 2022-10-13,Size of Doc: 29041
+key: 690 val: Title: Conference Papers,Last Modified: ,Size of Doc: 8584
+key: 691 val: Title: FYP Grading,Last Modified: ,Size of Doc: 9671
+key: 692 val: Title: FYP/FYT Schedule,Last Modified: ,Size of Doc: 15434
+key: 693 val: Title: Quizzes,Last Modified: ,Size of Doc: 8371
+key: 694 val: Title: Interesting Websites,Last Modified: ,Size of Doc: 8381
+key: 695 val: Title: FYP/FYT Advisor Preferences,Last Modified: ,Size of Doc: 80158
+key: 696 val: Title: IEEE Reference Style,Last Modified: ,Size of Doc: 24650
+key: 697 val: Title: FYP/FYT Report Examples,Last Modified: ,Size of Doc: 101649
+key: 698 val: Title: FYP Proposal,Last Modified: ,Size of Doc: 14500
+key: 699 val: Title: FYP Report FAQ,Last Modified: ,Size of Doc: 14647
+key: 7 val: Title: Postgraduate Students | HKUST CSE,Last Modified: 2022-10-15,Size of Doc: 27722
+key: 70 val: Title: Enrichment Opportunities | HKUST CSE,Last Modified: 2022-06-07,Size of Doc: 21571
+key: 700 val: Title: Job Links,Last Modified: ,Size of Doc: 8801
+key: 71 val: Title: About CSE | HKUST CSE,Last Modified: 2018-03-15,Size of Doc: 26158
+key: 714 val: Title: NGOK LAM,Last Modified: Wed, 17 Aug 2022 09:00:09 GMT,Size of Doc: 11767
+key: 715 val: Title: M J Golin,Last Modified: Tue, 30 Aug 2022 09:21:35 GMT,Size of Doc: 30697
+key: 716 val: Title: ,Last Modified: Mon, 26 Jul 2021 05:47:45 GMT,Size of Doc: 7084
+key: 717 val: Title: Dr. Desmond Tsoi's Page,Last Modified: Tue, 11 Oct 2022 08:30:47 GMT,Size of Doc: 301312
+key: 718 val: Title: Lei CHEN's Personal Webpage,Last Modified: Tue, 27 Sep 2022 04:52:38 GMT,Size of Doc: 54289
+key: 72 val: Title: Underwater SLAM for Marine Robot Navigation | HKUST CSE,Last Modified: 2021-08-02,Size of Doc: 27324
+key: 74 val: Title: Postgraduate Admissions | HKUST CSE,Last Modified: 2022-09-18,Size of Doc: 21964
+key: 741 val: Title: Dimitris Papadopoulos - HKUST,Last Modified: Tue, 09 Jun 2020 13:01:08 GMT,Size of Doc: 8772
+key: 744 val: Title: Additional Major(s) | HKUST CSE,Last Modified: 2014-02-05,Size of Doc: 21916
+key: 77 val: Title: MLaaS in the Wild: Workload Analysis and Scheduling in Large-Scale Heterogeneous GPU Clusters | HKUST CSE,Last Modified: 2021-08-31,Size of Doc: 23288
+key: 79 val: Title: Research Labs & Centers | HKUST CSE,Last Modified: 2022-09-18,Size of Doc: 20151
+key: 80 val: Title: Research Projects | HKUST CSE,Last Modified: 2021-08-31,Size of Doc: 30792
+key: 82 val: Title: Xiaofang ZHOU | HKUST CSE,Last Modified: 2021-02-24,Size of Doc: 25627
+key: 858 val: Title: Andrew Horner,Last Modified: Wed, 29 Aug 2018 09:50:02 GMT,Size of Doc: 2843
+key: 860 val: Title: Desmond Yau Chat TSOI | HKUST CSE,Last Modified: 2021-12-30,Size of Doc: 24930
+key: 870 val: Title: Wai Ting LEUNG | HKUST CSE,Last Modified: 2019-01-23,Size of Doc: 24451
+key: 875 val: Title: Charles Zhang,Last Modified: Mon, 03 Oct 2022 01:56:38 GMT,Size of Doc: 27861
+key: 88 val: Title: Nevin Lianwen ZHANG | HKUST CSE,Last Modified: 2018-01-29,Size of Doc: 24657
+key: 884 val: Title: ,Last Modified: Sun, 07 Jun 2020 06:00:48 GMT,Size of Doc: 261
+key: 9 val: Title: Location Sensing for Smart City | HKUST CSE,Last Modified: 2018-04-04,Size of Doc: 24077
+key: 90 val: Title: Qian ZHANG | HKUST CSE,Last Modified: 2018-01-11,Size of Doc: 27501
+key: 913 val: Title: ,Last Modified: Sat, 11 Feb 2006 03:55:40 GMT,Size of Doc: 416
+key: 916 val: Title: Shing-Chi CHEUNG (HOME),Last Modified: Sun, 02 Oct 2022 02:19:01 GMT,Size of Doc: 14225
+key: 920 val: Title: Bo Li's Homepage,Last Modified: Wed, 13 Feb 2019 08:19:44 GMT,Size of Doc: 12078
+key: 921 val: Title: ,Last Modified: Mon, 09 Oct 2017 00:57:34 GMT,Size of Doc: 2097152
+key: 924 val: Title: Professor Brian K. MAK,Last Modified: Tue, 27 Sep 2022 07:40:54 GMT,Size of Doc: 8859
+key: 926 val: Title: Pedro V. Sander,Last Modified: Sun, 07 Jun 2020 09:56:38 GMT,Size of Doc: 5082
+key: 927 val: Title: Sunil Arya,Last Modified: Sun, 06 Jan 2019 20:06:12 GMT,Size of Doc: 3823
+key: 936 val: Title: Ting-Chuen PONG (PhD, Virginia Tech, 1984),Last Modified: Fri, 04 Jan 2019 04:32:10 GMT,Size of Doc: 4701
+key: 937 val: Title: Minhao Cheng - Minhao Cheng,Last Modified: Wed, 12 Oct 2022 03:39:59 GMT,Size of Doc: 19947
+key: 940 val: Title: ,Last Modified: Fri, 11 Feb 2022 10:36:16 GMT,Size of Doc: 293
+key: 942 val: Title: Jogesh K. MUPPALA,Last Modified: Tue, 07 Mar 2017 07:14:08 GMT,Size of Doc: 41187
+key: 945 val: Title: W3.CSS Template,Last Modified: Mon, 02 Sep 2019 03:22:50 GMT,Size of Doc: 15732
+key: 946 val: Title: Qiong Luo's Homepage,Last Modified: Mon, 15 Aug 2022 12:05:10 GMT,Size of Doc: 5091
+key: 949 val: Title: Sung Kim's CSE Homepage,Last Modified: Fri, 30 Apr 2021 03:30:37 GMT,Size of Doc: 39641
+key: 950 val: Title: ,Last Modified: Tue, 08 Sep 2020 11:06:59 GMT,Size of Doc: 70
+key: 953 val: Title: Hao Chen,Last Modified: Sun, 02 Oct 2022 02:10:41 GMT,Size of Doc: 23929
+key: 955 val: Title: Fangzhen Lin's Home Page,Last Modified: Tue, 20 Aug 2019 01:47:58 GMT,Size of Doc: 3709
+key: 956 val: Title: M J Golin,Last Modified: Tue, 30 Aug 2022 09:21:35 GMT,Size of Doc: 30697
+key: 959 val: Title: scheng,Last Modified: Tue, 27 Sep 2022 05:46:30 GMT,Size of Doc: 129560
+key: 962 val: Title: Dimitris Papadias,Last Modified: Sun, 08 May 2022 07:20:16 GMT,Size of Doc: 67848
+key: 964 val: Title: Wei Wang,Last Modified: Tue, 06 Sep 2022 04:25:23 GMT,Size of Doc: 6850
+key: 966 val: Title: Lionel Parreaux | TACO Lab,Last Modified: Mon, 10 Oct 2022 04:30:45 GMT,Size of Doc: 22216
+key: 969 val: Title: ,Last Modified: Tue, 08 Sep 1998 09:30:01 GMT,Size of Doc: 73
+key: 972 val: Title: Chiew-Lan Tai's Home Page,Last Modified: Mon, 25 Jul 2022 20:10:58 GMT,Size of Doc: 9120
+key: 976 val: Title: Sai-Kit Yeung's homepage. It is evolving!!!,Last Modified: Wed, 24 Mar 2010 16:40:13 GMT,Size of Doc: 13007
+key: 977 val: Title: Raymond Chi-Wing Wong (Raymond Wong), HKUST CSE,Last Modified: Tue, 04 Oct 2022 12:56:11 GMT,Size of Doc: 229836
+key: 979 val: Title: Shuai Wang,Last Modified: Thu, 06 Oct 2022 13:50:08 GMT,Size of Doc: 16765
+key: 985 val: Title: Long QUAN's Web home page,Last Modified: Wed, 26 Jul 2017 01:08:35 GMT,Size of Doc: 4190
+key: 986 val: Title: CSE PhD Alumni Prof. Jiangchuan LIU Elected as Fellow of the Canadian Academy of Engineering | HKUST CSE,Last Modified: 2019-07-02,Size of Doc: 21596
+key: 987 val: Title: PhD Graduate Awarded the Prestigious E.W.R. Steacie Fellowships from NSERC | HKUST CSE,Last Modified: 2015-03-03,Size of Doc: 21308
+key: 988 val: Title: HKUST CSE Alumni Homecoming Workshop 2017 and Inaugural Distinguished Alumni Award | HKUST CSE,Last Modified: 2017-06-30,Size of Doc: 24189
+key: 989 val: Title: Alumni and Industry Day 2019 | HKUST CSE,Last Modified: 2019-06-18,Size of Doc: 22536
+key: 990 val: Title: CSE PG Student Received PAKDD 2019 Best Paper Award | HKUST CSE,Last Modified: 2019-06-19,Size of Doc: 20916
+key: 991 val: Title: CSE Alumni Family Homecoming Day 2015 | HKUST CSE,Last Modified: 2015-12-03,Size of Doc: 22780
+key: 992 val: Title: Prof. Shing-Chi CHEUNG and Prof. Pan HUI elected as ACM Distinguished Scientists | HKUST CSE,Last Modified: 2016-11-25,Size of Doc: 21296
+key: 993 val: Title: Global Celebration - San Francisco | HKUST CSE,Last Modified: 2016-03-18,Size of Doc: 20469
+key: 995 val: Title: Cybersecurity Laboratory's Security Day | HKUST CSE,Last Modified: 2016-11-16,Size of Doc: 42065
+key: 996 val: Title: CSE Alumni Homecoming Workshop 2017 - Systems, Applications, Networks, and Data (SAND),Last Modified: Fri, 16 Jun 2017 02:42:14 GMT,Size of Doc: 5555
+key: 997 val: Title: Prof. Shing-Chi CHEUNG and CSE PhD Alumni Received ACM SIGSOFT Distinguished Paper Award at 43rd ACM/IEEE International Conference on Software Engineering | HKUST CSE,Last Modified: 2021-05-14,Size of Doc: 22419
+key: 998 val: Title: Dr. Shaohuai SHI, CSE PhD Alumnus Prof. Xiaowen CHU and Prof. Bo LI Received Best Paper Award in IEEE INFOCOM 2021 | HKUST CSE,Last Modified: 2021-05-14,Size of Doc: 22286
+key: 999 val: Title: PhD Graduate Yanjiao CHEN Awarded SENG PhD Research Excellence Award 2014-2015 | HKUST CSE,Last Modified: 2015-02-09,Size of Doc: 20241
