@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>Search</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <!-- text -->
+    </div>
+    <div class="body">
+      <div class="center">
+        <img src="./bingleLogo.png" alt="logo" />
+      </div>
+      <div class="center">
+        <form class="form" method="post" action="./results.jsp">
+          <label class="label">
+            <input
+              class="searchBox"
+              placeholder="Search the HKUST CSE Faculty Domain"
+              type="text"
+              name="txtname"
+            />
+          </label>
+          <input class="center submitButton" type="submit" value="Search" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  .header {
+    margin-top: 20vh;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form {
+    /* width: 500px;
+    padding: 20px; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .searchBox {
+    padding: 10px 50px;
+    margin: 10px 0;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  .label {
+    position: relative;
+  }
+
+  .label:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 18px;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    background: url("./searchIcon.svg");
+  }
+
+  .submitButton {
+    background-color: #4caf50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+</style>
