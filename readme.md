@@ -6,13 +6,13 @@ Here is a demo of the search engine in action:
 
 ![Sample Search for AI Gif](./imgs/search.gif)
 
-## Home Page:
+## Home Page
 ![Home Page Image](./imgs/Bingle.png)
 ## Sample Search Page:
 ![Sample Search Image](./imgs/searchCloud.png)
 
-## Exact phrasal match:
-  ![Exact Phrasal Match Image](./imgs/searchML.png)
+## Exact phrasal match
+![Exact Phrasal Match Image](./imgs/searchML.png)
 
 ## Installation (Windows)
 
