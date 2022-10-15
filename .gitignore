@@ -1,6 +1,0 @@
-#ignoring rocksdb
-/src/lib
-/target
-/db
-/testdb
-spider_result.txt
